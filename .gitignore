@@ -1,4 +1,6 @@
 # CakePHP 3
+configdb.php
+
 
 /vendor/*
 /config/app.php

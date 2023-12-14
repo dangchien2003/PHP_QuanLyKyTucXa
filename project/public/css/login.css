@@ -1,0 +1,67 @@
+.login {
+    height: 250px;
+    width: 350px;
+    background-color: black;
+    opacity: 0.8;
+    box-shadow: 0 0 10px white;
+}
+
+.login .line-header {
+    padding: 30px 0;
+    font-family: 'Crimson Pro', serif;
+}
+
+.login .login-input input{
+    border: 0;
+    border-bottom: 2px solid #ddd;
+    background: transparent;
+    margin-bottom: 20px;
+    padding: 0 0 3px 25px;
+    outline: none;
+    color: white;
+    width: calc(100% - 60px);
+    font-size: 14px;
+}
+
+.login .login-input input::placeholder {
+    color: white;
+}
+
+.login a .dangnhap{
+    border: 1px solid #ddd;
+    width: 70%;
+    margin: 10px auto;
+    height: 32px;
+    line-height: 30px;
+    background-color: transparent;
+}
+.login .dangnhap:hover {
+    background-color: red;
+}
+.login a .dangnhap p{
+    text-transform: uppercase;
+    font-family: 'Crimson Pro', serif;
+    margin: 0;
+}
+
+.login i {
+    color: white;
+    position: absolute;
+    display: block;
+}
+
+.eye i {
+    position: absolute;
+    bottom: 25px;
+    right: 30px;
+}
+
+.h100 {
+    height: 100vh;
+}
+
+body {
+    background-image: url('../image/bg-login.jfif');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

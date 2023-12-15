@@ -1,0 +1,43 @@
+.menu .sub-menu {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.menu .list-unstyled  li {
+    height: 30px;
+}
+
+.menu li:hover {
+    background-color: azure;
+}
+
+.menu li i {
+    padding: 3px 5px;
+}
+
+.menu .arrow i {
+    padding: 3px 2px;
+}
+
+.menu {
+    /* height: 200px; */
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu .object i {
+    padding: 0;
+}
+
+
+.menu .arrow {
+    right: 0px;
+    top: 3px
+}
+
+.menu .left, .menu .down {
+    font-size: 12px;
+}

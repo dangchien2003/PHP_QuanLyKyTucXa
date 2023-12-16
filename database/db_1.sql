@@ -12,11 +12,11 @@ CREATE TABLE `Phong` (
   `tang` int,
   `tinhTrang` int NOT NULL,
   `soNguoi` int,
-  `nguoiDaiDien` nvarchar(30)
+  `nguoiDaiDien` varchar(30)
 );
 
 CREATE TABLE `SinhVien` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `kyHieu` varchar(5),
   `anh` varchar(100),
   `maPhong` int,
@@ -31,7 +31,7 @@ CREATE TABLE `SinhVien` (
 );
 
 CREATE TABLE `HopDong` (
-  `maHD` int PRIMARY KEY,
+  `maHD` int PRIMARY KEY AUTO_INCREMENT,
   `kyHieu` varchar(5),
   `giaPhong` int,
   `giaDien` int,
@@ -45,7 +45,7 @@ CREATE TABLE `HopDong` (
 );
 
 CREATE TABLE `HoaDonPhong` (
-  `maHoaDon` int PRIMARY KEY,
+  `maHoaDon` int PRIMARY KEY AUTO_INCREMENT,
   `kyHieu` varchar(5),
   `toi` int,
   `giaPhong` int,
@@ -56,7 +56,7 @@ CREATE TABLE `HoaDonPhong` (
 );
 
 CREATE TABLE `HoaDonDienNuoc` (
-  `maHoaDon` int PRIMARY KEY,
+  `maHoaDon` int PRIMARY KEY AUTO_INCREMENT,
   `kyHieu` varchar(5),
   `toi` int,
   `soDienCu` int,
@@ -69,7 +69,7 @@ CREATE TABLE `HoaDonDienNuoc` (
 );
 
 CREATE TABLE `NhanVien` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `kyHieu` varchar(5),
   `hoTen` varchar(30),
   `tuoi` int,
@@ -83,12 +83,12 @@ CREATE TABLE `NhanVien` (
 );
 
 CREATE TABLE `ChucVu` (
-  `quyen` int PRIMARY KEY,
+  `quyen` int PRIMARY KEY AUTO_INCREMENT,
   `chucDanh` varchar(30)
 );
 
 CREATE TABLE `TheXe` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `kyHieu` varchar(5),
   `chuXe` int,
   `bienSo` varchar(10),
@@ -97,7 +97,7 @@ CREATE TABLE `TheXe` (
 );
 
 CREATE TABLE `HoaDonGuiXe` (
-  `maHoaDon` int PRIMARY KEY,
+  `maHoaDon` int PRIMARY KEY AUTO_INCREMENT,
   `kyHieu` varchar(5),
   `idTheXe` int,
   `ngayChot` date,
@@ -105,7 +105,7 @@ CREATE TABLE `HoaDonGuiXe` (
 );
 
 CREATE TABLE `TinhTrang` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `tinhTrang` varchar(30)
 );
 
@@ -118,7 +118,7 @@ CREATE TABLE `QuyenTruyCap` (
 );
 
 CREATE TABLE `URL` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `url` varchar(200),
   `quyen` int
 );

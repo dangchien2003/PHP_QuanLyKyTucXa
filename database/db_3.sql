@@ -37,6 +37,9 @@ ALTER TABLE `taikhoan` CHANGE `tinhTrang` `tinhTrang` INT(11) NOT NULL DEFAULT '
 ALTER TABLE `thexe` CHANGE `tinhTrang` `tinhTrang` INT(11) NOT NULL DEFAULT '15';
 
 
+ALTER TABLE `phong` CHANGE `soNguoi` `sucChua` INT(11) NOT NULL DEFAULT '6';
+
+
 
 
 

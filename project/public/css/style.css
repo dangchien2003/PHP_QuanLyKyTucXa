@@ -25,6 +25,7 @@
 
 .bg-menu {
     background-color: #ececec;
+    border-right: 1px solid #cbcbcb;
 }
 
 .menu a {
@@ -54,7 +55,10 @@ header {
 }
 
 header .logo {
-    border-right: 1px solid white;
+    border-right: 1px solid #cbcbcb;
+    font-size: 150%;
+    line-height: 56px;
+    padding: 0 20px;
 }
 
 header .navbar-nav a {
@@ -69,4 +73,98 @@ header .menu img {
     border-radius: 50%;
     border: 3px solid white;
     object-fit: cover;
+}
+
+.sdp {
+    padding: 7px;
+}
+.sdp .box {
+    border: 1px solid #ececec;
+    height: 100%;
+    box-shadow: -3px -3px 5px #ececec;
+    padding: 20px 18px;
+}
+
+.sdp .name {
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.sdp .bi-building {
+    color: blue;
+    font-size: 25px;
+    margin-right: 8px;
+}
+
+.sdp .find-tang {
+    width: 250px;
+}
+
+.sdp .img-icon {
+    height: 20px; 
+    padding-right: 8px;
+}
+
+.sdp .list-room  {
+    padding: 20px 0;
+}
+
+.sdp .list-room .room {
+    height: 150px;
+    width: 130px;
+    border: 1px solid #ececec;
+    display: inline-block;
+    margin: 7px 10px;
+    text-align: center;
+    color: white;
+}
+
+.sdp .list-room .room .top {
+    height: 50%;
+    font-size: 35px;
+}
+.sdp .list-room .room .mid {
+    height: 30%;
+}
+.sdp .list-room .room .bottom {
+    height: 20%;
+}
+
+.sdp .list-room .bg-red{
+    background: linear-gradient(to top, rgb(245, 76, 76), rgb(243, 138, 138));
+} 
+.sdp .list-room .bg-green{
+    background-color:  rgb(95, 238, 95);
+    background: linear-gradient(to top, rgb(71, 221, 71), rgb(154, 240, 154));
+} 
+
+.fs-15 {
+    font-size: 16px;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.pd-15 {
+    padding: 15px;
+}
+
+.form-select {
+    margin: 10px 0;
+}
+
+.me-2 {
+    box-shadow: -2px 3px 5px  #ececec, 1px 0 5px #ececec;
+    min-width: 100px;
+    margin-right: 10px;
+    border: 1px solid #ececec;
+}
+
+.mgr-10 {
+    margin-right: 10px;
+}
+
+.pd-0  {
+    padding: 0;
 }

@@ -23,6 +23,10 @@
     /* height: 200px; */
 }
 
+.bg-menu {
+    background-color: #ececec;
+}
+
 .menu a {
     text-decoration: none;
     color: black;
@@ -40,4 +44,29 @@
 
 .menu .left, .menu .down {
     font-size: 12px;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+    gap: 20px;
+    background-color: #1976d2 !important;
+}
+
+header .logo {
+    border-right: 1px solid white;
+}
+
+header .navbar-nav a {
+    text-align: right;
+    line-height: 56px;
+    font-weight: 500;
+}
+
+header .menu img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
 }

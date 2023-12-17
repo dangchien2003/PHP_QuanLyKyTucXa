@@ -45,7 +45,7 @@ ALTER TABLE `phong` CHANGE `soNguoi` `sucChua` INT(11) NOT NULL DEFAULT '6';
 ALTER TABLE `sinhvien` ADD `ngayVao` DATE AFTER `tinhTrang`;
 ALTER TABLE `sinhvien` ADD `ngayRa` DATE NULL AFTER `ngayVao`;
 
-
+ALTER TABLE `nhanvien` ADD `ngayVao` DATE NOT NULL AFTER `user`, ADD `ngayNghi` DATE NULL AFTER `ngayVao`;
 
 
 

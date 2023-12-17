@@ -48,4 +48,5 @@ ALTER TABLE `sinhvien` ADD `ngayRa` DATE NULL AFTER `ngayVao`;
 ALTER TABLE `nhanvien` ADD `ngayVao` DATE NOT NULL AFTER `user`, ADD `ngayNghi` DATE NULL AFTER `ngayVao`;
 
 
-
+-- insert
+INSERT INTO `tinhtrang` (`id`, `tinhTrang`) VALUES (NULL, 'Đang sửa chữa'), (NULL, 'Không sử dụng');

@@ -40,6 +40,11 @@ ALTER TABLE `thexe` CHANGE `tinhTrang` `tinhTrang` INT(11) NOT NULL DEFAULT '15'
 ALTER TABLE `phong` CHANGE `soNguoi` `sucChua` INT(11) NOT NULL DEFAULT '6';
 
 
+-- thêm cột
+
+ALTER TABLE `sinhvien` ADD `ngayVao` DATE AFTER `tinhTrang`;
+ALTER TABLE `sinhvien` ADD `ngayRa` DATE NULL AFTER `ngayVao`;
+
 
 
 

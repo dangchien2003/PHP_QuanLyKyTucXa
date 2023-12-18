@@ -78,7 +78,7 @@ header .menu img {
 .sdp {
     padding: 7px;
 }
-.sdp .box {
+.box {
     border: 1px solid #ececec;
     height: 100%;
     box-shadow: -3px -3px 5px #ececec;
@@ -167,4 +167,86 @@ header .menu img {
 
 .pd-0  {
     padding: 0;
+}
+
+.info {
+    background-color: #fafafa;
+    padding-top: 10px;
+}
+
+.info-student {
+    padding: 5% 0;
+}
+
+
+.info-student .a-d-d {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border: 10px solid white;
+    /* z-index: ; */
+}
+
+.info-student input  {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    
+}
+
+.info-student span {
+    font-weight: 500;
+    font-size: 30px;
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 45px;
+    overflow: hidden;
+
+}
+
+
+.info-student .object {
+    border-bottom: 2px solid #ececec;
+}
+
+.info-student .object label {
+    color: rgb(75, 75, 75);
+}
+
+.info-student .ttp, .info-student .ttsv {
+    min-height: 300px;
+}
+
+.info-student .input-group {
+    margin-bottom: 0!important;
+
+}
+
+.info-student .action {
+    margin: 10px 0;;
+}
+
+.info-student .action .icon {
+    display: inline;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    cursor: pointer;
+}
+
+.info-student .action .icon.edit {
+    background-color: #22a9e8;
+}
+.info-student .action .icon.save {
+    background-color: #28e645;
+}
+
+.info-student .action .bi-check-lg  {
+    font-size: 25px;
 }

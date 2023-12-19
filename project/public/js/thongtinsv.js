@@ -59,6 +59,7 @@ $(document).ready(function () {
         var btn_render = $("#render");
         btn_render.click(function () {
             showImg();
+            takeSnapshot();
         });
     }
 
@@ -70,7 +71,7 @@ function showImg(){
         toastError("Mở camera");
     } else {
         $("#canvas").removeClass("d-none");
-        takeSnapshot();
+        // takeSnapshot();
     }
 }
 

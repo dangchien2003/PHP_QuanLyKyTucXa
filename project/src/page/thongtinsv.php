@@ -56,7 +56,7 @@
                     <ul class="list-unstyled sub-menu">
                         <li>
                             <i class="bi bi-border-style"></i>
-                            <a href="#">Sơ đồ phòng</a>
+                            <a href="./sodophong.php">Sơ đồ phòng</a>
                         </li>
                         <li>
                             <i class="bi bi-patch-plus"></i>

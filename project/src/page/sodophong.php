@@ -76,12 +76,11 @@
                     <ul class="list-unstyled sub-menu">
                         <li>
                             <i class="bi bi-border-style"></i>
-                            <a href="./thongtinsv.php">Thông tin sinh viên</a>
+                            <a href="./thongtinsv.php?idsv=1">Thông tin sinh viên</a>
                         </li>
                         <li>
                             <i class="bi bi-patch-plus"></i>
                             <a href="#">Thêm phòng</a>
-
                         </li>
                         <li>
                             <i class="bi bi-vector-pen"></i>

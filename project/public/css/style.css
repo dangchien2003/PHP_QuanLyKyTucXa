@@ -75,6 +75,24 @@ header .menu img {
     object-fit: cover;
 }
 
+header .bi-bell-fill {
+    position: relative;
+}
+header .sl-tb {
+    position: absolute;
+    display: inline-block;
+    /* color: rgb(234, 221, 43); */
+    font-size: 12px;
+    top: -28px;
+    right: -5px;
+    /* background-color: #cbcbcb; */
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    font-style: normal;
+}
+
+
 .sdp {
     padding: 7px;
 }
@@ -107,6 +125,11 @@ header .menu img {
 
 .sdp .list-room  {
     padding: 20px 0;
+}
+
+.sdp .list-room a {
+    display: inline-block;
+    text-decoration: none;
 }
 
 .sdp .list-room .room {

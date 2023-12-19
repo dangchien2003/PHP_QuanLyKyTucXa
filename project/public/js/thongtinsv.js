@@ -239,7 +239,7 @@ function downloadImage() {
     const link = document.createElement("a");
     link.href = canvas.toDataURL("image/png");
     // link.href = './images/captured_image.png';
-    link.download = "E:\\DH_CNDA";
+    link.download = "download";
     link.click();
 }
 
@@ -254,22 +254,28 @@ function sendImgToServer() {
     // Tạo FormData object và thêm dữ liệu hình ảnh vào
     const formData = new FormData();
     formData.append("image", imgData); // 'image' là tên của trường dữ liệu bạn muốn gửi
-    formData.append("idsv", "1");
+    // var a = ;
+    formData.append("idsv", $('input[name="idsv"]').val());
     // Gửi dữ liệu ảnh đến server bằng XMLHttpRequest
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "../../src/handle/upload.php"); // Thay 'upload.php' bằng đường dẫn đến tệp PHP xử lý dữ liệu
     xhr.onload = function () {
+        console.log(xhr.responseText);
         if (xhr.status === 200) {
             console.log("Dữ liệu ảnh đã được gửi thành công.");
             // kết quả trả về và giải mã chuỗi json
+            
             var res = JSON.parse(xhr.responseText);
-
+            
             switch (res.status) {
                 case 200:
                     toastSuccess("Tải ảnh thành công");
                     setTimeout(() => {
                         location.reload();
                     }, 1000);
+                    break;
+                case 505:
+                    toastError("Không tìm thấy id");
                     break;
                 case res.status >= 500:
                     toastError("Lỗi máy chủ");

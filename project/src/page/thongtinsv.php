@@ -150,6 +150,10 @@
                         <div class="ttsv">
                             <span>Thông tin sinh viên</span>
                             <div class="">
+                            <div class="mb-3 object">
+                                    <label for="exampleFormControlInput1" class="form-label">Id sinh viên: </label>
+                                    <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="idsv" value="12" >
+                                </div>
                                 <div class="mb-3 object">
                                     <label for="exampleFormControlInput1" class="form-label">Họ tên: </label>
                                     <input type="email" class="" id="exampleFormControlInput1" placeholder="">

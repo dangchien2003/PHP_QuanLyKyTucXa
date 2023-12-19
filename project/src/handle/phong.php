@@ -12,17 +12,17 @@
                     default:
                         $bg_room = "bg-green";
                 }
-                echo "<div class='room $bg_room'>
-                    <div class='top d-flex justify-content-center align-items-end'>
-                        <span>" . $room['phong'] . "</span>
-                    </div>
-                    <div class='mid d-flex justify-content-center align-items-end'>
-                        <span>". $room['tinhTrang']."</span>
-                    </div>
-                    <div class='bottom d-flex justify-content-center align-items-end'>
-                        <span>". $room['soluong']."</span>
-                    </div>
-                </div>";
+                echo "<a href="."./roomInfo.php?mp=".$room['phong']."> <div class='room $bg_room'>
+                <div class='top d-flex justify-content-center align-items-end'>
+                    <span>" . $room['phong'] . "</span>
+                </div>
+                <div class='mid d-flex justify-content-center align-items-end'>
+                    <span>". $room['tinhTrang']."</span>
+                </div>
+                <div class='bottom d-flex justify-content-center align-items-end'>
+                    <span>". $room['soluong']."</span>
+                </div>
+            </div></a>";
             }
         } else {
             echo '<div style="text-align: center;">Không có phòng</div>';

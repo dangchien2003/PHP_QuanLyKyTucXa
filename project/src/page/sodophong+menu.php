@@ -28,7 +28,7 @@
                         <div class="navbar-nav" style="font-weight: 500;">
                             <a class="nav-link active text-white" aria-current="page" href="#"><i class="bi bi-telephone-forward-fill p-1 fs-5"></i>Điện thoại hỗ trợ: 0333444555</a>
                             <a class="nav-link active text-white" aria-current="page" href="#">Quyền của tôi</a>
-                            <a class="nav-link active text-white" aria-current="page" href="#"><i class="bi bi-bell-fill"></i></a>
+                            <a class="nav-link active text-white" aria-current="page" href="#"><i class="bi bi-bell-fill"><span class="sl-tb">1</span></i></a>
                             <a class="nav-link text-white" href="#"><img src="../../public/image/bg-login.jfif" alt=""></a>
                             <a class="nav-link text-white" href="#"><i class="fa-solid fa-power-off"></i></a>
                         </div>
@@ -67,7 +67,7 @@
                     </ul>
                     <li class="parent-menu position-relative on">
                         <i class="bi bi-door-open"></i>
-                        Quản lý phòng
+                        Quản lý sinh viên
                         <span class="arrow position-absolute">
                             <i class="bi bi-chevron-left left d-none"></i>
                             <i class="bi bi-chevron-down down"></i>
@@ -76,7 +76,7 @@
                     <ul class="list-unstyled sub-menu">
                         <li>
                             <i class="bi bi-border-style"></i>
-                            <a href="#">Sơ đồ phòng</a>
+                            <a href="./thongtinsv.php">Thông tin sinh viên</a>
                         </li>
                         <li>
                             <i class="bi bi-patch-plus"></i>

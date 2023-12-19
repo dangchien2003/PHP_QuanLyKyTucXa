@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../public/css/toast.css">
 </head>
 
 <body>
+    <div id="toast"></div>
     <header class="text-white ">
         <div class="logo">
             <div class="" style="width: 100%;">logo</div>
@@ -31,7 +33,7 @@
                             <a class="nav-link active text-white" aria-current="page" href="#"><i
                                     class="bi bi-telephone-forward-fill p-1 fs-5"></i>Điện thoại hỗ trợ: 0333444555</a>
                             <a class="nav-link active text-white" aria-current="page" href="#">Quyền của tôi</a>
-                            <a class="nav-link text-white" href="#"><img src="../public/image/bg-login.jfif" alt=""></a>
+                            <a class="nav-link text-white" href="#"><img src="../../public/image/bg-login.jfif" alt=""></a>
                             <a class="nav-link text-white" href="#"><i class="fa-solid fa-power-off"></i></a>
                         </div>
                     </div>
@@ -96,7 +98,7 @@
         <div class="col-lg-9 info">
             <div class="box">
                 <div class="row info-student d-flex justify-content-center ">
-                    <div class="col-md-4 justify-content-center " style="display: flex;">
+                    <div class="col-md-4 justify-content-center ">
                         <div class="ttp">
                             <span>Thông tin phòng ở</span>
                             <div class="">
@@ -117,21 +119,27 @@
                                 <div class="icon edit">
                                     <i class="bi bi-pencil-fill"></i>
                                 </div>
-                                <div class="icon save">
-                                    <i class="bi bi-check-lg"></i>
-                                </div>
                             </div>
                         </div>
 
                     </div>
-                    <div class="col-md-4 " >
-                        <div id="add" class="d-flex justify-content-center ">
-                            <img src="../public/image/uploads/bg-login.jfif" alt="" class="a-d-d">
+                    <div class="col-md-4 ">
+                        <div id="add" class=" " >
+                            <video id="video" class="a-d-d d-none"  ></video>
+                            <img src="../../public/image/uploads/bg-login.jfif" alt="" class="a-d-d" id="anhdaidien"  >
+                            <canvas id="canvas" class="d-none a-d-d"></canvas>
                         </div>
                         
                         <div class="action d-flex justify-content-center">
                             <div class="icon edit">
+                                <i class="bi bi-camera-video-fill"></i>
+                            </div>
+                            <div class="icon render" id="render">
                                 <i class="bi bi-camera-fill"></i>
+                            </div>
+                            <div class="icon render" id="upload">
+                                <input type="file" class="d-none" id="inp_file" accept="image/*">
+                                <i class="bi bi-cloud-arrow-up-fill"></i>
                             </div>
                             <div class="icon save">
                                 <i class="bi bi-check-lg"></i>
@@ -213,10 +221,10 @@
         </div>
     </div>
 
-
-    <script src="../public/js/bootstrap.min.js"></script>
-    <script src="../public/js/jquery.js"></script>
-    <script src="../public/js/sodophong.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+    <script src="../../public/js/jquery.js"></script>
+    <script src="../../public/js/thongtinsv.js"></script>
+    <script src="../../public/js/toast.js"></script>
 </body>
 
 </html>

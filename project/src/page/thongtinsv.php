@@ -23,15 +23,12 @@
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
                     </a>
-                    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                         <div class="navbar-nav" style="font-weight: 500;">
-                            <a class="nav-link active text-white" aria-current="page" href="#"><i
-                                    class="bi bi-telephone-forward-fill p-1 fs-5"></i>Điện thoại hỗ trợ: 0333444555</a>
+                            <a class="nav-link active text-white" aria-current="page" href="#"><i class="bi bi-telephone-forward-fill p-1 fs-5"></i>Điện thoại hỗ trợ: 0333444555</a>
                             <a class="nav-link active text-white" aria-current="page" href="#">Quyền của tôi</a>
                             <a class="nav-link text-white" href="#"><img src="../../public/image/bg-login.jfif" alt=""></a>
                             <a class="nav-link text-white" href="#"><i class="fa-solid fa-power-off"></i></a>
@@ -97,130 +94,170 @@
         </div>
         <div class="col-lg-9 info">
             <div class="box">
-                <div class="row info-student d-flex justify-content-center ">
-                    <div class="col-md-4 justify-content-center ">
-                        <div class="ttp">
-                            <span>Thông tin phòng ở</span>
-                            <div class="">
-                                <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">Mã phòng: </label>
-                                    <input type="email" class="" id="exampleFormControlInput1" placeholder="">
-                                </div>
-                                <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">Tầng: </label>
-                                    <input type="email" class="" id="exampleFormControlInput1" placeholder="">
-                                </div>
-                                <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">Số người: </label>
-                                    <input type="email" class="" id="exampleFormControlInput1" placeholder="">
-                                </div>
-                            </div>
-                            <div class="action d-flex">
-                                <div class="icon edit">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
-                    <div class="col-md-4 ">
-                        <div id="add" class=" " >
-                            <video id="video" class="a-d-d d-none"  ></video>
-                            <img src="../../public/image/uploads/bg-login.jfif" alt="" class="a-d-d" id="anhdaidien"  >
-                            <canvas id="canvas" class="d-none a-d-d"></canvas>
-                        </div>
-                        
-                        <div class="action d-flex justify-content-center">
-                            <div class="icon edit">
-                                <i class="bi bi-camera-video-fill"></i>
-                            </div>
-                            <div class="icon render" id="render">
-                                <i class="bi bi-camera-fill"></i>
-                            </div>
-                            <div class="icon render" id="upload">
-                                <input type="file" class="d-none" id="inp_file" accept="image/*">
-                                <i class="bi bi-cloud-arrow-up-fill"></i>
-                            </div>
-                            <div class="icon save">
-                                <i class="bi bi-check-lg"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex justify-content-center ">
-                        <div class="ttsv">
-                            <span>Thông tin sinh viên</span>
-                            <div class="">
-                            <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">Id sinh viên: </label>
-                                    <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="idsv" value="12" >
-                                </div>
-                                <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">Họ tên: </label>
-                                    <input type="email" class="" id="exampleFormControlInput1" placeholder="">
-                                </div>
-                                <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">Giới tính: </label>
-                                    <input type="radio" class="" id="exampleFormControlInput1" placeholder="" name="gioitinh" value="1"> Nam
-                                    <input type="radio" class="" id="exampleFormControlInput1" placeholder="" name="gioitinh" value="0">Nữ
-                                </div>
-                                <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">Năm sinh: </label>
-                                    <input type="date" class="" id="exampleFormControlInput1" placeholder="">
-                                </div>
-                                <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">Quê quán: </label>
-                                    <input type="text" class="" id="exampleFormControlInput1" placeholder="">
-                                </div>
-                                <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">SoCCCD: </label>
-                                    <input type="text" class="" id="exampleFormControlInput1" placeholder="">
-                                </div>
-                                <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">Nghề nghiệp: </label>
-                                    <input type="text" class="" id="exampleFormControlInput1" placeholder="">
-                                </div>
-                                <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">Trường: </label>
-                                    <input type="text" class="" id="exampleFormControlInput1" placeholder="">
-                                </div>
-                                <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">Ngày vào: </label>
-                                    <input type="date" class="" id="exampleFormControlInput1" placeholder="">
-                                </div>
-                                <div class="mb-3 object">
-                                    <label for="exampleFormControlInput1" class="form-label">Ngày ra: </label>
-                                    <input type="date" class="" id="exampleFormControlInput1" placeholder="">
-                                </div>
-
-                                <div class="mb-3 object">
-
-                                    <div class="input-group mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <div class="">
-                                                <label for="exampleFormControlInput1" class="form-label">Hợp đồng:
-                                                </label>
-                                                <input type="text" class="" id="exampleFormControlInput1" placeholder=""
-                                                    style="padding-left: 5px; width: 50%;">
-                                            </div>
-                                            <div class="">
-                                                <a class="input-group-text" id="basic-addon2" href="#add"
-                                                    style="margin: 0 auto; display: block;">Tới</a>
-                                            </div>
-                                        </div>
+                <?php
+                include '../handle/helper.php';
+                if(checkRequest($_GET, ["idsv"])) {
+                    $sql = "SELECT * from sinhvien where id = ?";
+                    $infoSV = select_input($sql, [$_GET["idsv"]]);
+                    while ($info = $infoSV->fetch_assoc()) {
+                ?>
+                    <div class="row info-student d-flex justify-content-center ">
+                        <div class="col-md-4 justify-content-center ">
+                            <div class="ttp">
+                                <span>Thông tin phòng ở</span>
+                                <div class="">
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Mã phòng: </label>
+                                        <input type="email" class="" id="exampleFormControlInput1" placeholder="">
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Tầng: </label>
+                                        <input type="email" class="" id="exampleFormControlInput1" placeholder="">
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Số người: </label>
+                                        <input type="email" class="" id="exampleFormControlInput1" placeholder="">
                                     </div>
                                 </div>
                                 <div class="action d-flex">
                                     <div class="icon edit">
                                         <i class="bi bi-pencil-fill"></i>
                                     </div>
-                                    <div class="icon save">
-                                        <i class="bi bi-check-lg"></i>
-                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 ">
+                            <div id="add" class=" ">
+                                <video id="video" class="a-d-d d-none"></video>
+                                <img src="../../public/image/uploads/<?php echo $info["kyHieu"] . $info["id"] . ".png" ?>" alt="add" class="a-d-d" id="anhdaidien">
+                                <canvas id="canvas" class="d-none a-d-d"></canvas>
+                            </div>
+
+                            <div class="action d-flex justify-content-center">
+                                <div class="icon edit">
+                                    <i class="bi bi-camera-video-fill"></i>
+                                </div>
+                                <div class="icon render" id="render">
+                                    <i class="bi bi-camera-fill"></i>
+                                </div>
+                                <div class="icon render" id="upload">
+                                    <input type="file" class="d-none" id="inp_file" accept="image/*">
+                                    <i class="bi bi-cloud-arrow-up-fill"></i>
+                                </div>
+                                <div class="icon save">
+                                    <i class="bi bi-check-lg"></i>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-4 d-flex justify-content-center ">
+                            <form class="ttsv" id="form-info-sv">
+                                <span>Thông tin sinh viên</span>
+                                <div class="">
+                                    <div class="mb-3 object d-none">
+                                        <label for="exampleFormControlInput1" class="form-label">Id: </label>
+                                        <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="idsv" value="<?php echo $info["id"] ?>">
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Id sinh viên: </label>
+                                        <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="id" value="<?php echo $info["kyHieu"] . $info["id"] ?>">
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Họ tên: </label>
+                                        <input type="email" class="" id="exampleFormControlInput1" placeholder="" name="hoten" value="<?php echo $info["hoTen"] ?>">
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Tình trạng: </label>
+                                        <input type="email" class="" id="exampleFormControlInput1" placeholder="" name="hoten" value="<?php echo $info["hoTen"] ?>">
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Giới tính: </label>
+                                        <?php
+
+                                        if ($info["gioiTinh"] !== null) {
+                                            if (!$info["gioiTinh"]) {
+                                                echo '<input type="radio" class="" id="exampleFormControlInput1" placeholder="" name="gioitinh" value="1"> Nam
+                                                <input type="radio" class="" id="exampleFormControlInput1" placeholder="" name="gioitinh" value="0" checked>Nữ';
+                                            } else if ($info["gioiTinh"] == 1) {
+                                                echo '<input type="radio" class="" id="exampleFormControlInput1" placeholder="" name="gioitinh" value="1" checked> Nam
+                                                <input type="radio" class="" id="exampleFormControlInput1" placeholder="" name="gioitinh" value="0" >Nữ';
+                                            } else {
+                                                echo '<input type="radio" class="" id="exampleFormControlInput1" placeholder="" name="gioitinh" value="1"> Nam
+                                                <input type="radio" class="" id="exampleFormControlInput1" placeholder="" name="gioitinh" value="0">Nữ';
+                                            }
+                                        } else {
+                                            echo '<input type="radio" class="" id="exampleFormControlInput1" placeholder="" name="gioitinh" value="1"> Nam
+                                            <input type="radio" class="" id="exampleFormControlInput1" placeholder="" name="gioitinh" value="0">Nữ';
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Năm sinh: </label>
+                                        <input type="date" class="" id="exampleFormControlInput1" placeholder="" name="namsinh" value="<?php echo $info["namSinh"] ?>">
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">SĐT: </label>
+                                        <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="sdt" value="<?php echo $info["sdt"] ?>">
+                                    </div>
+
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Quê quán: </label>
+                                        <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="quequan" value="<?php echo $info["queQuan"] ?>">
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">SoCCCD: </label>
+                                        <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="cccd" value="<?php echo $info["soCCCD"] ?>">
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Nghề nghiệp: </label>
+                                        <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="nghenghiep" value="<?php echo $info["ngheNghiep"] ?>">
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Trường: </label>
+                                        <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="truong" value="<?php echo $info["truong"] ?>">
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Ngày vào: </label>
+                                        <input type="date" class="" id="exampleFormControlInput1" placeholder="" name="ngayVao" value="<?php echo $info["ngayVao"] ?>">
+                                    </div>
+                                    <div class="mb-3 object">
+                                        <label for="exampleFormControlInput1" class="form-label">Ngày ra: </label>
+                                        <input type="date" class="" id="exampleFormControlInput1" placeholder="" name="ngayra" value="<?php echo $info["ngayRa"] ?>">
+                                    </div>
+
+                                    <div class="mb-3 object">
+
+                                        <div class="input-group mb-3">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="">
+                                                    <label for="exampleFormControlInput1" class="form-label">Hợp đồng:
+                                                    </label>
+                                                    <input type="text" class="" id="exampleFormControlInput1" placeholder="" style="padding-left: 5px; width: 50%;" name="hopdong" value="<?php echo $info["maHD"] ?>">
+                                                </div>
+                                                <div class="">
+                                                    <a class="input-group-text" id="basic-addon2" href=" <?php echo $info["maHD"] ?>" style="margin: 0 auto; display: block;">Tới</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="action d-flex">
+                                        <div class="icon edit">
+                                            <i class="bi bi-pencil-fill"></i>
+                                        </div>
+                                        <div class="icon save">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
                     </div>
-                </div>
+                <?php }}else {
+                    echo '<div class="bi-text-center">Không có thông tin</div>';
+                } ?>
+                
             </div>
         </div>
     </div>

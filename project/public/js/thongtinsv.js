@@ -4,7 +4,23 @@ var click_video = false;
 let takePhoto = false;
 let imgData = null;
 let upload_file = false;
+let edit_info = false;
 $(document).ready(function () {
+    $input_all = $("input"); 
+    $select_all = $("select");
+    // chỉ đọc
+    function set_write_input(allow) {
+        $input_all.each(function (index, element) {
+            $(element).attr('type') == "radio"?$(element).prop("disabled", !allow):$(element).prop("readOnly", !allow);
+        })
+    
+        $select_all.each(function (index, element) {
+            $(element).prop("disabled", !allow);
+        })
+    }
+
+    set_write_input(false);
+
     $("#upload").click(function () {
         let file = document.getElementById("inp_file");
         file.click();
@@ -14,6 +30,7 @@ $(document).ready(function () {
             }
         });
     });
+    
     // edit
     var btn_edit = $(".edit");
     btn_edit.each((index, element) => {
@@ -26,7 +43,19 @@ $(document).ready(function () {
                     onVideo();
                     break;
                 case 2:
-                    alert("2");
+                    if($(element).hasClass("no-write")) {
+                        btn_save.eq(1).removeClass("d-none");
+                        set_write_input(true);
+                        $(element).removeClass("no-write");
+                        $(element).find("i").addClass("show");
+                        edit_info = true;
+                    }else {
+                        btn_save.eq(1).addClass("d-none");
+                        set_write_input(false);
+                        $(element).addClass("no-write");
+                        $(element).find("i").removeClass("show");
+                        edit_info = false;
+                    }
                     break;
                 default:
                     alert("khác");
@@ -44,7 +73,12 @@ $(document).ready(function () {
                     sendImgToServer();
                     break;
                 case 1:
-                    alert("1");
+                    if(edit_info) {
+                        $("#form-info-sv").submit();
+                    }else {
+                        toastError("Chưa kích hoạt chỉnh sửa");
+                    }
+                    
                     break;
                 case 2:
                     alert("2");
@@ -264,7 +298,6 @@ function sendImgToServer() {
         if (xhr.status === 200) {
             console.log("Dữ liệu ảnh đã được gửi thành công.");
             // kết quả trả về và giải mã chuỗi json
-            
             var res = JSON.parse(xhr.responseText);
             
             switch (res.status) {

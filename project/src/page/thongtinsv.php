@@ -43,6 +43,8 @@
             <nav class="menu">
                 <ul class="list-unstyled">
                     <li class="parent-menu position-relative on">
+                    <?php
+                    ?> 
                         <i class="bi bi-door-open"></i>
                         Quản lý phòng
                         <span class="arrow position-absolute">

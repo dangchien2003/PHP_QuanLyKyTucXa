@@ -241,6 +241,13 @@ header .sl-tb {
     border-bottom: 2px solid #ececec;
 }
 
+.info-student .object #tinhtrangsv {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    outline: none;
+}
+
 .info-student .object label {
     color: rgb(75, 75, 75);
 }
@@ -255,7 +262,7 @@ header .sl-tb {
 }
 
 .info-student .action {
-    margin: 10px 0;;
+    margin: 10px 0;
 }
 
 .info-student .action .icon {
@@ -272,7 +279,27 @@ header .sl-tb {
 
 .info-student .action .icon.edit {
     background-color: #22a9e8;
+    position: relative;
+    
 }
+
+.info-student .action .icon.edit .bi-pencil-fill.show::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    height: 23px;
+    width: 2px;
+    background-color: black;
+    border: 1px solid black;
+    transform: rotate(-39deg);
+    left: 18px;
+    bottom: 9px;
+}
+
+.info-student .action .icon.edit .bi-pencil-fill::after {
+    display: none;
+}
+
 
 .info-student .action .icon.save {
     background-color: #28e645;

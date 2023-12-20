@@ -13,8 +13,8 @@ try {
             $imgDecoded = base64_decode($imgData);
 
             // Đường dẫn đến thư mục lưu trữ ảnh
-            $uploadPath = 'E:\DH_CNDA\PHP\BTL\PHP_QuanLyKyTucXa\project\public\image\uploads\\';
-
+            $uploadPath = '..\..\public\image\uploads\\';
+            // echo "$uploadPath";
 
 
             if (isset($_POST['idsv']) && $_POST['idsv']) {

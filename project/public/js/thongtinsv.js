@@ -37,7 +37,7 @@ $(document).ready(function () {
         $(element).click(function () {
             switch (index) {
                 case 0:
-                    alert("0");
+                    // alert("0");
                     break;
                 case 1:
                     onVideo();

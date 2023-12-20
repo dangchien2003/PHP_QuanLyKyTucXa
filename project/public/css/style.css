@@ -201,6 +201,10 @@ header .sl-tb {
     padding: 5% 0;
 }
 
+.info-student a {
+    color: black;
+}
+
 
 .info-student .a-d-d {
     height: 300px;

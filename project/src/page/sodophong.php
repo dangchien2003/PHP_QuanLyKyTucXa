@@ -119,7 +119,7 @@
                 <div class="list-room">
                     <?php
                         include '../handle/phong.php';
-                        $sql = "SELECT CONCAT(phong.kyHieu, phong.maPhong) AS phong, tinhtrang.tinhTrang, phong.tinhTrang as matt, CONCAT( COUNT(phong.maPhong), '/', phong.sucChua ) AS soluong FROM phong LEFT JOIN sinhvien ON sinhvien.maPhong = phong.maPhong LEFT JOIN tinhTrang on tinhTrang.id = phong.tinhTrang GROUP BY phong.maPhong;";
+                        $sql = "SELECT sinhvien.id as idsv, phong.sucChua, CONCAT(phong.kyHieu, phong.maPhong) AS phong, tinhtrang.tinhTrang, phong.tinhTrang as matt, COUNT(phong.maPhong) as soNguoi FROM phong LEFT JOIN sinhvien ON sinhvien.maPhong = phong.maPhong LEFT JOIN tinhTrang on tinhTrang.id = phong.tinhTrang GROUP BY phong.maPhong;";
                         printListRoom($sql);
                     ?> 
                     

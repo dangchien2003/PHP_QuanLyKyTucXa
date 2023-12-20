@@ -12,6 +12,16 @@
                     default:
                         $bg_room = "bg-green";
                 }
+                
+                $soLuong = "0";
+                if(!$room["idsv"]) {
+                    $soLuong = "0/".$room["sucChua"];
+                }else {
+                    $soLuong = $room["soNguoi"]."/".$room["sucChua"];
+                }
+                
+
+
                 echo "<a href="."./roomInfo.php?mp=".$room['phong']."> <div class='room $bg_room'>
                 <div class='top d-flex justify-content-center align-items-end'>
                     <span>" . $room['phong'] . "</span>
@@ -20,7 +30,7 @@
                     <span>". $room['tinhTrang']."</span>
                 </div>
                 <div class='bottom d-flex justify-content-center align-items-end'>
-                    <span>". $room['soluong']."</span>
+                    <span>".$soLuong."</span>
                 </div>
             </div></a>";
             }

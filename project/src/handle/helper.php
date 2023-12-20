@@ -35,4 +35,35 @@
         
         
     }
-?>  
+
+
+    function createKeyValueArray($keys, $values) {
+        // Kiểm tra số lượng phần tử trong mảng keys và values
+        $numKeys = count($keys);
+        $numValues = count($values);
+
+        // Nếu số lượng phần tử không khớp, không thể tạo mảng key-value
+        if ($numKeys !== $numValues) {
+            return false; // Hoặc xử lý lỗi theo ý muốn của bạn
+        }
+
+        // Tạo mảng key-value từ các mảng keys và values
+        $result = array_combine($keys, $values);
+
+        return $result;
+    }
+
+    function checkRequest($method, $names) {
+        foreach($names as $name) {
+            if(isset($method["$name"])) {
+                if(empty($method["$name"])) {
+                    return false; // nếu rỗng
+                }
+            }else {
+                return false; //nếu không tồn tại
+            }
+        }
+        
+        return true;
+    }
+?> 

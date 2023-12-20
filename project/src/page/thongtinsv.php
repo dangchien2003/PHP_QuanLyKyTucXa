@@ -152,16 +152,16 @@
                             </div>
                         </div>
                         <div class="col-md-4 d-flex justify-content-center ">
-                            <form class="ttsv" id="form-info-sv">
+                            <form class="ttsv" id="form-info-sv" action="./sodophong.php" method="post">
                                 <span>Thông tin sinh viên</span>
                                 <div class="">
                                     <div class="mb-3 object d-none">
                                         <label for="exampleFormControlInput1" class="form-label">Id: </label>
-                                        <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="idsv" value="<?php echo $info["id"] ?>">
+                                        <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="idsv" value="<?php echo $info["kyHieu"] . $info["id"] ?>">
                                     </div>
                                     <div class="mb-3 object">
                                         <label for="exampleFormControlInput1" class="form-label">Id sinh viên: </label>
-                                        <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="id" value="<?php echo $info["kyHieu"] . $info["id"] ?>">
+                                        <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="id" value="<?php echo $info["id"] ?>">
                                     </div>
                                     <div class="mb-3 object">
                                         <label for="exampleFormControlInput1" class="form-label">Họ tên: </label>
@@ -169,12 +169,24 @@
                                     </div>
                                     <div class="mb-3 object">
                                         <label for="exampleFormControlInput1" class="form-label">Tình trạng: </label>
-                                        <input type="email" class="" id="exampleFormControlInput1" placeholder="" name="hoten" value="<?php echo $info["hoTen"] ?>">
+                                        <select name="tinhtrang" id="tinhtrangsv" >
+                                        <?php 
+                                            $sql = "SELECT tinhtrang.id AS idtt, tinhtrang.tinhTrang AS tttt, (SELECT sinhvien.tinhTrang FROM sinhvien WHERE sinhvien.id = ?) AS ttsv FROM tinhtrang";
+                                            $result = select_input($sql, [$_GET["idsv"]]);
+
+                                            while($row = $result->fetch_assoc()) {
+                                                if($row['idtt'] === $row["ttsv"]) {
+                                                    echo '<option value="'.$row['idtt'].'"'. 'selected'.' >'.$row["tttt"].'</option>';
+                                                }else {
+                                                    echo '<option value="'.$row['idtt'].'"'.' >'.$row["tttt"].'</option>';
+                                                }
+                                            }
+                                        ?> 
+                                        </select>
                                     </div>
                                     <div class="mb-3 object">
                                         <label for="exampleFormControlInput1" class="form-label">Giới tính: </label>
                                         <?php
-
                                         if ($info["gioiTinh"] !== null) {
                                             if (!$info["gioiTinh"]) {
                                                 echo '<input type="radio" class="" id="exampleFormControlInput1" placeholder="" name="gioitinh" value="1"> Nam
@@ -242,10 +254,11 @@
                                         </div>
                                     </div>
                                     <div class="action d-flex">
-                                        <div class="icon edit">
+                                        <div class="icon edit no-write">
                                             <i class="bi bi-pencil-fill"></i>
+                                            
                                         </div>
-                                        <div class="icon save">
+                                        <div class="icon save d-none">
                                             <i class="bi bi-check-lg"></i>
                                         </div>
                                     </div>

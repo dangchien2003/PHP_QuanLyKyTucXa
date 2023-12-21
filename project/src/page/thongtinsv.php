@@ -94,7 +94,6 @@
         </div>
         <div class="col-lg-9 info">
             <div class="box">
-
                 <?php
                 include '../handle/helper.php';
                 if (checkRequest($_GET, ["idsv"])) {
@@ -164,7 +163,7 @@
                                     <?php
 
                                     ?>
-                                    <form class="ttsv" id="form-info-sv" action="./sodophong.php" method="post">
+                                    <form class="ttsv" id="form-info-sv" action="../handle/suaTTSV.php" method="post">
                                         <span>Thông tin sinh viên</span>
                                         <div class="">
                                             <div class="mb-3 object d-none">

@@ -1,13 +1,17 @@
 <?php
     include '../config/configdb.php';
-    function select_no_input ($sql){
+    function query_no_input ($sql){
         $start = $GLOBALS["conn"]->prepare($sql);
-        // $start->bind_param("i");
-        $start->execute();
-        $result = $start->get_result();
-        return $result;
+        $run = $start->execute();
+        $typeSql = explode(" ", trim($sql))[0];
+        if($typeSql === "SELECT" && $run) {
+            $result = $start->get_result();
+            return $result;
+        }else {
+            return $run;
+        }
     }
-    function select_input ($sql, $values){
+    function query_input ($sql, $values){
         try {
             $start = $GLOBALS["conn"]->prepare($sql);
             $types = "";

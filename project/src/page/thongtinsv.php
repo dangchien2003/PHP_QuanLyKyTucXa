@@ -99,10 +99,10 @@
                 include '../handle/helper.php';
                 if (checkRequest($_GET, ["idsv"])) {
                     $sql = "SELECT * from sinhvien where id = ?";
-                    $infoSV = select_input($sql, [$_GET["idsv"]]);
+                    $infoSV = query_input($sql, [$_GET["idsv"]]);
                     while ($info = $infoSV->fetch_assoc()) {
                         $sql = "SELECT phong.maPhong, phong.tang, phong.sucChua, count(sinhvien.id) as soSinhVien from phong right JOIN sinhvien on sinhvien.maPhong = phong.maPhong WHERE sinhvien.maPhong = ? GROUP BY phong.maPhong;";
-                        $infoPhong = select_input($sql, [$info["maPhong"]]);
+                        $infoPhong = query_input($sql, [$info["maPhong"]]);
                         while ($infoP = $infoPhong->fetch_assoc()) {
 
 
@@ -184,7 +184,7 @@
                                                 <select name="tinhtrang" id="tinhtrangsv">
                                                     <?php
                                                     $sql = "SELECT tinhtrang.id AS idtt, tinhtrang.tinhTrang AS tttt FROM tinhtrang";
-                                                    $result = select_no_input($sql);
+                                                    $result = query_no_input($sql);
 
                                                     while ($row = $result->fetch_assoc()) {
                                                         if ($row['idtt'] === $info["tinhTrang"]) {

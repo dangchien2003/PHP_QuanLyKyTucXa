@@ -1,21 +1,33 @@
 <?php
     include '../config/configdb.php';
+
     function query_no_input ($sql){
-        connectDB();
-        $start = $GLOBALS["conn"]->prepare($sql);
-        $run = $start->execute();
-        $typeSql = explode(" ", trim($sql))[0];
-        if($typeSql === "SELECT" && $run) {
-            $result = $start->get_result();
-            closeDB($start);
-            return $result;
-        }else {
-            closeDB($start);
-            return $run;
+        try {
+            connectDB();
+            $start = $GLOBALS["conn"]->prepare($sql);
+            $run = $start->execute();
+            $typeSql = explode(" ", trim($sql))[0];
+            if($typeSql === "SELECT" && $run) {
+                $result = $start->get_result();
+                closeDB($start);
+                return $result;
+            }else {
+                closeDB($start);
+                return $run;
+            }
+        }catch(Exception $e) {
+            throw new Exception;
         }
+        
     }
     function query_input ($sql, $values){
         try {
+            // Kiểm tra số lượng tham số
+            $numParams = substr_count($sql, '?');
+            $numValues = count($values);
+            if ($numParams !== $numValues) {
+                throw new Exception("tham số truyền không trùng nhau");
+            }
             connectDB();
             $start = $GLOBALS["conn"]->prepare($sql);
             $types = "";
@@ -40,7 +52,7 @@
                 return $run;
             }
         }catch (Exception $e) {
-            return false;
+            throw new Exception($e->getMessage());
         }
         
         

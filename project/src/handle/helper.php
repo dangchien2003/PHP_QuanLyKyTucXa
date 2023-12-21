@@ -1,18 +1,22 @@
 <?php
     include '../config/configdb.php';
     function query_no_input ($sql){
+        connectDB();
         $start = $GLOBALS["conn"]->prepare($sql);
         $run = $start->execute();
         $typeSql = explode(" ", trim($sql))[0];
         if($typeSql === "SELECT" && $run) {
             $result = $start->get_result();
+            closeDB($start);
             return $result;
         }else {
+            closeDB($start);
             return $run;
         }
     }
     function query_input ($sql, $values){
         try {
+            connectDB();
             $start = $GLOBALS["conn"]->prepare($sql);
             $types = "";
             foreach ($values as $value) {
@@ -29,8 +33,10 @@
             $typeSql = explode(" ", trim($sql))[0];
             if($typeSql === "SELECT" && $run) {
                 $result = $start->get_result();
+                closeDB($start);
                 return $result;
             }else {
+                closeDB($start);
                 return $run;
             }
         }catch (Exception $e) {
@@ -69,5 +75,10 @@
         }
         
         return true;
+    }
+
+    function closeDB($start) {
+        $GLOBALS['conn']->close();
+        $start->close();
     }
 ?> 

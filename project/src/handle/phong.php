@@ -1,5 +1,4 @@
 <?php
-    include 'helper.php';
     function printListRoom($sql) {
         $list_room = query_no_input($sql);
         if($list_room->num_rows > 0) {

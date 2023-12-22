@@ -1,6 +1,6 @@
 <?php
     include '../config/configdb.php';
-
+    
     function query_no_input ($sql){
         try {
             connectDB();
@@ -13,6 +13,7 @@
                 return $result;
             }else {
                 closeDB($start);
+                $run = explode(" ", trim($sql));
                 return $run;
             }
         }catch(Exception $e) {
@@ -43,7 +44,7 @@
             $start->bind_param($types, ...$values);
             $run = $start->execute();
             $typeSql = explode(" ", trim($sql))[0];
-            if($typeSql === "SELECT" && $run) {
+            if(strtoupper($typeSql) == "SELECT" && $run) {
                 $result = $start->get_result();
                 closeDB($start);
                 return $result;
@@ -92,5 +93,21 @@
     function closeDB($start) {
         $GLOBALS['conn']->close();
         $start->close();
+    }
+
+    function getTimestamp($seconds) {
+        $dateTime = new DateTime();
+        return $dateTime->getTimestamp()+$seconds;
+    }
+
+    function maHoa($duLieu) {
+        $json = json_encode($duLieu);
+        $encrypted = openssl_encrypt($json, 'aes-256-cbc', get_key(), 0, get_IV());
+        return $encrypted;
+    }
+
+    function giaiMa($mahoa) {
+        $json = openssl_decrypt($mahoa, 'aes-256-cbc', get_key(), 0, get_IV());
+        return json_decode($json, true);
     }
 ?> 

@@ -10,4 +10,5 @@ $(document).ready(function() {
         $(".bi-eye-slash-fill").hide();
         $("#pass-input").attr('type', "password");
     })
+    
 })

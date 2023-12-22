@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,9 +10,14 @@
     <link rel="stylesheet" href="../../public/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../public/css/toast.css">
 </head>
 
 <body>
+<?php
+    include "../handle/checkAccount.php";
+?>
+    <div id="toast"></div>
     <header class="text-white ">
         <div class="logo"><div class="" style="width: 100%;">logo</div></div>
         <div class="menu ">
@@ -132,6 +138,8 @@
     <script src="../../public/js/bootstrap.min.js"></script>
     <script src="../../public/js/jquery.js"></script>
     <script src="../../public/js/sodophong.js"></script>
+    <script src="../../public/js/app.js"></script>
+    <script src="../../public/js/toast.js"></script>
 </body>
 
 </html>

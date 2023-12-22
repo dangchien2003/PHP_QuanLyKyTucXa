@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    <?php
+        require '../handle/checkAccount.php';
+    ?> 
     <div id="toast"></div>
     <header class="text-white ">
         <div class="logo">
@@ -95,7 +98,6 @@
         <div class="col-lg-9 info">
             <div class="box">
                 <?php
-                include '../handle/helper.php';
                 if (checkRequest($_GET, ["idsv"])) {
                     $sql = "SELECT * from sinhvien where id = ?";
                     $infoSV = query_input($sql, [$_GET["idsv"]]);
@@ -291,6 +293,7 @@
     <script src="../../public/js/jquery.js"></script>
     <script src="../../public/js/thongtinsv.js"></script>
     <script src="../../public/js/toast.js"></script>
+    <script src="../../public/js/app.js"></script>
 </body>
 
 </html>

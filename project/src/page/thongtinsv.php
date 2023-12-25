@@ -14,7 +14,8 @@
 
 <body>
     <?php
-        require '../handle/checkAccount.php';
+        require '../handle/helper.php';
+        // require '../handle/checkAccount.php';
     ?> 
     <div id="toast"></div>
     <header class="text-white ">
@@ -294,6 +295,7 @@
     <script src="../../public/js/thongtinsv.js"></script>
     <script src="../../public/js/toast.js"></script>
     <script src="../../public/js/app.js"></script>
+    <script src="../../public/js/menu.js"></script>
 </body>
 
 </html>

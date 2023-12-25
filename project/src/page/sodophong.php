@@ -15,8 +15,8 @@
 
 <body>
 <?php
-    // include '../handle/helper.php';
-    include "../handle/checkAccount.php";
+    include '../handle/helper.php';
+    // include "../handle/checkAccount.php";
 ?>
     <div id="toast"></div>
     <header class="text-white ">
@@ -138,7 +138,7 @@
 
     <script src="../../public/js/bootstrap.min.js"></script>
     <script src="../../public/js/jquery.js"></script>
-    <script src="../../public/js/sodophong.js"></script>
+    <script src="../../public/js/menu.js"></script>
     <script src="../../public/js/app.js"></script>
     <script src="../../public/js/toast.js"></script>
 </body>

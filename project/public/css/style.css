@@ -108,7 +108,7 @@ header .sl-tb {
     font-weight: 500;
 }
 
-.sdp .bi-building {
+.sdp .name .bi {
     color: blue;
     font-size: 25px;
     margin-right: 8px;
@@ -315,4 +315,45 @@ header .sl-tb {
 
 .info-student .action .bi-check-lg  {
     font-size: 25px;
+}
+
+.form-add .icon img {
+    width: 100%;
+    
+    border: dotted 1px black;
+    padding: 5px;
+}
+
+.form-add .icon {
+    position: relative;
+    width: 200px;
+}
+.form-add .icon .action {
+    position: absolute;
+    width: 50px;
+    bottom: -25px;
+    left: 75px;
+    border: none;
+}
+
+.form-add form .form-select {
+    margin: 0;
+}
+
+.form-add form .row {
+    padding: 5px 0;
+}
+
+.form-add form .btn {
+    margin: 10px 0;
+}
+.form-add form label {
+    white-space: nowrap; /* Ngăn chặn xuống dòng */
+    overflow: hidden; /* Ẩn nội dung vượt quá kích thước div */
+    text-overflow: ellipsis; 
+    width: 100%;
+}
+
+.form-add {
+    padding-top: 20px;
 }

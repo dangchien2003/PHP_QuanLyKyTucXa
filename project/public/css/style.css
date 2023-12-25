@@ -157,8 +157,10 @@ header .sl-tb {
     background: linear-gradient(to top, rgb(245, 76, 76), rgb(243, 138, 138));
 } 
 .sdp .list-room .bg-green{
-    background-color:  rgb(95, 238, 95);
     background: linear-gradient(to top, rgb(71, 221, 71), rgb(154, 240, 154));
+} 
+.sdp .list-room .bg-yellow{
+    background: linear-gradient(to top, rgb(235, 201, 27), rgb(246, 230, 90));
 } 
 
 .fs-15 {

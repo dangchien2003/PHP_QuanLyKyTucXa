@@ -5,11 +5,14 @@
             while($room =  $list_room->fetch_assoc()) {
                 $bg_room = "";
                 switch($room["matt"]) {
-                    case 2:
+                    case 15:
                         $bg_room = "bg-red";
                     break;
-                    default:
+                    case 18:
                         $bg_room = "bg-green";
+                    break;
+                    default:
+                        $bg_room = "bg-yellow";
                 }
                 
                 $soLuong = "0";

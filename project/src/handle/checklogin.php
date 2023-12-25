@@ -1,7 +1,7 @@
 <?php 
     include "./helper.php";
     try {
-        if(checkRequest($_POST, ["password", "username"])) {
+        if(checkRequest($_POST, ["password", "username"], false)) {
             
             $sql = "SELECT 
             taikhoan.tinhTrang,
@@ -55,7 +55,7 @@
                 $account["password"] = $_POST["password"];
                 $account["die"] = getTimestamp(10);
                 // tạo session
-                if(checkRequest($_POST, ["nho"])) {
+                if(checkRequest($_POST, ["nho"], false)) {
                     if($_POST["nho"]=="on") {
                         setcookie("account", maHoa($account), time() + (15), "/", false, true);
                         // 30*24*60*60

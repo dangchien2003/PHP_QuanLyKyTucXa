@@ -1,12 +1,12 @@
 <?php
 require "helper.php";
 // session_start();
-// // if(checkRequest($_COOKIE, ["account"])) {
+// // if(checkRequest($_COOKIE, ["account"], false)) {
 // //     $account = giaiMa($_COOKIE["account"]);
 // //     $account["nho"] = "on";
 // //     echo "cookie";
 // // } else 
-// if(checkRequest($_SESSION, ["account"])) {
+// if(checkRequest($_SESSION, ["account"], false)) {
 //     // if($_SESSION["account"]["die"] < getTimestamp(0)) {
 //     //     header("Location: ../page/dangnhap.php?message=Hết hạn phiên làm việc&status=300");
 //     // }
@@ -19,7 +19,7 @@ session_start();
 $page =  getPageHere($_SERVER["PHP_SELF"]);
 $quyen = [];
 $qc = 0;
-if (!checkRequest($_SESSION, ["account"])) {
+if (!checkRequest($_SESSION, ["account"], false)) {
     header("Location: ../page/dangnhap.php");
 } else {
 

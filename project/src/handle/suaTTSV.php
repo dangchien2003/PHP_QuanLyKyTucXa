@@ -1,7 +1,7 @@
 <?php 
     include 'helper.php';
     try {
-        if(checkRequest($_POST, ["idsv"])) {
+        if(checkRequest($_POST, ["idsv"], false)) {
             $sql = "UPDATE sinhvien SET hoTen = ?, gioiTinh = ?, namSinh=?, sdt = ?, soCCCD = ?, queQuan = ?, ngheNghiep = ?, truong = ?, tinhTrang = ?, ngayVao = ?, ngayRa = ?, maHD = ? WHERE id = ?; ";
             $input = [$_POST["hoten"], $_POST["gioitinh"],$_POST["namsinh"], $_POST["sdt"], $_POST["cccd"], $_POST["quequan"], $_POST["nghenghiep"], $_POST["truong"], $_POST["tinhtrang"], $_POST["ngayVao"], $_POST["ngayra"], $_POST["hopdong"], $_POST["id"]];
             $result = query_input($sql, $input);

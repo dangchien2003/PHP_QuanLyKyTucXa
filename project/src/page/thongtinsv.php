@@ -99,7 +99,7 @@
         <div class="col-lg-9 info">
             <div class="box">
                 <?php
-                if (checkRequest($_GET, ["idsv"])) {
+                if (checkRequest($_GET, ["idsv"], false)) {
                     $sql = "SELECT * from sinhvien where id = ?";
                     $infoSV = query_input($sql, [$_GET["idsv"]]);
                     while ($info = $infoSV->fetch_assoc()) {

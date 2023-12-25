@@ -76,10 +76,11 @@
         return $result;
     }
 
-    function checkRequest($method, $names) {
+    function checkRequest($method, $names, $allow) {
         foreach($names as $name) {
             if(isset($method["$name"])) {
-                if(empty($method["$name"])) {
+                if($method["$name"] == 0 && $allow) {}
+                else if(empty($method["$name"])) {
                     return false; // nếu rỗng
                 }
             }else {

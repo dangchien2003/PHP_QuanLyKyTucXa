@@ -15,6 +15,7 @@
 
 <body>
 <?php
+    // include '../handle/helper.php';
     include "../handle/checkAccount.php";
 ?>
     <div id="toast"></div>

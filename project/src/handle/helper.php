@@ -110,4 +110,9 @@
         $json = openssl_decrypt($mahoa, 'aes-256-cbc', get_key(), 0, get_IV());
         return json_decode($json, true);
     }
+
+    function getPageHere($url) {
+        $tree = explode("/",$url);
+        return $tree[count($tree)-1];
+    }
 ?> 

@@ -2,6 +2,7 @@
     include "./helper.php";
     try {
         if(checkRequest($_POST, ["password", "username"])) {
+            
             $sql = "SELECT 
             taikhoan.tinhTrang,
             tinhTrang.tinhTrang as tttt,
@@ -50,12 +51,14 @@
                 }
                 // thêm quyền khác
                 $account["quyenkhac"] = $quyenkhac;
+                $account["username"] = $_POST["username"];
+                $account["password"] = $_POST["password"];
                 $account["die"] = getTimestamp(10);
                 // tạo session
-                
                 if(checkRequest($_POST, ["nho"])) {
                     if($_POST["nho"]=="on") {
-                        setcookie("account", maHoa($account), time() + (30*24*60*60), "/", false, true);
+                        setcookie("account", maHoa($account), time() + (15), "/", false, true);
+                        // 30*24*60*60
                     }
                 }else {
                     session_start();

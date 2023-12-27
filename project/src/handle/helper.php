@@ -125,7 +125,7 @@
         return $tree[count($tree)-1];
     }
     // chuyển trang của quyền chính và không cần tham số
-    function nextPage($user, $pass, $toast)
+    function nextPage($user, $pass, $toast="")
     {
         $sql = "SELECT url FROM url JOIN quyenchinh ON quyenchinh.quyen = url.quyen JOIN taikhoan on taikhoan.user = quyenchinh.user WHERE taikhoan.user = ? AND taikhoan.pass = ? AND url.indata = 0 LIMIT 1";
         $result = query_input($sql, [$user, $pass]);

@@ -1,85 +1,72 @@
-<?php 
-    include "./helper.php";
-    try {
-        if(checkRequest($_POST, ["password", "username"], false)) {
-            
-            $sql = "SELECT 
-            taikhoan.tinhTrang,
-            tinhTrang.tinhTrang as tttt,
-            taikhoan.quyen as qc,
-            chucvu.chucDanh,
-            nhanvien.anh,
-            quyentruycap.quyen as qtc,
-            nhanvien.id as idnv,
-            url.url 
-            FROM taikhoan 
-            JOIN nhanvien ON nhanvien.user = taikhoan.user 
-            JOIN tinhTrang ON tinhTrang.id = taikhoan.tinhTrang 
-            JOIN chucvu ON chucvu.quyen = taikhoan.quyen 
-            RIGHT JOIN quyentruycap on taikhoan.user = quyentruycap.user JOIN url on url.quyen = taikhoan.quyen 
-            WHERE 
-            taikhoan.user = ? AND taikhoan.pass = ? and quyentruycap.thoiGianThuHoi IS NULL";
-            $result = query_input($sql, [$_POST["username"], $_POST["password"]]);
-            $check_tt = false;
-            $account = [];
-            $quyenkhac = [];
-            if($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    if(!$check_tt) {
-                        switch($row["tinhTrang"]) {
-                            case 14: 
-                                header("Location: ../page/dangnhap.php?message=Tài khoản không còn hoạt động&status=400");
-                            break;
-                            case 15:
-                                // chạy đăng nhập
-                                $account["anh"] = $row["anh"];
-                                $account["chucdanh"] = $row["chucDanh"];
-                                $account["idnv"] = $row["idnv"];
-                            break;
-                            default:
-                                throw new Exception("không nhận ra tình trạng");
-                        }
-                        $check_tt = true;
-                    }
-                   
-                    // thêm quyền truy cập
-                    array_push($quyenkhac, $row["qtc"]);
-                    // thêm quyền chính
-                    $account["qc"] = $row["qc"];
-                    // thêm url
-                    $account["url"] = $row["url"];
-                }
-                // thêm quyền khác
-                $account["quyenkhac"] = $quyenkhac;
-                $account["username"] = $_POST["username"];
-                $account["password"] = $_POST["password"];
-                $account["die"] = getTimestamp(10);
-                // tạo session
-                if(checkRequest($_POST, ["nho"], false)) {
-                    if($_POST["nho"]=="on") {
-                        setcookie("account", maHoa($account), time() + (15), "/", false, true);
-                        // 30*24*60*60
-                    }
-                }else {
-                    session_start();
-                    $_SESSION["account"] = $account;
-                }
-                
-                // chuyển hướng trang
-                header("Location: ../page/".$account['url']);
-            }else {
-                header("Location: ../page/dangnhap.php?message=Thông tin tài khoản mật khẩu không chính xác&status=400");
+<?php
+include 'check.php'; // bao gồm helper.php
+try {
+    huyTatCaCookie($_SERVER);
+    if (checkRequest($_POST, ['username', 'password'], false)) {
+        $result = checkAccount($_POST["username"], $_POST["password"], true);
+        // đúng tài khoản mật khẩu
+        if ($result) {
+
+            $account = [$_POST["username"], $_POST["password"]];
+            $info = null;
+            while ($row = $result->fetch_assoc()) {
+                $info = ["anh" => $row["anh"], "hoten" => $row["hoTen"], "chucvu" => $row["chucVu"]];
+                // chuyển thông tin qua dạng json
+                $info = json_encode($info);
             }
-            
-        }else {
-            header("Location: ../page/dangnhap.php?message=Thông tin tài khoản mật khẩu không chính xác&status=300");
+            // có nhớ tkmk
+            if (checkRequest($_POST, ['nho'], false)) {
+                // mã hoá user và pass
+                $account_mh = maHoa($account);
+
+                // đẩy về cookie
+                setcookie("account", $account_mh, time() + 3600, '/', false, true);
+                setcookie("info", $info, time() + 3600, '/', false, true);
+                // chuyển hướng trang
+                nextPage($_POST["username"], $_POST["password"]);
+            } else {
+                // không nhớ tkmk
+                session_start();
+                $_SESSION["account"] = $account;
+                setcookie("info", $info, time() + 3600, '/', false, true);
+                // chuyển hướng trang
+                nextPage($_POST["username"], $_POST["password"]);
+            }
+        } else {
+            // huỷ session
+            session_start();
+            session_destroy();
+            // chuyển hướng
+            header("Location: ../page/dangnhap.php?message=Tài khoản mật khẩu không đúng&status=400");
         }
-
-    }catch(Exception $e) {
-        header("Location: ../page/dangnhap.php?message=Hiện không thể đăng nhập&status=400");
+    } else {
     }
+} catch (Exception $e) {
+    header("Location: ../page/dangnhap.php?message=Hiện không thể đăng nhập&status=400");
+}
 
-    function loginSuccess() {
-        
+// chuyển hướng sang trang không cần dữ liệu đầu vào
+function nextPage($user, $pass)
+{
+    $sql = "SELECT url FROM url JOIN quyenchinh ON quyenchinh.quyen = url.quyen JOIN taikhoan on taikhoan.user = quyenchinh.user WHERE taikhoan.user = ? AND taikhoan.pass = ? AND url.indata = 0 LIMIT 1";
+    $result = query_input($sql, [$user, $pass]);
+    if ($result->num_rows == 0) {
+        header("Location: ../page/403.html");
+    } else {
+        while ($row = $result->fetch_assoc()) {
+            header("Location: ../page/" . $row['url']);
+        }
     }
-?> 
+}
+
+function huyTatCaCookie($server)
+{
+    if (isset($server['HTTP_COOKIE'])) {
+        $cookies = explode(';', $server['HTTP_COOKIE']);
+        foreach ($cookies as $cookie) {
+            $parts = explode('=', $cookie);
+            $name = trim($parts[0]);
+            setcookie($name, '', time() - 3600, '/');
+        }
+    }
+}

@@ -1,5 +1,5 @@
 <?php
-    include '../config/configdb.php';
+    include_once  '../config/configdb.php';
     
     function query_no_input ($sql){
         try {
@@ -59,7 +59,7 @@
         
     }
 
-
+    // tạo key value
     function createKeyValueArray($keys, $values) {
         // Kiểm tra số lượng phần tử trong mảng keys và values
         $numKeys = count($keys);
@@ -76,6 +76,7 @@
         return $result;
     }
 
+    // kiểm tra có tồn tại hoặc rỗng
     function checkRequest($method, $names, $allow) {
         foreach($names as $name) {
             if(isset($method["$name"])) {
@@ -91,29 +92,49 @@
         return true;
     }
 
+    // đóng db
     function closeDB($start) {
         $GLOBALS['conn']->close();
         $start->close();
     }
 
+    // lấy thời gian dạng dãy số
     function getTimestamp($seconds) {
         $dateTime = new DateTime();
         return $dateTime->getTimestamp()+$seconds;
     }
 
+    // mã hoá
     function maHoa($duLieu) {
+        // chuyển sang dạng json
         $json = json_encode($duLieu);
         $encrypted = openssl_encrypt($json, 'aes-256-cbc', get_key(), 0, get_IV());
         return $encrypted;
     }
 
+    // giải mã
     function giaiMa($mahoa) {
         $json = openssl_decrypt($mahoa, 'aes-256-cbc', get_key(), 0, get_IV());
+        // giải mã json và trả về
         return json_decode($json, true);
     }
 
+    // lấy trang hiện tại
     function getPageHere($url) {
         $tree = explode("/",$url);
         return $tree[count($tree)-1];
+    }
+    // chuyển trang của quyền chính và không cần tham số
+    function nextPage($user, $pass, $toast)
+    {
+        $sql = "SELECT url FROM url JOIN quyenchinh ON quyenchinh.quyen = url.quyen JOIN taikhoan on taikhoan.user = quyenchinh.user WHERE taikhoan.user = ? AND taikhoan.pass = ? AND url.indata = 0 LIMIT 1";
+        $result = query_input($sql, [$user, $pass]);
+        if ($result->num_rows == 0) {
+            header("Location: ../page/403.html");
+        } else {
+            while ($row = $result->fetch_assoc()) {
+                header("Location: ../page/" . $row['url']. $toast);
+            }
+        }
     }
 ?> 

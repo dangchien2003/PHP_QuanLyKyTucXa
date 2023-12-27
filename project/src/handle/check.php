@@ -1,11 +1,11 @@
 <?php
-include 'helper.php';
-function checkAccount($user, $password, $info) {
+include_once 'helper.php';
+function checkUserPassword($user, $password, $info) {
     $sql = "";
     if(!$info) {
         $sql = "select * from taikhoan where user=? and pass = ?";
     }else {
-        $sql = "select nhanvien.anh, nhanvien.hoTen, nhanvien.chucVu from taikhoan JOIN nhanvien on nhanvien.user = taikhoan.user where taikhoan.user = ? and taikhoan.pass = ?;";
+        $sql = "select nhanvien.anh, nhanvien.hoTen, nhanvien.chucVu from taikhoan JOIN nhanvien on nhanvien.user = taikhoan.user where taikhoan.user = ? and taikhoan.pass = ? and taikhoan.tinhtrang = 15;";
     }
     $result = query_input($sql, [$user, $password]);
     

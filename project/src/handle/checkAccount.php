@@ -1,107 +1,69 @@
 <?php
-require "helper.php";
-// session_start();
-// // if(checkRequest($_COOKIE, ["account"], false)) {
-// //     $account = giaiMa($_COOKIE["account"]);
-// //     $account["nho"] = "on";
-// //     echo "cookie";
-// // } else 
-// if(checkRequest($_SESSION, ["account"], false)) {
-//     // if($_SESSION["account"]["die"] < getTimestamp(0)) {
-//     //     header("Location: ../page/dangnhap.php?message=Hết hạn phiên làm việc&status=300");
-//     // }
-// }else {
-//     header("Location: ../page/dangnhap.php");
-// }
-
-// tạm thời không check ck
+require_once "helper.php";
+require_once "check.php";
 session_start();
-$page =  getPageHere($_SERVER["PHP_SELF"]);
-$quyen = [];
-$qc = 0;
-if (!checkRequest($_SESSION, ["account"], false)) {
-    header("Location: ../page/dangnhap.php");
-} else {
-
-
-    $sql = "SELECT nhanvien.anh, quyentruycap.quyen as qtc, taikhoan.quyen as qc, taikhoan.tinhTrang, url.url FROM taikhoan RIGHT JOIN quyentruycap ON taikhoan.user = quyentruycap.user JOIN nhanvien ON nhanvien.user = taikhoan.user RIGHT JOIN url ON url.quyen = quyentruycap.quyen WHERE taikhoan.user = ? and taikhoan.pass = ? and quyentruycap.thoiGianThuHoi IS NULL;";
-    $result = query_input($sql, [$_SESSION["account"]["username"], $_SESSION["account"]["password"]]);
-
-    $next = false;
-    if ($result->num_rows == 0) {
-        session_destroy();
-        header("Location: ../page/dangnhap.php");
+if (checkRequest($_COOKIE, ["account"], false)) {
+    $account = giaiMa($_COOKIE["account"]);
+    kiemTraTaiKhoan($account["username"], $account["password"]);
+} else if (checkRequest($_SESSION, ["account"], false)) {
+    if ($_SESSION["account"]["dieSS"] < getTimestamp(0)) {
+        header("Location: ../page/dangnhap.php?status=300&message=Hết hạn phiên đăng nhập");
     } else {
-        $next = check1($result, $page, $quyen, $qc);
+        kiemTraTaiKhoan($_SESSION["account"]["username"], $_SESSION["account"]["password"]);
     }
-
-    $page_admin = "";
-    // print_r($quyen);
-    if(!$next) {
-        $next = check2($qc, $page, $page_admin);
-    }
-    if(!$next) {
-        header("Location: ../page/$page_admin?status=300&message=Bạn không có quyền truy cập&kc=abc");
-    }
+} else {
+    header("Location: ../page/dangnhap.php");
 }
-// kiểm tra user, pass, quyền xin
-function check1($result, $page, &$quyen, &$qc)
+
+
+function kiemTraTaiKhoan($u, $p)
 {
-    $next = false;
-    $check_tt = false;
-    // kt tk
+    if (checkUserPassword($u, $p, false)) {
+        if (!checkPage($u)) {
+            nextPage($u, $p, "?status=300&message=Bạn không có quyền truy cập");
+            return;
+        }
+    } else {
+        header("Location: ../page/dangnhap.php");
+    }
+}
+
+function checkPage($u)
+{
+    $page =  getPageHere($_SERVER["PHP_SELF"]);
+    if (!checkQC($u, $page)) {
+
+        if (!checkQX($u, $page)) {
+            return false;
+        } else {
+            return true;
+        }
+    } else {
+        return true;
+    }
+}
+
+function checkQC($u, $page)
+{
+    $sql = "SELECT quyenchinh.quyen as qc, url.url from taikhoan LEFT JOIN quyenchinh on taikhoan.user = quyenchinh.user JOIN url ON url.quyen = quyenchinh.quyen WHERE taikhoan.user = ?";
+    $result = query_input($sql, [$u]);
     while ($row = $result->fetch_assoc()) {
-        if (!$check_tt) {
-            switch ($row["tinhTrang"]) {
-                case 14:
-                    header("Location: ../page/dangnhap.php?message=Tài khoản không còn hoạt động&status=400");
-                    break;
-                case 15:
-                    // update ảnh
-                    $_SESSION["account"]["anh"] = $row["anh"];
-                    break;
-                default:
-                    throw new Exception("không nhận ra tình trạng");
-            }
-            $check_tt = true;
+        if ($row["url"] == $page) {
+            return true;
         }
-        if (!$next && $row["url"] === $page) {
-            $next = true;
-        }
-        if (!$qc) {
-
-            $qc = $row["qc"];
-            array_push($quyen, $qc);
-        }
-        array_push($quyen, $row["qtc"]);
     }
-    // lấy quyền dạng key value
-    $quyen_key = createKeyValueArray($quyen, $quyen);
-    $quyen = [];
-    // lấy ra quyền rạng array
-    foreach($quyen_key as $key => $value) {
-        array_push($quyen, $value);
-    }
-    return $next;
+    return false;
 }
 
-// check quyền chính
-function check2($qc, $page, &$page_admin) {
-    $add_page = false;
-    $sql = "SELECT url FROM `url` WHERE quyen=?";
-    $result = query_input($sql, [$qc]);
-    if($result->num_rows == 0) {
-        echo 'không có du l';
-        return false;
-        
-    }else {
-        while($row = $result->fetch_assoc()) {
-            if($page==$row['url']) {
-                return true;
-            }else if(!$add_page) {
-                $page_admin = $row['url'];
-            }
+function checkQX($u, $page)
+{
+    $sql = "SELECT quyentruycap.quyen, url.url FROM quyentruycap JOIN url ON url.quyen = quyentruycap.quyen WHERE quyentruycap.user = ? and quyentruycap.thoiGianThuHoi is null;";
+    $result = query_input($sql, [$u]);
+    while ($row = $result->fetch_assoc()) {
+        if ($row["url"] == $page) {
+            return true;
         }
-        return false;
     }
+    return false;
 }
+?>

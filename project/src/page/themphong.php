@@ -1,7 +1,9 @@
-<?php include './layout/header.php' ?> 
+<?php include_once './layout/header.php';
+    include_once '../handle/checkAccount.php';
+ ?> 
     <div class="row">
         <div class="col-lg-3 bg-menu">
-        <?php include './layout/menu.php' ?>
+        <?php include_once './layout/menu.php' ?>
         </div>
         <div class="col-lg-9 sdp tp" style="height: 1000px;">
             <div class="box">
@@ -104,7 +106,7 @@
         </div>
     </div>
 
-    <?php include './layout/footer.php' ?> 
+    <?php include_once './layout/footer.php' ?> 
 
     <script>
         $(document).ready(function () {

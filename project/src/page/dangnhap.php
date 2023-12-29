@@ -46,7 +46,7 @@
                 
             </div>
             <div class="nho  w-100 " style="padding: 0 30px; color: white;">
-                    <input type="radio" name="nho"> Nhớ mật khẩu
+                    <input type="radio" name="nho" id="nho"> Nhớ mật khẩu
                 </div>
             <a href="#" class="text-decoration-none d-flex justify-content-center">
                 <button class="dangnhap" type="submit">

@@ -16,6 +16,9 @@
 </head>
 
 <body>
+    <?php  
+        
+    ?> 
     <div id="toast"></div>
     <div class="align-items-center d-flex justify-content-center h100">
         <form action="../handle/checklogin.php" method="post" class="login">
@@ -42,7 +45,7 @@
                 </div>
                 
             </div>
-            <div class="nho  w-100 " style="padding: 0 30px;">
+            <div class="nho  w-100 " style="padding: 0 30px; color: white;">
                     <input type="radio" name="nho"> Nhớ mật khẩu
                 </div>
             <a href="#" class="text-decoration-none d-flex justify-content-center">

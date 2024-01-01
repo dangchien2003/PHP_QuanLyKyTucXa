@@ -1,0 +1,361 @@
+.menu .sub-menu {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.menu .list-unstyled  li {
+    height: 30px;
+}
+
+.menu li:hover {
+    background-color: azure;
+}
+
+.menu li i {
+    padding: 3px 5px;
+}
+
+.menu .arrow i {
+    padding: 3px 2px;
+}
+
+.menu {
+    /* height: 200px; */
+}
+
+.bg-menu {
+    background-color: #ececec;
+    border-right: 1px solid #cbcbcb;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu .object i {
+    padding: 0;
+}
+
+
+.menu .arrow {
+    right: 0px;
+    top: 3px
+}
+
+.menu .left, .menu .down {
+    font-size: 12px;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+    gap: 20px;
+    background-color: #1976d2 !important;
+}
+
+header .logo {
+    border-right: 1px solid #cbcbcb;
+    font-size: 150%;
+    line-height: 56px;
+    padding: 0 20px;
+}
+
+header .navbar-nav a {
+    text-align: right;
+    line-height: 56px;
+    font-weight: 500;
+}
+
+header .menu img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+}
+
+header .bi-bell-fill {
+    position: relative;
+}
+header .sl-tb {
+    position: absolute;
+    display: inline-block;
+    /* color: rgb(234, 221, 43); */
+    font-size: 12px;
+    top: -28px;
+    right: -5px;
+    /* background-color: #cbcbcb; */
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    font-style: normal;
+}
+
+
+.sdp {
+    padding: 7px;
+}
+.box {
+    border: 1px solid #ececec;
+    height: 100%;
+    box-shadow: -3px -3px 5px #ececec;
+    padding: 20px 18px;
+}
+
+.sdp .name {
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.sdp .name .bi {
+    color: blue;
+    font-size: 25px;
+    margin-right: 8px;
+}
+
+.sdp .find-tang {
+    width: 250px;
+}
+
+.sdp .img-icon {
+    height: 20px; 
+    padding-right: 8px;
+}
+
+.sdp .list-room  {
+    padding: 20px 0;
+}
+
+.sdp .list-room a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.sdp .list-room .room {
+    height: 150px;
+    width: 130px;
+    border: 1px solid #ececec;
+    display: inline-block;
+    margin: 7px 10px;
+    text-align: center;
+    color: white;
+}
+
+.sdp .list-room .room .top {
+    height: 50%;
+    font-size: 35px;
+}
+.sdp .list-room .room .mid {
+    height: 30%;
+}
+.sdp .list-room .room .bottom {
+    height: 20%;
+}
+
+.sdp .list-room .bg-red{
+    background: linear-gradient(to top, rgb(245, 76, 76), rgb(243, 138, 138));
+} 
+.sdp .list-room .bg-green{
+    background: linear-gradient(to top, rgb(71, 221, 71), rgb(154, 240, 154));
+} 
+.sdp .list-room .bg-yellow{
+    background: linear-gradient(to top, rgb(235, 201, 27), rgb(246, 230, 90));
+} 
+
+.fs-15 {
+    font-size: 16px;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.pd-15 {
+    padding: 15px;
+}
+
+.form-select {
+    margin: 10px 0;
+}
+
+.me-2 {
+    box-shadow: -2px 3px 5px  #ececec, 1px 0 5px #ececec;
+    min-width: 100px;
+    margin-right: 10px;
+    border: 1px solid #ececec;
+}
+
+.mgr-10 {
+    margin-right: 10px;
+}
+
+.pd-0  {
+    padding: 0;
+}
+
+.info {
+    background-color: #fafafa;
+    padding-top: 10px;
+}
+
+.info-student {
+    padding: 5% 0;
+}
+
+.info-student a {
+    color: black;
+}
+
+
+.info-student .a-d-d {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border: 10px solid white;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+.info-student .a-d-d img {
+    object-fit: cover;
+}
+
+.info-student input  {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    
+}
+
+.info-student span {
+    font-weight: 500;
+    font-size: 30px;
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 45px;
+    overflow: hidden;
+
+}
+
+
+.info-student .object {
+    border-bottom: 2px solid #ececec;
+}
+
+.info-student .object #tinhtrangsv {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    outline: none;
+}
+
+.info-student .object label {
+    color: rgb(75, 75, 75);
+}
+
+.info-student .ttp, .info-student .ttsv {
+    min-height: 300px;
+}
+
+.info-student .input-group {
+    margin-bottom: 0!important;
+
+}
+
+.info-student .action {
+    margin: 10px 0;
+}
+
+.info-student .action .icon {
+    display: inline;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    cursor: pointer;
+}
+
+.info-student .action .icon.edit {
+    background-color: #22a9e8;
+    position: relative;
+    
+}
+
+.info-student .action .icon.edit .bi-pencil-fill.show::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    height: 23px;
+    width: 2px;
+    background-color: black;
+    border: 1px solid black;
+    transform: rotate(-39deg);
+    left: 18px;
+    bottom: 9px;
+}
+
+.info-student .action .icon.edit .bi-pencil-fill::after {
+    display: none;
+}
+
+
+.info-student .action .icon.save {
+    background-color: #28e645;
+}
+
+.info-student .action .icon.render {
+    background-color: rgb(250, 250, 83);
+}
+
+.info-student .action .bi-check-lg  {
+    font-size: 25px;
+}
+
+.form-add .icon img {
+    width: 100%;
+    
+    border: dotted 1px black;
+    padding: 5px;
+}
+
+.form-add .icon {
+    position: relative;
+    width: 200px;
+}
+.form-add .icon .action {
+    position: absolute;
+    width: 50px;
+    bottom: -25px;
+    left: 75px;
+    border: none;
+}
+
+.form-add form .form-select {
+    margin: 0;
+}
+
+.form-add form .row {
+    padding: 5px 0;
+}
+
+.form-add form .btn {
+    margin: 10px 0;
+}
+.form-add form label {
+    white-space: nowrap; /* Ngăn chặn xuống dòng */
+    overflow: hidden; /* Ẩn nội dung vượt quá kích thước div */
+    text-overflow: ellipsis; 
+    width: 100%;
+}
+
+.form-add {
+    padding-top: 20px;
+}

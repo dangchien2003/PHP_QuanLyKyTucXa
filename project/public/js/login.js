@@ -10,4 +10,16 @@ $(document).ready(function() {
         $(".bi-eye-slash-fill").hide();
         $("#pass-input").attr('type', "password");
     })
+
+    let clicked = false;
+
+    $('#nho').click(function() {
+        if (!clicked) {
+            $(this).prop('checked', true);
+            clicked = true;
+        }else {
+            $(this).prop('checked', false);
+            clicked = false;
+        }
+    });
 })

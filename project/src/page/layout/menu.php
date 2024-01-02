@@ -39,10 +39,10 @@
             </span>
         </li>
         <ul class="list-unstyled sub-menu">
-            <a href="./thongtinsv.php?idsv=1">
+            <a href="./danhsachsv.php">
                 <li>
                     <i class="bi bi-border-style"></i>
-                    Thông tin sinh viên
+                    Danh sách sinh viên
                 </li>
             </a>
             <a href="#">

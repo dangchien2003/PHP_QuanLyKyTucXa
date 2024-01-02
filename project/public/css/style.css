@@ -359,3 +359,55 @@ header .sl-tb {
 .form-add {
     padding-top: 20px;
 }
+
+.btn-tt {
+    min-height: 25px;
+    max-height: 50px;
+    width: 100px;
+    border-radius: 30px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    margin: 0 3px;
+}
+
+.table-sv {
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid #ececec;
+    box-shadow: 0px -3px 5px #ececec;
+}
+
+.table-sv table {
+    
+}
+
+table a {
+    text-decoration: none;
+    color: black;
+}
+table a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.bgr-ok {
+    background-color: #7FD7A0;
+}
+
+.bgr-no-ok {
+    background-color: #DE9BA4;
+}
+
+.bgr-wait {
+    background-color: #EFC477;
+}
+
+.bgr-info {
+    background-color: #68C4E9;
+}
+
+.bgr-error {
+    background-color: rgb(243, 106, 106);
+}

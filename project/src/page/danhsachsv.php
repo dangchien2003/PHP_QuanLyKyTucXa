@@ -1,4 +1,5 @@
 <?php include_once './layout/header.php' ?>
+<?php include_once  '../handle/checkAccount.php'?> 
 <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
 <div class="row">
     <div class="col-lg-3 bg-menu">
@@ -56,7 +57,7 @@
                                 <tr>
                                     <th scope="row"><?php echo $row['id'] ?> </th>
                                     <td><?php echo $row['maPhong'] ?></td>
-                                    <td><?php echo $row['hoTen'] ?></td>
+                                    <td><img src="../../public/image/uploads/<?php echo $row['anh'] ?>.png " class="mini_img" ></img><?php echo $row['hoTen'] ?></td>
                                     <td><?php echo $row['namSinh'] ?></td>
                                     <td><?php echo $row['ngayVao'] ?></td>
                                     <td><?php

@@ -144,6 +144,9 @@
             $envFilePath = '../config/.env';
             // đọc file
             $envData = parse_ini_file($envFilePath);
+            if(count($envData) == 0) {
+                return ["length"=>0];
+            }
             return $envData; 
         }catch (Exception $e) {
             return ["error"=>true];

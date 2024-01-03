@@ -41,6 +41,7 @@ try {
     } else {
     }
 } catch (Exception $e) {
+    log_error($e->getMessage());
     header("Location: ../page/dangnhap.php?message=Hiện không thể đăng nhập&status=400");
 }
 

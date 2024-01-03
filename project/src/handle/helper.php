@@ -17,6 +17,7 @@
                 return $run;
             }
         }catch(Exception $e) {
+            log_error($e->getMessage());
             throw new Exception;
         }
         
@@ -53,6 +54,7 @@
                 return $run;
             }
         }catch (Exception $e) {
+            log_error($e->getMessage());
             throw new Exception($e->getMessage());
         }
         
@@ -149,7 +151,20 @@
             }
             return $envData; 
         }catch (Exception $e) {
+            log_error($e->getMessage());
             return ["error"=>true];
         }
+    }
+
+    function log_error($message) {
+        
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $dateTime = new DateTime();
+        $error_message = $dateTime->format('Y-m-d H:i:s')."||".$message;
+        // Đường dẫn đến tệp tin log của bạn
+        $log_file = '../config/log_error.txt';
+
+        // Ghi thông điệp lỗi vào tệp tin log
+        file_put_contents($log_file, $error_message . PHP_EOL, FILE_APPEND);
     }
 ?> 

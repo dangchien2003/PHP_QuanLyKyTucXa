@@ -47,6 +47,7 @@ try {
         echo respone(503, "Phương thức không hợp kệ");
     }
 } catch (Exception $e) {
+    log_error($e->getMessage());
     echo respone(504, "Lỗi trong quá trình xử lý");
     exit();
 }

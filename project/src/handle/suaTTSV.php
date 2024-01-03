@@ -12,6 +12,7 @@
             }
         }
     }catch(Exception $e){
+        log_error($e->getMessage());
         header("Location: ../page/thongtinsv.php?message=Có lỗi xảy ra&status=400");
     }
 ?> 

@@ -426,3 +426,13 @@ table a:hover {
 .bgr-error {
     background-color: rgb(243, 106, 106);
 }
+
+.sv_in_room .maphong {
+    border: none;
+    max-width: 100px;
+    outline: none;
+}
+
+.sv_in_room .actionsv {
+    cursor: pointer;
+}

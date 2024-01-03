@@ -119,42 +119,120 @@ include_once '../handle/checkAccount.php';
                                 ?>
                                 <button type="submit" class="btn btn-success">Lưu</button>
                             </form>
-                    <?php
+                            <div class="table-sv sv_in_room">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Phòng</th>
+                                            <th scope="col">Tên</th>
+                                            <th scope="col">Trạng thái</th>
+                                            <th scope="col">Hành động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $sql = "select sinhvien.id, sinhvien.hoTen, sinhvien.tinhTrang as idtt, tinhtrang.tinhTrang, sinhvien.maPhong from sinhvien join tinhTrang on tinhTrang.id = sinhvien.tinhTrang WHERE sinhvien.maPhong = ? and sinhvien.tinhTrang != 1;";
+
+                                        if (checkRequest($_GET, ["maphong"])) {
+                                            $result = query_input($sql, [$_GET['maphong']]);
+                                            if ($result->num_rows > 0) {
+                                                while ($row = $result->fetch_assoc()) {
+                                        ?>
+
+                                                    <form action="../handle/doiPhongSV.php?maphong=<?php echo $row['maPhong']?> " method="post">
+                                                        <tr>
+                                                            <td><input type="text" class="maphong" value="<?php echo $row['id']; ?>" name="idsv" readonly style="width: 50px;"></td>
+                                                            <td><input type="text" class="maphong" value="<?php echo $row['maPhong'] ?>" name="maphongsv" readonly></td>
+                                                            <td><?php echo $row['hoTen'] ?></td>
+                                                            <td>
+                                                                <?php
+                                                                $class = null;
+                                                                switch ($row['idtt']) {
+                                                                    case 1:
+                                                                        $class = "bgr-no-ok";
+                                                                        break;
+                                                                    case 2:
+                                                                        $class = "bgr-ok";
+                                                                        break;
+                                                                    case 3:
+                                                                        $class = "bgr-info";
+                                                                        break;
+                                                                    case 4:
+                                                                        $class = "bgr-wait";
+                                                                        break;
+                                                                    default:
+                                                                        $class = "bgr-wait";
+                                                                        break;
+                                                                }
+                                                                ?>
+                                                                <div class="btn-tt <?php echo $class; ?>">
+                                                                    
+                                                                    <?php echo $row['tinhTrang'] 
+                                                                    ?>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="btn-tt d-inline-block bgr-wait edit">Sửa</div>
+                                                                <button type="submit" class="btn-tt d-inline-block bgr-ok save d-none">Lưu</button>
+                                                            </td>
+                                                        </tr>
+                                                    </form>
+
+                                        <?php
+
+                                                }
+                                            }
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                        <?php
 
                         }
                     } else {
                         echo '<div class="bi-text-center">Không có thông tin</div>';
                     }
-                    ?>
-
+                        ?>
+                            </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<?php include_once './layout/footer.php' ?>
+    <?php include_once './layout/footer.php' ?>
+    
+    <script>
+        $(document).ready(function() {
+            $('select[name="tang"]').change(function() {
+                if ($('select[name="tang"]').val() == 0) {
+                    $('input[name="sotang"]').removeClass('d-none');
+                } else {
+                    $('input[name="sotang"]').addClass('d-none');
+                }
+            })
+            $('input[name="sotang"]:first').on('input', function() {
+                var value = parseInt($(this).val());
+                if (value <= 0) {
+                    $(this).val(1);
+                }
+            });
+            $('input[name="succhua"]:first').on('input', function() {
+                var value = parseInt($(this).val());
+                if (value < 0) {
+                    $(this).val(0);
+                }
+            });
 
-<script>
-    $(document).ready(function() {
-        $('select[name="tang"]').change(function() {
-            if ($('select[name="tang"]').val() == 0) {
-                $('input[name="sotang"]').removeClass('d-none');
-            } else {
-                $('input[name="sotang"]').addClass('d-none');
-            }
+            let ipMaPhong = $('input[name="maphongsv"]');
+            let btnEdit = $('.edit');
+            let btnSave = $('.save');
+            btnEdit.each(function(index, element) {
+                $(element).click(function() {
+                    $(ipMaPhong[index]).prop("readonly", false);
+                    $(element).addClass("d-none");
+                    $(btnSave[index]).removeClass("d-none");
+                })
+            })
         })
-        $('input[name="sotang"]:first').on('input', function() {
-            var value = parseInt($(this).val());
-            if (value <= 0) {
-                $(this).val(1);
-            }
-        });
-        $('input[name="succhua"]:first').on('input', function() {
-            var value = parseInt($(this).val());
-            if (value < 0) {
-                $(this).val(0);
-            }
-        });
-    })
-</script>
+    </script>

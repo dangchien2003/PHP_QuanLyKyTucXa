@@ -33,7 +33,7 @@ include_once '../handle/checkAccount.php';
                                         <div class="col-md-2">
                                             <label for="exampleFormControlInput1" class="form-label">Ký hiệu phòng:</label>
                                             <input type="text" class="form-control" id="exampleFormControlInput1"
-                                                value="<?php echo $row['kyHieu'] ?> " name="kyhieu" required>
+                                                value="<?php echo $row['kyHieu'] ?>" name="kyhieu" required>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="exampleFormControlInput1" class="form-label">Mã phòng:</label>
@@ -96,7 +96,7 @@ include_once '../handle/checkAccount.php';
                                                 if ($result->num_rows > 0) {
                                                     while ($rowtt = $result->fetch_assoc()) {
                                                         ?>
-                                                        <option value="<?php echo $rowtt["id"] ?> " <?php if ($rowtt["id"] == $row['tinhTrang']) {
+                                                        <option value="<?php echo $rowtt["id"] ?>" <?php if ($rowtt["id"] == $row['tinhTrang']) {
                                                                 echo 'selected';
                                                             } ?>>
                                                             <?php echo $rowtt["tinhtrang"]; ?>
@@ -147,7 +147,7 @@ include_once '../handle/checkAccount.php';
                                                 while ($row = $result->fetch_assoc()) {
                                                     ?>
 
-                                                    <form action="../handle/doiPhongSV.php?maphong=<?php echo $row['maPhong'] ?> "
+                                                    <form action="../handle/doiPhongSV.php?maphong=<?php echo $row['maPhong'] ?>"
                                                         method="post">
                                                         <tr>
                                                             <td><input type="text" class="maphong" value="<?php echo $row['id']; ?>"

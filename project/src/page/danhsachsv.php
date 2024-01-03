@@ -18,7 +18,7 @@
                         <option value="1">Tầng 1</option>
                         <option value="2">Tầng 2</option>
                         <option value="3">Tầng 3</option>
-                    </select>
+                    </select> 
                 </div>
                 <div class="ttp">
                     <div class="fs-15 fw-500">Tình trạng phòng:</div>

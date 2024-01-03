@@ -25,7 +25,7 @@ include_once 'helper.php';
                 
 
 
-                echo "<a href="."./thongtinp.php?maphong=".substr($room['phong'], 1)."> <div class='room $bg_room'>
+                echo "<a href=".'"./thongtinp.php?maphong='.substr($room['phong'], 1).'"'."> <div class='room $bg_room'>
                 <div class='top d-flex justify-content-center align-items-end'>
                     <span>" . $room['phong'] . "</span>
                 </div>

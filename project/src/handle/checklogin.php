@@ -8,7 +8,7 @@ try {
         // đúng tài khoản mật khẩu
         if ($result) {
 
-            $account = ["username"=>$_POST["username"], "password"=>$_POST["password"], "dieSS"=>getTimestamp(30)];
+            $account = ["username"=>$_POST["username"], "password"=>$_POST["password"], "dieSS"=>getTimestamp(get_ENV()['timeSession'])];
             $info = null;
             while ($row = $result->fetch_assoc()) {
                 $info = ["anh" => $row["anh"], "hoten" => $row["hoTen"], "chucvu" => $row["chucVu"]];

@@ -137,4 +137,16 @@
             }
         }
     }
+
+    function get_ENV() {
+        try {
+            // đường dẫn file env
+            $envFilePath = '../config/.env';
+            // đọc file
+            $envData = parse_ini_file($envFilePath);
+            return $envData; 
+        }catch (Exception $e) {
+            return ["error"=>true];
+        }
+    }
 ?> 

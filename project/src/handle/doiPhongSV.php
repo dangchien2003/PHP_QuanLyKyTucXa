@@ -1,4 +1,5 @@
 <?php
+include_once '../handle/checkAccount.php';
 include_once './helper.php';
 if(checkRequest($_POST, ['maphongsv', 'idsv'])) {
     $sql = "update sinhvien set maphong = ? where id = ?";

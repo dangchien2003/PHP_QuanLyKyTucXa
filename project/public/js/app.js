@@ -20,4 +20,22 @@ $(document).ready(function() {
         }
     }
     print_toast();
+
+    
 })
+function drawChart(canvas, option, data, type, background = "blue") {
+    if (option.length == data.length) {
+        var data = {
+            labels: option,
+            datasets: [{
+                label: "",
+                data: data,
+                backgroundColor: background
+            }]
+        };
+        new Chart(canvas, {
+            type: type,
+            data: data
+        });
+    }
+}

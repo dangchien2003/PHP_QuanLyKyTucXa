@@ -58,5 +58,33 @@
                 </li>
             </a>
         </ul>
+        <li class="parent-menu position-relative on">
+            <i class="bi bi-door-open"></i>
+            Báo cáo thống kê
+            <span class="arrow position-absolute">
+                <i class="bi bi-chevron-left left d-none"></i>
+                <i class="bi bi-chevron-down down"></i>
+            </span>
+        </li>
+        <ul class="list-unstyled sub-menu">
+            <a href="./danhsachsv.php">
+                <li>
+                    <i class="bi bi-border-style"></i>
+                    Thống kê phòng
+                </li>
+            </a>
+            <a href="#">
+                <li>
+                    <i class="bi bi-patch-plus"></i>
+                    Thống kê sinh viên
+                </li>
+            </a>
+            <a href="#">
+                <li>
+                    <i class="bi bi-vector-pen"></i>
+                    Thống kê hoá đơn
+                </li>
+            </a>
+        </ul>
     </ul>
 </nav>

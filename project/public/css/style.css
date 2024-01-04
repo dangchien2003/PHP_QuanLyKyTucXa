@@ -436,3 +436,22 @@ table a:hover {
 .sv_in_room .actionsv {
     cursor: pointer;
 }
+
+.baocao .thongke{
+    padding: 20px 10px;
+    border-top: 1px solid #ececec;
+    box-shadow: 0px -5px 5px -5px #ececec;;
+
+}
+
+.baocao .thongke .group{
+    padding: 0 10px;
+}
+
+.baocao .thongke .group .data {
+    font-weight: bold;
+}
+
+.baocao .thongke .bieudo {
+    height: 400px;
+}

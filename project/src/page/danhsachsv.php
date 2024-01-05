@@ -15,10 +15,26 @@
                 <div class="find-tang">
                     <div class="fs-15 fw-500">Tầng:</div>
                     <select class="form-select " aria-label="Default select example" id="fillter_t">
-                        <option value="0">Tất cả</option>
-                        <option value="1">Tầng 1</option>
-                        <option value="2">Tầng 2</option>
-                        <option value="3">Tầng 3</option>
+                        <option value="0" <?php if(checkRequest($_GET, ['t'], true)) {
+                            if($_GET['t'] == 0){
+                                echo "selected";
+                            }
+                        }?> >Tất cả</option>
+                        <option value="1" <?php if(checkRequest($_GET, ['t'], true)) {
+                            if($_GET['t'] == 1){
+                                echo "selected";
+                            }
+                        }?>>Tầng 1</option>
+                        <option value="2" <?php if(checkRequest($_GET, ['t'], true)) {
+                            if($_GET['t'] == 2){
+                                echo "selected";
+                            }
+                        }?>>Tầng 2</option>
+                        <option value="3" <?php if(checkRequest($_GET, ['t'], true)) {
+                            if($_GET['t'] == 3){
+                                echo "selected";
+                            }
+                        }?>>Tầng 3</option>
                     </select>
                 </div>
                 <div class="ttp">
@@ -60,9 +76,15 @@
                         $result = null;
                         $page = 1;
                         $tt = "sinhvien.tinhTrang";
-                        if (checkRequest($_GET, ["page"])) {
-                            $page = $_GET["page"] * 1;
+                        $t = "phong.tang";
+                        if(checkRequest($_GET, ["t"])) {
+                            $t = $_GET["t"];
                         }
+
+                        if (checkRequest($_GET, ["page"])) {
+                            $page = $_GET["page"];
+                        }
+
                         if (checkRequest($_GET, ["tt"], true)) {
                             switch ($_GET["tt"]) {
                                 case "2":
@@ -72,10 +94,8 @@
                                     $tt = 1;
                                     break;
                             }
-                        } else {
-
                         }
-                        $sql = "SELECT sinhvien.id, anh, hoTen, maPhong, namSinh, ngayVao, tinhTrang.id as idtt, tinhTrang.tinhTrang FROM sinhvien JOIN tinhTrang on tinhTrang.id = sinhvien.tinhTrang where sinhvien.tinhtrang = $tt LIMIT ?,?";
+                        $sql = "SELECT sinhvien.id, anh, hoTen, sinhvien.maPhong, namSinh, ngayVao, tinhTrang.id as idtt, tinhTrang.tinhTrang FROM sinhvien JOIN tinhTrang on tinhTrang.id = sinhvien.tinhTrang join phong on sinhvien.maPhong = phong.maPhong where sinhvien.tinhtrang = $tt and phong.tang = $t  LIMIT ?, ?";
                         $result = query_input($sql, [0, $page * 9]);
                         if ($result->num_rows == 0) {
                             echo '<div class="bi-text-center">Không có thông tin</div>';
@@ -163,15 +183,23 @@
                                 </li>
                                 <?php
                             } else {
-                                if(count($_GET) > 0) {
-                                    ?> 
-                                    <li class="page-item"><a class="page-link" href="<?php echo $_SERVER['REQUEST_URI']."&page=$i"?>"><?php echo $i ?></a></li>
+                                    ?>
+                                    <li class="page-item"><a class="page-link" href="<?php 
+                                        if (strpos($_SERVER['REQUEST_URI'], "page=") !== false) {
+                                            // Nếu chuỗi cần tìm tồn tại trong chuỗi ban đầu, thực hiện thay thế
+                                            $chuoiMoiSauThayThe = str_replace('page='.$_GET['page'], "page=$i", $_SERVER['REQUEST_URI']);
+                                            echo $chuoiMoiSauThayThe;
+                                        } else {
+                                            if(count($_GET) > 0) {
+                                                echo $_SERVER['REQUEST_URI']."&page=$i";
+                                            }else {
+                                                echo $_SERVER['REQUEST_URI']."?page=$i";
+                                            }
+                                            
+                                        }
+                                        ?>"><?php echo $i ?></a></li>
                                     <?php 
-                                }else {
-                                    ?> 
-                                    <li class="page-item"><a class="page-link" href="<?php echo $_SERVER['REQUEST_URI']."?page=$i"?>"><?php echo $i ?></a></li>
-                                    <?php 
-                                }
+                                
                                 ?>
                                 
                                 <?php
@@ -200,28 +228,27 @@
             findTable($(".table")[0], $("#find_MP").val(), $("#find_column").val())
         })
 
-        // // lọc button
-        // let a = $("#fillter");
-        // console.log(a);
-        // $(form_fillter).find("button").each((index, element)=> {
-        //     $(element).click(() => {
-        //         switch($(element).attr("id")) {
-        //             case "dango":
-        //                 $(a).attr("href", "./danhsachsv.php?tt=2");
-        //                 break;
-        //             case "daroidi":
-        //                 $(a).attr("href", "./danhsachsv.php?tt=1");
-        //                 break;
-        //             default:
-        //                 $(a).attr("href", "./danhsachsv.php?tt=0");
-
-        //         }
-        //         $(form_fillter).submit();
-        //     })
-        // })
-
-
         // lọc select tầng
+        $("#fillter_t").on("change", () => {
+            let currentURL = window.location.href; // Lấy URL hiện tại
+            let tangValue = $("#fillter_t").val(); // Lấy giá trị của thẻ select
+
+            let url = new URL(currentURL);
+            let params = new URLSearchParams(url.search);
+
+            // Xóa tất cả các tham số 't' hiện có từ URL
+            params.delete('t');
+
+            // Thêm tham số 't' mới vào URL
+            params.set('t', tangValue);
+
+            // Gán các tham số đã chỉnh sửa vào URL
+            url.search = params.toString();
+            history.replaceState(null, '', url.toString()); // Cập nhật URL mà không tạo ra lịch sử duyệt
+
+            // Load lại trang để áp dụng URL mới
+            window.location.reload();
+        })
     })
     function findTable(table, value, column) {
         var index = findIndex(table, column);

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../public/image/icon/logo.png" type="image/png">
     <title>Quản lý ký túc xá</title>
     <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../public/css/style.css">
@@ -26,7 +27,7 @@
 ?>
     <div id="toast"></div>
     <header class="text-white ">
-        <div class="logo"><div class="" style="width: 100%;">logo</div></div>
+        <div class="logo"><img src="../../public/image/icon/logo.png" alt=""><span class="" style="width: 100%;">KÝ TÚC XÁ</span></div>
         <div class="menu ">
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container-fluid">

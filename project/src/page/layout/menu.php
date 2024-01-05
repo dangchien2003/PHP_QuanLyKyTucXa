@@ -67,7 +67,7 @@
             </span>
         </li>
         <ul class="list-unstyled sub-menu">
-            <a href="./danhsachsv.php">
+            <a href="./thongkephong.php">
                 <li>
                     <i class="bi bi-border-style"></i>
                     Thống kê phòng

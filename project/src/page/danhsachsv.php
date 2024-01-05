@@ -120,7 +120,6 @@
         })
     })
     function findTable(table, value, column) {
-        console.log(column);
         var index = findIndex(table, column);
         numColumn = $(table).find("thead").find("th").length;
         if(index) {

@@ -8,7 +8,7 @@
     <div class="col-lg-9 sdp tp" style="min-height: 1000px;">
         <div class="box">
             <div class="name">
-                <i class="bi bi-building-add"></i>Thống kê phòng
+                <i class="bi bi-bar-chart-line-fill"></i>Thống kê phòng
             </div>
             <div class="baocao">
                 <div class="thongke" id="thongkesoluongtrong">

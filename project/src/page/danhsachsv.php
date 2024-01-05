@@ -28,6 +28,7 @@
                             <a href="#"><button class="btn me-2" type="button"><img src="../../public/image/icon/audience.png" alt="" class="img-icon">Đang ở</button></a>
                             <a href="#"><button class="btn me-2" type="button"><img src="../../public/image/icon/null.png" alt="" class="img-icon">Phòng trống</button></a>
                             <input type="text" class="btn me-2" placeholder="Tìm mã sinh viên" id="find_MP">
+                            <input type="text" class="btn me-2" placeholder="Tên cột" id="find_column" value="#">
                         </form>
                     </nav>
                     
@@ -115,10 +116,11 @@
 <script>
     $(document).ready(function() {
         $("#find_MP").on("change", () => {
-            findTable($(".table")[0], $("#find_MP").val(), "#")
+            findTable($(".table")[0], $("#find_MP").val(), $("#find_column").val())
         })
     })
     function findTable(table, value, column) {
+        console.log(column);
         var index = findIndex(table, column);
         numColumn = $(table).find("thead").find("th").length;
         if(index) {
@@ -152,7 +154,7 @@
     function findIndex(table, column) {
         let columnIndex = 0;
         $(table).find("thead").find("th").each((index, element) => {
-            if($(element).text().trim().toUpperCase() == column) {
+            if($(element).text().trim().toUpperCase() == column.toUpperCase()) {
                 columnIndex = index+1;
             }
         });

@@ -27,8 +27,10 @@
                             <a href="#" class="mgr-10"><button class="btn me-2" type="button">Tất cả</button></a>
                             <a href="#"><button class="btn me-2" type="button"><img src="../../public/image/icon/audience.png" alt="" class="img-icon">Đang ở</button></a>
                             <a href="#"><button class="btn me-2" type="button"><img src="../../public/image/icon/null.png" alt="" class="img-icon">Phòng trống</button></a>
+                            <input type="text" class="btn me-2" placeholder="Tìm mã sinh viên" id="find_MP">
                         </form>
                     </nav>
+                    
                 </div>
             </div>
             <div class="table-sv">
@@ -55,7 +57,7 @@
                             while ($row = $result->fetch_assoc()) {
                         ?>
                                 <tr>
-                                    <th scope="row"><?php echo $row['id'] ?> </th>
+                                    <td scope="row" style="font-weight: bold;"><?php echo $row['id'] ?> </td>
                                     <td><?php echo $row['maPhong'] ?></td>
                                     <td><img src="../../public/image/uploads/<?php echo $row['anh'] ?>.png " class="mini_img" ></img><?php echo $row['hoTen'] ?></td>
                                     <td><?php echo $row['namSinh'] ?></td>
@@ -109,3 +111,51 @@
 </div>
 
 <?php include_once './layout/footer.php' ?>
+
+<script>
+    $(document).ready(function() {
+        $("#find_MP").on("change", () => {
+            findTable($(".table")[0], $("#find_MP").val(), "#")
+        })
+    })
+    function findTable(table, value, column) {
+        var index = findIndex(table, column);
+        numColumn = $(table).find("thead").find("th").length;
+        if(index) {
+            index = index-1;
+            let tr = Array.from($(table).find("tbody").find("tr"));
+            // nếu ô tìm kiếm rỗng hoặc bằng 0
+            if(value == "" || value == 0) {
+                for(let i = 0; i < tr.length; i++) {
+                    // mở ẩn
+                    $(tr[i]).removeClass("d-none");
+                }
+            }else {
+                // lặp qua từng tr
+                for(let i = 0; i < tr.length; i++) {
+                    // mở ẩn
+                    $(tr[i]).removeClass("d-none");
+                    // lấy td của từng tr
+                    let td = $(tr[i]).find("td");
+                    // nếu khác với ô tìm kiếm thì ẩn
+                    if($(td[index]).text().trim().toUpperCase() != value.trim().toUpperCase()) {
+                        $(tr[i]).addClass("d-none");
+                    }
+                }
+            }
+        }else {
+            console.log("Không tìm thấy cột");
+        }
+    }
+
+    // trả về index trong của thẻ th + 1 || không tìm thấy trả về 0
+    function findIndex(table, column) {
+        let columnIndex = 0;
+        $(table).find("thead").find("th").each((index, element) => {
+            if($(element).text().trim().toUpperCase() == column) {
+                columnIndex = index+1;
+            }
+        });
+        return columnIndex;
+    }
+</script>

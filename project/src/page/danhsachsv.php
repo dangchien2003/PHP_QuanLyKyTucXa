@@ -38,7 +38,7 @@
                     </select>
                 </div>
                 <div class="ttp">
-                    <div class="fs-15 fw-500">Tình trạng phòng:</div>
+                    <div class="fs-15 fw-500">Trạng thái:</div>
                     <nav class="navbar navbar-light">
                         <form action="" method="get" class="container-fluid justify-content-start pd-0"
                             id="form_fillter">
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="table-sv">
-                <table class="table">
+                <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>

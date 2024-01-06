@@ -1,5 +1,5 @@
 <?php include_once './layout/header.php' ?>
-<?php //include_once '../handle/checkAccount.php' ?>
+<?php include_once '../handle/checkAccount.php' ?>
 
 <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
 <div class="row">

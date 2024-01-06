@@ -68,9 +68,7 @@ include_once '../handle/checkAccount.php';
                         while ($row = $result->fetch_assoc()) {
                             ?>
                             <span class="group">
-                                <p><span class="option">Trống
-                                        <?php echo $row['slt']; ?>
-                                    </span><span>: </span><span class=data><?php echo $row['sl']; ?></span></p>
+                                <p><span class="option">Trống <?php echo $row['slt']; ?></span><span>: </span><span class=data><?php echo $row['sl']; ?></span></p>
                             </span>
                         <?php
                         }

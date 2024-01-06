@@ -156,9 +156,6 @@
                                         <a href="./thongtinsv.php?idsv=<?php echo $row['id'] ?>&action=show  " class="show">
                                             <div class="btn-tt d-inline-block bgr-ok">Xem</div>
                                         </a>
-                                        <a href="#" class="show">
-                                            <div class="btn-tt d-inline-block bgr-error">Xoá</div>
-                                        </a>
                                     </td>
 
                                 </tr>

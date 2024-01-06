@@ -43,7 +43,7 @@ try {
                         $class = "bgr-wait";
                         break;
                 }
-                $message .= '<tr><td scope="row" style="font-weight: bold;">' . $row['id'] . '</td><td>' . $row['maPhong'] . '</td><td><img src="../../public/image/uploads/' . $row['anh'] . '.png "class="mini_img"></img>' . $row['hoTen'] . '</td><td>' . $row['namSinh'] . '</td><td>' . $row['ngayVao'] . '</td><td><div class="btn-tt ' . $class . '">' . $row['tinhTrang'] . '</div></td><td><a href="./thongtinsv.php?idsv=' . $row['id'] . '&action=show" class="show"><div class="btn-tt d-inline-block bgr-ok">Xem</div></a><a href="#" class="show"><div class="btn-tt d-inline-block bgr-error">Xoá</div></a></td></tr>';
+                $message .= '<tr><td scope="row" style="font-weight: bold;">' . $row['id'] . '</td><td>' . $row['maPhong'] . '</td><td><img src="../../public/image/uploads/' . $row['anh'] . '.png "class="mini_img"></img>' . $row['hoTen'] . '</td><td>' . $row['namSinh'] . '</td><td>' . $row['ngayVao'] . '</td><td><div class="btn-tt ' . $class . '">' . $row['tinhTrang'] . '</div></td><td><a href="./thongtinsv.php?idsv=' . $row['id'] . '&action=show" class="show"><div class="btn-tt d-inline-block bgr-ok">Xem</div></a></td></tr>';
             }
         }
         echo respone(200, $message);

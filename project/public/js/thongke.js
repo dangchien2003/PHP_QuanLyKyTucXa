@@ -13,9 +13,15 @@ if ($("#thongketinhtrangphong")) {
   ]);
 }
 
-if($("#thongkesoluongtrong")) {
+if ($("#thongkesoluongtrong")) {
   canvas = $("#thongkesoluongtrong").find("canvas")[0];
   getText($("#thongkesoluongtrong"));
+  drawChart(canvas, option, data, "bar");
+}
+
+if ($("#thongkesvdangkytheothang")) {
+  canvas = $("#thongkesvdangkytheothang").find("canvas")[0];
+  getText($("#thongkesvdangkytheothang"));
   drawChart(canvas, option, data, "bar");
 }
 

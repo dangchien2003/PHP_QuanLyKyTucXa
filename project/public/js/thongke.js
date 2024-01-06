@@ -24,6 +24,42 @@ if ($("#thongkesvdangkytheothang")) {
   getText($("#thongkesvdangkytheothang"));
   drawChart(canvas, option, data, "bar");
 }
+if ($("#thongkehoadonphong")) {
+  canvas = $("#thongkehoadonphong").find("canvas")[0];
+  getText($("#thongkehoadonphong"));
+  drawChart(canvas, option, data, "pie", [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "orange",
+    "aqua",
+  ]);
+}
+if ($("#thongkehoadondiennuoc")) {
+  canvas = $("#thongkehoadondiennuoc").find("canvas")[0];
+  getText($("#thongkehoadondiennuoc"));
+  drawChart(canvas, option, data, "pie", [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "orange",
+    "aqua",
+  ]);
+}
+if ($("#thongkehoadonxe")) {
+  canvas = $("#thongkehoadonxe").find("canvas")[0];
+  getText($("#thongkehoadonxe"));
+  drawChart(canvas, option, data, "pie", [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "orange",
+    "aqua",
+  ]);
+}
 
 function getText(parent) {
   option = [];

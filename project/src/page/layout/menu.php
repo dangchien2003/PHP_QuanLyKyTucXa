@@ -31,7 +31,7 @@
 
         </ul>
         <li class="parent-menu position-relative on">
-            <i class="bi bi-door-open"></i>
+        <i class="bi bi-person-walking"></i>
             Quản lý sinh viên
             <span class="arrow position-absolute">
                 <i class="bi bi-chevron-left left d-none"></i>
@@ -48,7 +48,7 @@
             <a href="#">
                 <li>
                     <i class="bi bi-patch-plus"></i>
-                    Thêm phòng
+                    Thêm sinh viên
                 </li>
             </a>
             <a href="#">
@@ -59,7 +59,7 @@
             </a>
         </ul>
         <li class="parent-menu position-relative on">
-            <i class="bi bi-door-open"></i>
+            <i class="bi bi-bar-chart-line-fill"></i>
             Báo cáo thống kê
             <span class="arrow position-absolute">
                 <i class="bi bi-chevron-left left d-none"></i>
@@ -69,19 +69,19 @@
         <ul class="list-unstyled sub-menu">
             <a href="./thongkephong.php">
                 <li>
-                    <i class="bi bi-border-style"></i>
+                    <i class="bi bi-door-closed-fill"></i>
                     Thống kê phòng
                 </li>
             </a>
-            <a href="#">
+            <a href="./thongkesinhvien.php">
                 <li>
-                    <i class="bi bi-patch-plus"></i>
+                    <i class="bi bi-person-walking"></i>
                     Thống kê sinh viên
                 </li>
             </a>
-            <a href="#">
+            <a href="./thongkehoadon.php">
                 <li>
-                    <i class="bi bi-vector-pen"></i>
+                    <i class="bi bi-calendar-month-fill"></i>
                     Thống kê hoá đơn
                 </li>
             </a>

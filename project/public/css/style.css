@@ -445,7 +445,7 @@ table a:hover {
     padding: 20px 10px;
     border-top: 1px solid #ececec;
     box-shadow: 0px -5px 5px -5px #ececec;;
-
+    margin: 0 auto;
 }
 
 .baocao .thongke .group{

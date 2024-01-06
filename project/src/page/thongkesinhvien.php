@@ -1,5 +1,5 @@
 <?php include './layout/header.php';
-// include_once '../handle/checkAccount.php';
+include_once '../handle/checkAccount.php';
 ?>
 <div class="row">
     <div class="col-lg-3 bg-menu">
@@ -53,9 +53,7 @@
                         while ($row = $result->fetch_assoc()) {
                             ?>
                             <span class="group">
-                                <p><span class="option">Tháng
-                                        <?php echo $row['thangVao']; ?>
-                                    </span><span>: </span><span class=data><?php echo $row['sl']; ?></span></p>
+                                <p><span class="option">Tháng <?php echo $row['thangVao']; ?></span><span>: </span><span class=data><?php echo $row['sl']; ?></span></p>
                             </span>
                         <?php
                         }
@@ -80,19 +78,7 @@ addScript(["chart", "thongke"])
 <script>
     $(document).ready(function () {
         $("#year").on("change", function () {
-            let currentURL = window.location.href; // Lấy URL hiện tại
-            let year = $("#year").val(); // Lấy giá trị của thẻ select
-
-            let url = new URL(currentURL);
-            let params = new URLSearchParams(url.search);
-
-            // Thêm tham số 't' mới vào URL
-            params.set('year', year);
-
-            // Gán các tham số đã chỉnh sửa vào URL
-            url.search = params.toString();
-            history.replaceState(null, '', url.toString()); // Cập nhật URL mà không tạo ra lịch sử duyệt
-
+            addParams("year", $("#year").val());
             // Load lại trang để áp dụng URL mới
             window.location.reload();
         })

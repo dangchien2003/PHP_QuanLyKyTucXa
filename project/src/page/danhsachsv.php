@@ -1,5 +1,5 @@
 <?php include_once './layout/header.php' ?>
-<?php include_once '../handle/checkAccount.php' ?>
+<?php //include_once '../handle/checkAccount.php' ?>
 
 <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
 <div class="row">
@@ -51,7 +51,13 @@
                                         src="../../public/image/icon/null.png" alt="" class="img-icon">Đã rời
                                     đi</button></a>
                             <input type="text" class="btn me-2" placeholder="Tìm mã sinh viên" id="find_MP">
-                            <input type="text" class="btn me-2" placeholder="Tên cột" id="find_column" value="#">
+                            <select id="find_column" class="btn me-2">
+                                <option value="#">#</option>
+                                <option value="phong">Phòng</option>
+                                <option value="ten">Tên</option>
+                                <option value="ngaysinh">Ngày sinh</option>
+                                <option value="Ngày vào">Ngày vào</option>
+                            </select>
                         </form>
                     </nav>
 
@@ -70,9 +76,10 @@
                             <th scope="col">Hành động</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="body_table">
                         <?php
                         include_once '../handle/helper.php';
+                        $item_one_page = 6;
                         $result = null;
                         $page = 1;
                         $tt = "sinhvien.tinhTrang";
@@ -96,7 +103,8 @@
                             }
                         }
                         $sql = "SELECT sinhvien.id, anh, hoTen, sinhvien.maPhong, namSinh, ngayVao, tinhTrang.id as idtt, tinhTrang.tinhTrang FROM sinhvien JOIN tinhTrang on tinhTrang.id = sinhvien.tinhTrang join phong on sinhvien.maPhong = phong.maPhong where sinhvien.tinhtrang = $tt and phong.tang = $t  LIMIT ?, ?";
-                        $result = query_input($sql, [0, $page * 9]);
+                        
+                        $result = query_input($sql, [0, $page * $item_one_page]);
                         if ($result->num_rows == 0) {
                             echo '<div class="bi-text-center">Không có thông tin</div>';
                         } else {
@@ -166,7 +174,7 @@
             <nav aria-label="...">
                 <ul class="pagination pagination-sm">
                     <?php
-                    $sql = "SELECT CEILING(count(*)/9) as page FROM sinhvien";
+                    $sql = "SELECT CEILING(count(*)/$item_one_page) as page FROM sinhvien";
                     $result = query_no_input($sql);
                     while ($row = $result->fetch_assoc()) {
                         $page = 1;
@@ -226,6 +234,27 @@
         // lọc ô input
         $("#find_MP").on("change", () => {
             findTable($(".table")[0], $("#find_MP").val(), $("#find_column").val())
+            // 
+            var tr = $(".table").eq(0).find("tbody").find("tr");
+            var tbody_empty = true;
+            for(let i = 0; i < tr.length; i++) {
+                // nếu có tr không có class d-none
+                if(!$(tr[i]).hasClass("d-none")) {
+                    // tbody không rỗng
+                    tbody_empty = false;
+                    break;
+                }
+            }
+
+            if(tbody_empty){
+                // thấy thông tin tìm kiếm
+                inp = $("#find_MP").val().trim();
+                col = $("#find_column").val().trim();
+
+                // lấy dữ liệu từ server
+                callServer();
+                
+            }
         })
 
         // lọc select tầng
@@ -250,6 +279,45 @@
             window.location.reload();
         })
     })
+
+    function removeVietnameseDiacritics(str) {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+    function callServer() {
+        // Tạo FormData object và thêm dữ liệu hình ảnh vào
+        const formData = new FormData();
+        formData.append("inp", $("#find_MP").val().trim());
+        formData.append("col", removeVietnameseDiacritics($("#find_column").val().trim()));
+        // Gửi dữ liệu ảnh đến server bằng XMLHttpRequest
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "../../src/handle/findSV.php"); // api
+        xhr.onload = function () {
+            console.log(xhr.responseText);
+            // nếu gọi lên server thành công
+            if (xhr.status === 200) {
+                // kết quả trả về và giải mã chuỗi json
+                var res = JSON.parse(xhr.responseText);
+                
+                switch (res.status) {
+                    case 200:
+                        // thêm kết quả vào bảng
+                        let tbody = document.getElementById("body_table");
+                        tbody.innerHTML += res.message;
+                        break;
+                    case 505:
+                        toastError("Không tìm thấy id");
+                        break;
+                    case res.status >= 500:
+                        toastError("Lỗi máy chủ");
+                        break;
+                }
+            } else {
+                console.error("Có lỗi xảy ra.");
+            }
+        };
+        // gửi form
+        xhr.send(formData);
+    }
     function findTable(table, value, column) {
         var index = findIndex(table, column);
         numColumn = $(table).find("thead").find("th").length;
@@ -276,7 +344,7 @@
                 }
             }
         } else {
-            console.log("Không tìm thấy cột");
+            callServer();
         }
     }
 
@@ -284,10 +352,23 @@
     function findIndex(table, column) {
         let columnIndex = 0;
         $(table).find("thead").find("th").each((index, element) => {
-            if ($(element).text().trim().toUpperCase() == column.toUpperCase()) {
+            if (convertVietnameseString($(element).text().trim().toUpperCase()) == convertVietnameseString(column.toUpperCase())) {
                 columnIndex = index + 1;
             }
         });
         return columnIndex;
     }
+    function convertVietnameseString(str) {
+        // Chuyển đổi chuỗi tiếng Việt có dấu thành chuỗi không dấu
+        let convertedStr = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+        // Xoá dấu cách (space)
+        convertedStr = convertedStr.replace(/\s/g, "");
+
+        // Chuyển đổi thành chữ in hoa
+        convertedStr = convertedStr.toUpperCase();
+
+        return convertedStr;
+    }
+    
 </script>

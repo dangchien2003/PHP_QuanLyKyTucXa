@@ -50,7 +50,7 @@
                             <a href="./danhsachsv.php?tt=1"><button class="btn me-2" type="button" id="daroidi"><img
                                         src="../../public/image/icon/null.png" alt="" class="img-icon">Đã rời
                                     đi</button></a>
-                            <input type="text" class="btn me-2" placeholder="Tìm mã sinh viên" id="find_MP">
+                            <input type="text" class="btn me-2" placeholder="Tìm sinh viên" id="find_MP">
                             <select id="find_column" class="btn me-2">
                                 <option value="#">#</option>
                                 <option value="phong">Phòng</option>
@@ -104,7 +104,7 @@
                         }
                         $sql = "SELECT sinhvien.id, anh, hoTen, sinhvien.maPhong, namSinh, ngayVao, tinhTrang.id as idtt, tinhTrang.tinhTrang FROM sinhvien JOIN tinhTrang on tinhTrang.id = sinhvien.tinhTrang join phong on sinhvien.maPhong = phong.maPhong where sinhvien.tinhtrang = $tt and phong.tang = $t  LIMIT ?, ?";
                         
-                        $result = query_input($sql, [0, $page * $item_one_page]);
+                        $result = query_input($sql, [($page-1)*$item_one_page, $page * $item_one_page]);
                         if ($result->num_rows == 0) {
                             echo '<div class="bi-text-center">Không có thông tin</div>';
                         } else {
@@ -230,6 +230,16 @@
     $(document).ready(function () {
         // lọc ô input
         $("#find_MP").on("change", () => {
+            find();
+        })
+
+
+        $("#find_column").on("change", () => {
+            find();
+        })
+
+
+        function find() {
             findTable($(".table")[0], $("#find_MP").val(), $("#find_column").val())
             // 
             var tr = $(".table").eq(0).find("tbody").find("tr");
@@ -252,7 +262,7 @@
                 callServer();
                 
             }
-        })
+        }
 
         // lọc select tầng
         $("#fillter_t").on("change", () => {

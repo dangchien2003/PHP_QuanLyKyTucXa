@@ -44,7 +44,9 @@ include_once '../handle/checkAccount.php';
                         foreach ($data as $key => $value) {
                             ?>
                             <span class="group">
-                                <p><span class="option"><?php echo $key;?></span><span>: </span><span class=data><?php echo $value;?></span></p>
+                                <p><span class="option">
+                                        <?php echo $key; ?>
+                                    </span><span>: </span><span class=data><?php echo $value; ?></span></p>
                             </span>
                             <?php
                         }
@@ -59,16 +61,18 @@ include_once '../handle/checkAccount.php';
                 </div>
                 <div class="thongke" id="thongkesoluongtrong">
                     <div class="data d-flex justify-content-center" id="data">
-                    <?php
+                        <?php
                         $sql = "SELECT count(slt) as sl, slt from (select (phong.sucChua-COUNT(sinhvien.maPhong)) as slt from phong LEFT JOIN sinhvien on phong.maPhong = sinhvien.maPhong where (sinhvien.tinhTrang != 1 AND phong.tinhTrang != 20) OR (sinhvien.tinhTrang is null AND phong.tinhTrang != 20) GROUP BY phong.maPhong) as tkslt GROUP BY slt";
                         $result = query_no_input($sql);
                         $data = [];
                         while ($row = $result->fetch_assoc()) {
-                            ?> 
+                            ?>
                             <span class="group">
-                                <p><span class="option">Trống <?php echo $row['slt'];?></span><span>: </span><span class=data><?php echo $row['sl'];?></span></p>
+                                <p><span class="option">Trống
+                                        <?php echo $row['slt']; ?>
+                                    </span><span>: </span><span class=data><?php echo $row['sl']; ?></span></p>
                             </span>
-                            <?php 
+                        <?php
                         }
                         ?>
                     </div>

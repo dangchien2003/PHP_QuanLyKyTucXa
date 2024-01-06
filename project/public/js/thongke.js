@@ -67,7 +67,7 @@ function getText(parent) {
   $(parent)
     .find(".group")
     .each((index, element) => {
-      option.push($(element).find(".option").text());
-      data.push($(element).find(".data").text());
+      option.push($(element).find(".option").text().trim());
+      data.push($(element).find(".data").text().trim());
     });
 }

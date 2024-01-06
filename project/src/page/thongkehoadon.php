@@ -13,19 +13,19 @@ include_once '../handle/checkAccount.php';
             <div class="date" style="text-align: right;">
                 <?php
                 $date = date('Y-m');
-                if(checkRequest($_GET, ["date"])) {
+                if (checkRequest($_GET, ["date"])) {
                     $date = $_GET['date'];
                 }
-                    ?>
-                    <input type="date" id="fillter-d" value="<?php echo $date?>-01">
-                    <?php
+                ?>
+                <input type="date" id="fillter-d" value="<?php echo $date ?>-01">
+                <?php
 
-                ?> 
-                
+                ?>
+
             </div>
             <div class="baocao">
                 <div class="row">
-                <div class="thongke col-lg-6" id="thongkehoadondiennuoc">
+                    <div class="thongke col-lg-6" id="thongkehoadondiennuoc">
                         <div class="data d-flex justify-content-center" id="data">
                             <?php
                             $sql = "SELECT COUNT(hoadondiennuoc.tinhtrang) as sl, hoadondiennuoc.tinhtrang, tinhtrang.tinhtrang as tentt FROM hoadondiennuoc JOIN tinhtrang ON tinhtrang.id = hoadondiennuoc.tinhtrang WHERE ngayChot LIKE '$date-%' GROUP BY tinhtrang;";
@@ -33,7 +33,9 @@ include_once '../handle/checkAccount.php';
                             while ($row = $result->fetch_assoc()) {
                                 ?>
                                 <span class="group">
-                                    <p><span class="option"><?php echo $row['tentt'] ?></span><span>: </span><span class=data><?php echo $row['sl']; ?></span></p>
+                                    <p><span class="option">
+                                            <?php echo $row['tentt'] ?>
+                                        </span><span>: </span><span class=data><?php echo $row['sl']; ?></span></p>
                                 </span>
                                 <?php
                             }
@@ -54,7 +56,9 @@ include_once '../handle/checkAccount.php';
                             while ($row = $result->fetch_assoc()) {
                                 ?>
                                 <span class="group">
-                                    <p><span class="option"><?php echo $row['tentt'] ?></span><span>: </span><span class=data><?php echo $row['sl']; ?></span></p>
+                                    <p><span class="option">
+                                            <?php echo $row['tentt'] ?>
+                                        </span><span>: </span><span class=data><?php echo $row['sl']; ?></span></p>
                                 </span>
                                 <?php
                             }
@@ -76,7 +80,9 @@ include_once '../handle/checkAccount.php';
                         while ($row = $result->fetch_assoc()) {
                             ?>
                             <span class="group">
-                                <p><span class="option"><?php echo $row['tentt'] ?></span><span>: </span><span class=data><?php echo $row['sl']; ?></span></p>
+                                <p><span class="option">
+                                        <?php echo $row['tentt'] ?>
+                                    </span><span>: </span><span class=data><?php echo $row['sl']; ?></span></p>
                             </span>
                             <?php
                         }
@@ -96,19 +102,19 @@ include_once '../handle/checkAccount.php';
 <?php include './layout/footer.php';
 addScript(["chart", "thongke"])
     ?>
-    <script>
-        $(document).ready(function() {
-            $("#fillter-d").on("change", function() {
-                var selectDate = $("#fillter-d").val();
-                var objectDate = new Date(selectDate);
-                if(objectDate < new Date()) {
-                    var year = objectDate.getFullYear();
-                    var month = (objectDate.getMonth()+1).toString().length == 1?"0"+(objectDate.getMonth()+1):(objectDate.getMonth()+1);
-                    var date = year + "-" + month;
-                    addParams("date", date);
-                    location.reload();
-                }
-                
-            })
+<script>
+    $(document).ready(function () {
+        $("#fillter-d").on("change", function () {
+            var selectDate = $("#fillter-d").val();
+            var objectDate = new Date(selectDate);
+            if (objectDate < new Date()) {
+                var year = objectDate.getFullYear();
+                var month = (objectDate.getMonth() + 1).toString().length == 1 ? "0" + (objectDate.getMonth() + 1) : (objectDate.getMonth() + 1);
+                var date = year + "-" + month;
+                addParams("date", date);
+                location.reload();
+            }
+
         })
-    </script>
+    })
+</script>

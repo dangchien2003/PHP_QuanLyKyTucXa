@@ -27,15 +27,15 @@
                                         <div class="">
                                             <div class="mb-3 object">
                                                 <label for="exampleFormControlInput1" class="form-label">Mã phòng: </label>
-                                                <input type="email" class="" id="exampleFormControlInput1" placeholder="" value="<?php echo $infoP["maPhong"] ?>">
+                                                <input type="text" class="" id="exampleFormControlInput1" placeholder="" value="<?php echo $infoP["maPhong"] ?>">
                                             </div>
                                             <div class="mb-3 object">
                                                 <label for="exampleFormControlInput1" class="form-label">Tầng: </label>
-                                                <input type="email" class="" id="exampleFormControlInput1" placeholder="" value="<?php echo $infoP["tang"] ?>">
+                                                <input type="text" class="" id="exampleFormControlInput1" placeholder="" value="<?php echo $infoP["tang"] ?>">
                                             </div>
                                             <div class="mb-3 object">
                                                 <label for="exampleFormControlInput1" class="form-label">Số người: </label>
-                                                <input type="email" class="" id="exampleFormControlInput1" placeholder="" value="<?php echo $infoP["soSinhVien"] . "/" . $infoP["sucChua"] ?>">
+                                                <input type="text" class="" id="exampleFormControlInput1" placeholder="" value="<?php echo $infoP["soSinhVien"] . "/" . $infoP["sucChua"] ?>">
                                             </div>
                                         </div>
                                         <a href="./thongtinphong?maphong=<?php echo $infoP["maPhong"];?>">
@@ -90,7 +90,7 @@
                                             </div>
                                             <div class="mb-3 object">
                                                 <label for="exampleFormControlInput1" class="form-label">Họ tên: </label>
-                                                <input type="email" class="" id="exampleFormControlInput1" placeholder="" name="hoten" value="<?php echo $info["hoTen"] ?>">
+                                                <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="hoten" value="<?php echo $info["hoTen"] ?>">
                                             </div>
                                             <div class="mb-3 object">
                                                 <label for="exampleFormControlInput1" class="form-label">Tình trạng: </label>

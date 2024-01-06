@@ -1,5 +1,5 @@
 <?php include './layout/header.php';
-    include_once '../handle/checkAccount.php';
+    //include_once '../handle/checkAccount.php';
 ?>
 <div class="row">
     <div class="col-lg-3 bg-menu">
@@ -11,7 +11,7 @@
                 <i class="bi bi-bar-chart-line-fill"></i>Thống kê phòng
             </div>
             <div class="baocao">
-                <div class="thongke" id="thongkesoluongtrong">
+                <div class="thongke" id="thongketinhtrangphong">
                     <div class="data d-flex justify-content-center" id="data">
                         <?php
                         $sql = "SELECT phong.tinhTrang, COUNT(phong.tinhTrang) as sl, tinhTrang.tinhTrang as tentt, (select COUNT(*) from phong) as tongphong FROM phong JOIN tinhTrang on tinhTrang.id = phong.tinhTrang GROUP BY phong.tinhTrang; ";
@@ -57,7 +57,7 @@
                         Thống kê tình trạng phòng
                     </div>
                 </div>
-                <div class="thongke" id="thongkesoluongtrong1">
+                <div class="thongke" id="thongkesoluongtrong">
                     <div class="data d-flex justify-content-center" id="data">
                     <?php
                         $sql = "SELECT count(slt) as sl, slt from (select (phong.sucChua-COUNT(sinhvien.maPhong)) as slt from phong LEFT JOIN sinhvien on phong.maPhong = sinhvien.maPhong where (sinhvien.tinhTrang != 1 AND phong.tinhTrang != 20) OR (sinhvien.tinhTrang is null AND phong.tinhTrang != 20) GROUP BY phong.maPhong) as tkslt GROUP BY slt";

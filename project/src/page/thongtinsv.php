@@ -82,11 +82,11 @@
                                         <div class="">
                                             <div class="mb-3 object d-none">
                                                 <label for="exampleFormControlInput1" class="form-label">Id: </label>
-                                                <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="idsv" value="<?php echo $info["kyHieu"] . $info["id"] ?>">
+                                                <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="idsv" value="<?php echo $info["id"] ?>">
                                             </div>
                                             <div class="mb-3 object">
                                                 <label for="exampleFormControlInput1" class="form-label">Id sinh viên: </label>
-                                                <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="id" value="<?php echo $info["id"] ?>">
+                                                <input type="text" class="" id="exampleFormControlInput1" placeholder="" name="id" value="<?php echo $info["kyHieu"] .$info["id"] ?>">
                                             </div>
                                             <div class="mb-3 object">
                                                 <label for="exampleFormControlInput1" class="form-label">Họ tên: </label>

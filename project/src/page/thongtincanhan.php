@@ -153,10 +153,8 @@ include '../handle/checkAccount.php'; ?>
 <script>
     $(document).ready(function () {
         var form = $("#form_change_password");
-        var mesP = $("#toast_password");
-        var mesCP = $("#toast_passwordconfirm");
         var btn_save = $("#save");
-
+        var check = false;
         $(btn_save).click(() => {
             // nếu newP rỗng
             if ($("#password").val().trim() == "") {
@@ -176,14 +174,17 @@ include '../handle/checkAccount.php'; ?>
                         if ($("#passwordcomfirm").val() == $("#password").val()) {
                             $("#toast_password").text("Mật khẩu mới và cũ phải khác nhau")
                         } else {
-                            // submit form
-                            $(form).trigger('submit');
+                            if($("#newpassword").val().trim().length < 8 || $("#passwordcomfirm").val().trim().length < 8) {
+                                $("#toast_passwordcomfirm").text("Mật khẩu yếu")
+                            }else {
+                                $(form).trigger('submit');
+                            }
                         }
-
                     }
                 }
             }
 
+            
 
         })
 

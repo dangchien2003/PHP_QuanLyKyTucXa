@@ -6,6 +6,11 @@ try {
         $user = "";
         // kt mật khẩu mới trùng  nhau
         $check = true;
+        // kiểm tra độ dài mật khẩu
+        if(count($_POST['newpassword']) < 8 || count($_POST['passwordcomfirm']) < 8) {
+            header("location: ../page/thongtincanhan.php?message=Đổi mật khẩu thất bại&status=400");
+            exit();
+        }
         // kiểm tra có session hay không
         if(checkRequest($_SESSION, ['account'])) {
             // kt username session và post khác nhau
@@ -34,12 +39,7 @@ try {
                 if($_POST['passwordcomfirm'] == $_POST['newpassword']) {
                     $sql = "UPDATE taikhoan set pass = ? WHERE user = ? and pass = ?";
                     $result = query_input($sql, [$_POST['passwordcomfirm'], $_POST['username'], $_POST['password']]);
-                    // kiểm tra kq
-                    if($result) {
-                        header("location: ../page/thongtincanhan.php");
-                    }else {
-                        header("location: ../page/thongtincanhan.php?message=Đổi mật khẩu thất bại&status=300");
-                    }
+                    header("location: ../page/thongtincanhan.php?message=Mật khẩu không đúng&status=300");
                 }else {
                     header("location: ../page/thongtincanhan.php?message=Đổi mật khẩu thất bại&status=300");
                 }

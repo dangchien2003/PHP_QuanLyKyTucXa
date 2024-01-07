@@ -1,7 +1,12 @@
 <?php
 include_once 'helper.php';
-    function printListRoom($sql) {
-        $list_room = query_no_input($sql);
+    function printListRoom($sql, $inp = false) {
+        $list_room = null;
+        if(!$inp) {
+            $list_room = query_no_input($sql);
+        }else {
+            $list_room = query_input($sql, $inp);
+        }
         if($list_room->num_rows > 0) {
             while($room =  $list_room->fetch_assoc()) {
                 $bg_room = "";

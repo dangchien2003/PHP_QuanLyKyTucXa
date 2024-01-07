@@ -7,7 +7,7 @@
             $start = $GLOBALS["conn"]->prepare($sql);
             $run = $start->execute();
             $typeSql = explode(" ", trim($sql))[0];
-            if($typeSql === "SELECT" && $run) {
+            if(strtoupper($typeSql) === "SELECT" && $run) {
                 $result = $start->get_result();
                 closeDB($start);
                 return $result;

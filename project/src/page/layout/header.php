@@ -43,7 +43,7 @@
                             <a class="nav-link active text-white" aria-current="page" href="#"><i class="bi bi-telephone-forward-fill p-1 fs-5"></i>Điện thoại hỗ trợ: 0333444555</a>
                             <a class="nav-link active text-white" aria-current="page" href="#">Quyền của tôi</a>
                             <a class="nav-link active text-white" aria-current="page" href="#"><i class="bi bi-bell-fill"><span class="sl-tb">1</span></i></a>
-                            <a class="nav-link text-white" href="#"><img src="../../public/image/bg-login.jfif" alt=""></a>
+                            <a class="nav-link text-white" href="thongtincanhan.php"><img src="../../public/image/bg-login.jfif" alt=""></a>
                             <a class="nav-link text-white" href="dangnhap.php"><i class="fa-solid fa-power-off"></i></a>
                         </div>
                     </div>

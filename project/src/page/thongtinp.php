@@ -203,7 +203,6 @@ include_once '../handle/checkAccount.php';
 
                         }
                     } else {
-                        echo "aaaaaa";
                         echo '<div class="bi-text-center">Không có thông tin</div>';
                     }
                     ?>

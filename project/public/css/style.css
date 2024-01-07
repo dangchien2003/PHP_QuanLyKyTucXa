@@ -227,7 +227,7 @@ header .sl-tb {
     object-fit: cover;
 }
 
-.info-student input  {
+.info-student input, .ttnv input  {
     outline: none;
     border: none;
     background-color: transparent;
@@ -247,22 +247,22 @@ header .sl-tb {
 }
 
 
-.info-student .object {
+.info-student .object, .ttnv .object {
     border-bottom: 2px solid #ececec;
 }
 
-.info-student .object #tinhtrangsv {
+.info-student .object #tinhtrangsv, .ttnv .object #tinhtrangsv {
     border: none;
     background-color: transparent;
     font-size: 18px;
     outline: none;
 }
 
-.info-student .object label {
+.info-student .object label, .info-student .object label {
     color: rgb(75, 75, 75);
 }
 
-.info-student .ttp, .info-student .ttsv {
+.info-student .ttp, .ttnv .ttsv {
     min-height: 300px;
 }
 
@@ -458,4 +458,23 @@ table a:hover {
 
 .baocao .thongke .bieudo {
     height: 400px;
+}
+
+
+.ttnv .add img {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.ttnv .object {
+    position: relative;
+}
+
+.ttnv .message {
+    position: absolute;
+    font-size: 12px;
+    color: red;
+    left: 0;
+    bottom: -18px;
 }

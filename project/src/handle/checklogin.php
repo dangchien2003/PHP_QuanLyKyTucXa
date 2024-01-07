@@ -21,15 +21,15 @@ try {
                 $account_mh = maHoa($account);
 
                 // đẩy về cookie
-                setcookie("account", $account_mh, time() + 3600, '/', false, true);
-                setcookie("info", $info, time() + 3600, '/', false, true);
+                setcookie("account", $account_mh, time() + getTimestamp(get_ENV()['timeCookie']), '/', false, true);
+                setcookie("info", $info, time() + getTimestamp(get_ENV()['timeCookie']), '/', false, true);
                 // chuyển hướng trang
                 nextPage($_POST["username"], $_POST["password"],"");
             } else {
                 // không nhớ tkmk
                 session_start();
                 $_SESSION["account"] = $account;
-                setcookie("info", $info, time() + 3600, '/', false, true);
+                setcookie("info", $info, time() + getTimestamp(get_ENV()['timeCookie']), '/', false, true);
                 // chuyển hướng trang
                 nextPage($_POST["username"], $_POST["password"], "");
                 // header("Location: ./checkAccount.php");
@@ -53,7 +53,7 @@ function huyTatCaCookie($server)
             $parts = explode('=', $cookie);
             $name = trim($parts[0]);
             if(strtoupper($name) != "PHPSESSID") {
-                setcookie($name, '', time() - 3600, '/');
+                setcookie($name, '', time() - getTimestamp(get_ENV()['timeCookie']), '/');
             }
         }
     }

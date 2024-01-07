@@ -1,9 +1,14 @@
 <?php
-include_once '../handle/checkAccount.php';
+include '../handle/checkAccount.php';
 include_once './helper.php';
-if(checkRequest($_POST, ['maphongsv', 'idsv'])) {
+if(checkRequest($_POST, ['idsv'])) {
+    $result = false;
     $sql = "update sinhvien set maphong = ? where id = ?";
-    $result = query_input($sql, [$_POST['maphongsv'], $_POST['idsv']]);
+    if(checkRequest($_POST, ['maphongsv'])) {
+        $result = query_input($sql, [$_POST['maphongsv'], $_POST['idsv']]);
+    }else {
+        $result = query_input($sql, [100, $_POST['idsv']]);
+    }
     if(!$result) {
         header("location: ../page/thongtinp.php?status=400&message=Cập nhật thất bại&maphong=".$_GET['maphong']);
     }else {

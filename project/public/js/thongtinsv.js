@@ -11,6 +11,8 @@ $(document).ready(function () {
     // chỉ đọc
     function set_write_input(allow) {
         $input_all.each(function (index, element) {
+            console.log($(element) != $("input[id='id']"));
+            if(!$(element).is("input[name='id']"))
             $(element).attr('type') == "radio"?$(element).prop("disabled", !allow):$(element).prop("readOnly", !allow);
         })
     
@@ -289,7 +291,7 @@ function sendImgToServer() {
     const formData = new FormData();
     formData.append("image", imgData); // 'image' là tên của trường dữ liệu bạn muốn gửi
     // var a = ;
-    formData.append("idsv", $('input[name="idsv"]').val());
+    formData.append("idsv", $('input[name="id"]').val());
     // Gửi dữ liệu ảnh đến server bằng XMLHttpRequest
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "../../src/handle/upload.php"); // Thay 'upload.php' bằng đường dẫn đến tệp PHP xử lý dữ liệu

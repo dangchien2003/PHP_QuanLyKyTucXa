@@ -38,7 +38,7 @@
                     $types .= "i"; // Loại dữ liệu là integer
                 } elseif (is_float($value)) {
                     $types .= "d"; // Loại dữ liệu là double
-                } elseif (is_string($value)) {
+                } else {
                     $types .= "s"; // Loại dữ liệu là string
                 }
             }

@@ -140,7 +140,6 @@ include_once '../handle/checkAccount.php';
                                     <tbody>
                                         <?php
                                         $sql = "select sinhvien.id, sinhvien.hoTen, sinhvien.tinhTrang as idtt, tinhtrang.tinhTrang, sinhvien.maPhong from sinhvien join tinhTrang on tinhTrang.id = sinhvien.tinhTrang WHERE sinhvien.maPhong = ? and sinhvien.tinhTrang != 1;";
-                                        echo $_GET['maphong']+10;
                                         if (checkRequest($_GET, ["maphong"])) {
                                             $result = query_input($sql, [$_GET['maphong']]);
                                             if ($result->num_rows > 0) {

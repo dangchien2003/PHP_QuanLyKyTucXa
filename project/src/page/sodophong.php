@@ -100,11 +100,11 @@
                     }
                 }
                 if (!$inp) {
-                    $sql = "SELECT sinhvien.id as idsv, phong.sucChua, CONCAT(phong.kyHieu, phong.maPhong) AS phong, tinhtrang.tinhTrang, phong.tinhTrang as matt, COUNT(phong.maPhong) as soNguoi FROM phong LEFT JOIN sinhvien ON sinhvien.maPhong = phong.maPhong LEFT JOIN tinhTrang on tinhTrang.id = phong.tinhTrang where (sinhvien.tinhTrang != 1 or sinhvien.tinhTrang is null) and phong.tang = $tang GROUP BY phong.maPhong  order by phong.tang,phong.maphong;";
+                    $sql = "SELECT sinhvien.id as idsv, phong.sucChua, CONCAT(phong.kyHieu, phong.maPhong) AS phong, tinhtrang.tinhTrang, phong.tinhTrang as matt, COUNT(phong.maPhong) as soNguoi FROM phong LEFT JOIN sinhvien ON sinhvien.maPhong = phong.maPhong LEFT JOIN tinhTrang on tinhTrang.id = phong.tinhTrang where (sinhvien.tinhTrang != 1 or sinhvien.tinhTrang is null) and phong.tang = $tang GROUP BY phong.maPhong  order by phong.tang , phong.kyHieu, phong.kyHieu,phong.maphong;";
                     // không input
                     printListRoom($sql);
                 } else {
-                    $sql = "SELECT sinhvien.id as idsv, phong.sucChua, CONCAT(phong.kyHieu, phong.maPhong) AS phong, tinhtrang.tinhTrang, phong.tinhTrang as matt, COUNT(phong.maPhong) as soNguoi FROM phong LEFT JOIN sinhvien ON sinhvien.maPhong = phong.maPhong LEFT JOIN tinhTrang on tinhTrang.id = phong.tinhTrang where (sinhvien.tinhTrang != 1 or sinhvien.tinhTrang is null) and (phong.tinhTrang $mqh in (?, ?)) and phong.tang = $tang GROUP BY phong.maPhong order by phong.tang, phong.maphong;";
+                    $sql = "SELECT sinhvien.id as idsv, phong.sucChua, CONCAT(phong.kyHieu, phong.maPhong) AS phong, tinhtrang.tinhTrang, phong.tinhTrang as matt, COUNT(phong.maPhong) as soNguoi FROM phong LEFT JOIN sinhvien ON sinhvien.maPhong = phong.maPhong LEFT JOIN tinhTrang on tinhTrang.id = phong.tinhTrang where (sinhvien.tinhTrang != 1 or sinhvien.tinhTrang is null) and (phong.tinhTrang $mqh in (?, ?)) and phong.tang = $tang GROUP BY phong.maPhong order by phong.tang, phong.kyHieu, phong.kyHieu, phong.maphong;";
                     // có inpout
                     printListRoom($sql, [$w1, $w2]);
                 }

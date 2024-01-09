@@ -117,7 +117,7 @@
                                     <td>
                                         <?php echo $row['maPhong'] ?>
                                     </td>
-                                    <td><img src="../../public/image/uploads/<?php echo $row['anh'] ?>.png "
+                                    <td><img src="../../public/image/uploads/<?php if(checkRequest($row, ['anh'])) echo $row['anh']; else echo 'sv'   ?>.png "
                                             class="mini_img"></img>
                                         <?php echo $row['hoTen'] ?>
                                     </td>

@@ -23,7 +23,16 @@ try {
 
                 // lưu ảnh
                 $success = file_put_contents($file, $imgDecoded);
-
+                $sql = "update sinhvien set anh = ? where id = ?";
+                $arr = str_split($_POST['idsv']);
+                
+                $id = "";
+                foreach ($arr as $value) {
+                    if(ctype_digit($value)) {
+                        $id.=$value;
+                    }
+                }
+                $result = query_input($sql, [$_POST['idsv'], $id]);
                 if ($success) {
                     echo respone(200, "Đã lưu trữ ảnh: $fileName");
                     exit();

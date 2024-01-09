@@ -385,7 +385,24 @@ header .sl-tb {
 }
 
 .table-sv table {
-    
+    height: 550px;
+    overflow-y: scroll;
+    display: block;
+
+}
+
+.table-sv table::-webkit-scrollbar {
+    width: 5px;
+    /*background-color: rgb(248, 137, 137);*/
+    border-radius: 100rem
+}
+
+/* chỉnh sửa thanh cuộn bên trong */
+.table-sv table::-webkit-scrollbar-thumb {
+    /* width: 5px; */
+    background-image: linear-gradient(to bottom,  red , yellow, rgb(115, 219, 115));
+    border-radius: 100rem;
+    border: 1px solid rgb(157, 146, 146);
 }
 
 td .mini_img {

@@ -45,7 +45,7 @@
                     Danh sách sinh viên
                 </li>
             </a>
-            <a href="#">
+            <a href="./themsinhvien.php">
                 <li>
                     <i class="bi bi-patch-plus"></i>
                     Thêm sinh viên

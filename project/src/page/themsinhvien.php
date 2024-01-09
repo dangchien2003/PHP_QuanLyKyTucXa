@@ -1,5 +1,5 @@
 <?php include_once './layout/header.php';
-//include_once '../handle/checkAccount.php';
+include_once '../handle/checkAccount.php';
 ?>
 <div class="row">
     <div class="col-lg-3 bg-menu">
@@ -28,7 +28,7 @@
                             <div class="col-md-4">
                                 <label for="exampleFormControlInput1" class="form-label">Họ tên:</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput1" name="hoten"
-                                    required value="Lê Đăng Chiến">
+                                    required>
                             </div>
                             <div class="col-md-4">
                                 <label for="exampleFormControlInput1" class="form-label">Ngày sinh:</label>
@@ -104,12 +104,6 @@
                                 <label for="exampleFormControlInput1" class="form-label">Mã hợp đồng:</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput1" name="mahd">
                             </div>
-                            <!-- <div class="col-md-4">
-                                <label for="exampleFormControlInput1" class="form-label">Tải ảnh lên:</label>
-                                <input type="file" class="form-control" id="fileanh" name="file"
-                                    accept="image/png">
-                            </div> -->
-
                         </div>
                         <button class="btn btn-success">Tạo</button>
                     </form>

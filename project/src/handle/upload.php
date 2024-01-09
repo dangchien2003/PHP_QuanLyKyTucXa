@@ -1,16 +1,12 @@
 <?php
+require 'helper.php';
 try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['image'])) {
             $imgData = $_POST['image'];
-
-            // loại bỏ phần đầu của base64(chỉ định kiểu và đuôi ảnh)
-            $imgData = str_replace('data:image/png;base64,', '', $imgData);
-            //thay ' ' thành + để chuẩn định dạng base64
-            $imgData = str_replace(' ', '+', $imgData);
-
-            // Giải mã dữ liệu ảnh từ Base64
-            $imgDecoded = base64_decode($imgData);
+            
+            // lấy base64 img
+            $imgDecoded = getBase64($imgData);
 
             // Đường dẫn đến thư mục lưu trữ ảnh
             $uploadPath = '..\..\public\image\uploads\\';

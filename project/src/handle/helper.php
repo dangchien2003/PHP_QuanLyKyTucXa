@@ -167,4 +167,29 @@
         // Ghi thông điệp lỗi vào tệp tin log
         file_put_contents($log_file, $error_message . PHP_EOL, FILE_APPEND);
     }
+
+    function covint($inp, $key = false) {
+        $rt = NULL;
+        if($key) {
+            if(checkRequest($inp, [$key])) {
+                $rt = intval($inp[$key]);
+            }
+        }else {
+            $rt = intval($inp);
+        }
+        return $rt;
+    }
+
+
+    function getBase64($F) {
+            
+        // loại bỏ phần đầu của base64(chỉ định kiểu và đuôi ảnh)
+        $imgData = str_replace('data:image/png;base64,', '', $F);
+        //thay ' ' thành + để chuẩn định dạng base64
+        $imgData = str_replace(' ', '+', $imgData);
+
+        // Giải mã dữ liệu ảnh từ Base64
+        $imgDecoded = base64_decode($imgData);
+        return $imgDecoded;
+    }
 ?> 

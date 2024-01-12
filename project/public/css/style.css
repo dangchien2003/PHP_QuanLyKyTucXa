@@ -387,8 +387,9 @@ header .sl-tb {
 .table-sv table {
     height: 550px;
     overflow-y: scroll;
-    display: block;
-
+}
+.table-sv table thead, tbody {
+    width: 1000px;
 }
 
 .table-sv table::-webkit-scrollbar {
@@ -456,6 +457,10 @@ table a:hover {
 
 .sv_in_room .actionsv {
     cursor: pointer;
+}
+
+.sv_in_room input {
+    background-color: transparent;
 }
 
 .baocao .thongke{

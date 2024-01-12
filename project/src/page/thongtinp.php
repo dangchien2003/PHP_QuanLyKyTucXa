@@ -127,7 +127,7 @@ include_once '../handle/checkAccount.php';
                                 <button type="submit" class="btn btn-success">Lưu</button>
                             </form>
                             <div class="table-sv sv_in_room">
-                                <table class="table">
+                                <table class="table table-hover d-block">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>

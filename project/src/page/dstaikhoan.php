@@ -1,4 +1,5 @@
-<?php include './layout/header.php' ?>
+<?php include './layout/header.php';
+require '../handle/checkAccount.php' ?>
 <div class="row">
     <div class="col-lg-3 bg-menu">
         <?php include './layout/menu.php' ?>
@@ -8,7 +9,7 @@
             <div class="name">
                 <i class="bi bi-building-add"></i>Tài khoản
             </div>
-            <table class="table table-hover table-responsive" id="table-tk">
+            <table class="table table-hover" id="table-tk">
                 <thead>
                     <tr>
                         <th scope="col">Username</th>
@@ -52,7 +53,7 @@
                         } else {
                             ?>
                             <tr>
-                                <td style="font-weight: bold;">
+                                <td style="font-weight: bold;" class="user">
                                     <?php echo $user ?>
                                 </td>
                                 <td>
@@ -83,11 +84,10 @@
                                         <?php echo $ttt ?>
                                     </div>
                                 </td>
-                                <td>********</td>
+                                <td class="mk">********</td>
                                 <td>
-                                    <a href="../handle/quenmatkhau.php?user=<?php echo $user ?>">
-                                        <div class="btn-tt d-inline-block bgr-ok">Quên</div>
-                                    </a>
+                                    
+                                    <div class="btn-tt d-inline-block bgr-ok quenmk">Quên</div>
                                     <?php
                                     if ($tt == 14) {
                                         ?>
@@ -118,7 +118,7 @@
                     }
                     ?>
                     <tr>
-                        <td style="font-weight: bold;">
+                        <td style="font-weight: bold;" class="user">
                             <?php echo $user ?>
                         </td>
                         <td>
@@ -149,11 +149,9 @@
                                 <?php echo $ttt ?>
                             </div>
                         </td>
-                        <td>********</td>
+                        <td class="mk">********</td>
                         <td>
-                            <a href="../handle/quenmatkhau.php?user=<?php echo $user ?>">
-                                <div class="btn-tt d-inline-block bgr-ok">Quên</div>
-                            </a>
+                            <div class="btn-tt d-inline-block bgr-ok quenmk">Quên</div>
                             <?php
                             if ($tt == 14) {
                                 ?>
@@ -171,10 +169,12 @@
                             ?>
                         </td>
                     </tr>
+                    
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
-<?php include './layout/footer.php' ?>
+<?php include './layout/footer.php';
+addScript(['taikhoan']) ?>

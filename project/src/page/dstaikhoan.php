@@ -7,7 +7,7 @@ require '../handle/checkAccount.php' ?>
     <div class="col-lg-9 sdp tp" style="min-height: 1000px;">
         <div class="box">
             <div class="name">
-                <i class="bi bi-building-add"></i>Tài khoản
+                <i class="bi bi-person-bounding-box"></i>Tài khoản
             </div>
             <table class="table table-hover" id="table-tk">
                 <thead>

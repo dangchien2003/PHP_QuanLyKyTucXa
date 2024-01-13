@@ -101,7 +101,7 @@
                     Danh sách tài khoản
                 </li>
             </a>
-            <a href="./quyentaikhoan.php">
+            <a href="./taotk.php">
                 <li>
                     <i class="bi bi-person-walking"></i>
                     Tạo tài khoản

@@ -59,6 +59,50 @@
             </a>
         </ul>
         <li class="parent-menu position-relative on">
+            <i class="bi bi-door-open"></i>
+            Quản lý nhân viên
+            <span class="arrow position-absolute">
+                <i class="bi bi-chevron-left left d-none"></i>
+                <i class="bi bi-chevron-down down"></i>
+            </span>
+        </li>
+        <ul class="list-unstyled sub-menu">
+            <a href="./dsnv.php">
+                <li>
+                    <i class="bi bi-border-style"></i>
+                    Danh sách nhân viên
+                </li>
+            </a>
+            
+        </ul>
+        <li class="parent-menu position-relative on">
+            <i class="bi bi-door-open"></i>
+            Quản lý thẻ xe
+            <span class="arrow position-absolute">
+                <i class="bi bi-chevron-left left d-none"></i>
+                <i class="bi bi-chevron-down down"></i>
+            </span>
+        </li>
+        <ul class="list-unstyled sub-menu">
+            <a href="./dsthe.php">
+                <li>
+                    Danh sách thẻ xe
+                </li>
+            </a>
+            <a href="#">
+                <li>
+                    <i class="bi bi-patch-plus"></i>
+                    Thêm thẻ xe
+                </li>
+            </a>
+            <a href="#">
+                <li>
+                    <i class="bi bi-vector-pen"></i>
+                    Sửa thông tin thẻ xe
+                </li>
+            </a>
+        </ul>
+        <li class="parent-menu position-relative on">
             <i class="bi bi-bar-chart-line-fill"></i>
             Báo cáo thống kê
             <span class="arrow position-absolute">
@@ -67,9 +111,9 @@
             </span>
         </li>
         <ul class="list-unstyled sub-menu">
-            <a href="./thongkephong.php">
+            
+        <a href="./thongkephong.php">
                 <li>
-                    <i class="bi bi-door-closed-fill"></i>
                     Thống kê phòng
                 </li>
             </a>
@@ -86,6 +130,8 @@
                 </li>
             </a>
         </ul>
+
+
         <li class="parent-menu position-relative on">
             <i class="bi bi-bar-chart-line-fill"></i>
             Quản lý tài khoản
@@ -101,7 +147,7 @@
                     Danh sách tài khoản
                 </li>
             </a>
-            <a href="./taotk.php">
+            <a href="./quyentaikhoan.php">
                 <li>
                     <i class="bi bi-person-walking"></i>
                     Tạo tài khoản
@@ -129,6 +175,5 @@
                     Quyền truy cập
                 </li>
             </a>
-        </ul>
     </ul>
 </nav>

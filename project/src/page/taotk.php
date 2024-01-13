@@ -34,10 +34,20 @@ include '../handle/checkAccount.php' ?>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-2">
-                                <label for="exampleFormControlInput1" class="form-label">NV(ID):</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" value=""
-                                    name="nv" required>
+                            <div class="col-md-4">
+                                <label for="exampleFormControlInput1" class="form-label">Quyền:</label>
+                                <select name="quyen" class="form-select" id="" require>
+                                    <?php
+                                    $sql = "select * from chucvu";
+                                    $result = query_no_input($sql);
+                                    while ($row = $result->fetch_assoc()) {
+                                        ?> 
+                                        <option value="<?php echo $row['id']?>"><?php echo $row['chucDanh']?></option>
+                                        <?php 
+                                    }
+                                    ?> 
+
+                                </select>
                             </div>
                             <div class="col-md-4">
                                 <label for="exampleFormControlInput1" class="form-label">Tình trạng:</label>

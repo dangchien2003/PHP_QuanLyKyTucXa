@@ -500,3 +500,22 @@ table a:hover {
     left: 0;
     bottom: -18px;
 }
+#password {
+    position: relative;
+}
+#password input {
+    padding-right: 37px;
+}
+
+#random {
+    position: absolute;
+    right: 1px;
+    top: 0;
+    line-height: 37px;
+    width: 37px;
+    text-align: center;
+    background-color: #ececec;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}

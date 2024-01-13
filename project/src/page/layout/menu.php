@@ -22,12 +22,6 @@
 
                 </li>
             </a>
-            <a href="#">
-                <li>
-                    <i class="bi bi-vector-pen"></i>
-                    Sửa thông tin
-                </li>
-            </a>
 
         </ul>
         <li class="parent-menu position-relative on">
@@ -49,12 +43,6 @@
                 <li>
                     <i class="bi bi-patch-plus"></i>
                     Thêm sinh viên
-                </li>
-            </a>
-            <a href="#">
-                <li>
-                    <i class="bi bi-vector-pen"></i>
-                    Sửa thông tin
                 </li>
             </a>
         </ul>
@@ -89,18 +77,6 @@
                     Danh sách thẻ xe
                 </li>
             </a>
-            <a href="#">
-                <li>
-                    <i class="bi bi-patch-plus"></i>
-                    Thêm thẻ xe
-                </li>
-            </a>
-            <a href="#">
-                <li>
-                    <i class="bi bi-vector-pen"></i>
-                    Sửa thông tin thẻ xe
-                </li>
-            </a>
         </ul>
         <li class="parent-menu position-relative on">
             <i class="bi bi-bar-chart-line-fill"></i>
@@ -114,6 +90,7 @@
             
         <a href="./thongkephong.php">
                 <li>
+                    <i class="bi bi-door-closed-fill"></i>
                     Thống kê phòng
                 </li>
             </a>
@@ -147,7 +124,7 @@
                     Danh sách tài khoản
                 </li>
             </a>
-            <a href="./quyentaikhoan.php">
+            <a href="./taotk.php">
                 <li>
                     <i class="bi bi-person-walking"></i>
                     Tạo tài khoản

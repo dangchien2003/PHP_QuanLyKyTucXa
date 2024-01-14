@@ -152,5 +152,40 @@
                     Quyền truy cập
                 </li>
             </a>
+        </ul>
+        <li class="parent-menu position-relative on">
+            <i class="bi bi-receipt"></i>
+            Quản lý hoá đơn
+            <span class="arrow position-absolute">
+                <i class="bi bi-chevron-left left d-none"></i>
+                <i class="bi bi-chevron-down down"></i>
+            </span>
+        </li>
+        <ul class="list-unstyled sub-menu">
+            <a href="./xuathoadon.php">
+                <li>
+                    <i class="bi bi-plus-circle-fill"></i>
+                    Xuất hoá đơn
+                </li>
+            </a>
+            <a href="./hddiennuoc.php">
+                <li>
+                <i class="bi bi-droplet-fill"></i>
+                    Hoá đơn điện nước
+                </li>
+            </a>
+            <a href="./hdphong.php">
+                <li>
+                    <i class="bi bi-house-door-fill"></i>
+                    Hoá đơn phòng
+                </li>
+            </a>
+            <a href="./hdxe.php">
+                <li>
+                    <i class="bi bi-bicycle"></i>
+                    Hoá đơn gửi xe
+                </li>
+            </a>
+        </ul>
     </ul>
 </nav>

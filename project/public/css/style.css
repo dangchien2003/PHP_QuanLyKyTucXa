@@ -519,3 +519,7 @@ table a:hover {
     cursor: pointer;
     border-radius: 5px;
 }
+
+#body_table tr td:first-child {
+    font-weight: bold;
+}

@@ -499,6 +499,7 @@ CREATE TABLE `url` (
 -- Đang đổ dữ liệu cho bảng `url`
 --
 
+
 INSERT INTO `url` (`id`, `url`, `indata`, `quyen`) VALUES
 (1, 'sodophong.php', b'0', 1),
 (2, 'thongtinsv.php', b'1', 2),
@@ -518,7 +519,10 @@ INSERT INTO `url` (`id`, `url`, `indata`, `quyen`) VALUES
 (16, 'aaaa', b'0', 1),
 (17, 'themsinhvien.php', b'0', 2),
 (18, 'dstaikhoan.php', b'0', 8),
-(19, 'taotk.php', b'0', 8);
+(19, 'taotk.php', b'0', 8),
+(23, 'themthe.php', b'0', 8),
+(24, 'dsthe.php', b'0', 8),
+(25, 'thongtinthe.php', b'1', 8);
 
 --
 -- Chỉ mục cho các bảng đã đổ

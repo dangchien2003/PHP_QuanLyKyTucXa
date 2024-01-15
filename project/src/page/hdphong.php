@@ -7,7 +7,7 @@ include '../handle/checkAccount.php' ?>
     <div class="col-lg-9 sdp tp" style="min-height: 1000px;">
         <div class="box">
             <div class="name">
-                <i class="bi bi-receipt-cutoff"></i>Hoá đơn điện nước
+                <i class="bi bi-receipt-cutoff"></i>Hoá đơn phòng
             </div>
             <div class="find">
                 <div class="row">
@@ -65,12 +65,12 @@ include '../handle/checkAccount.php' ?>
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Mã phòng</th>
-                                <th scope="col">Đại diện phòng</th>
-                                <th scope="col">SĐT liên hệ</th>
+                                <th scope="col">Sinh viên</th>
+                                <th scope="col">Liên hệ</th>
+                                <th scope="col">Giá phòng</th>
+                                <th scope="col">Vệ sinh</th>
                                 <th scope="col">Ngày chốt</th>
-                                <th scope="col">Số điện</th>
-                                <th scope="col">Số nước</th>
+                                <th scope="col">Số tháng</th>
                                 <th scope="col">Tổng tiền</th>
                                 <th scope="col">Trạng thái</th>
                                 <th scope="col">Hành động</th>
@@ -79,8 +79,8 @@ include '../handle/checkAccount.php' ?>
                         <?php
                         $timestamp = null;
                         $tang = 'phong.tang';
-                        $tinhtrang = 'hoadondiennuoc.tinhtrang';
-                        $maphong = 'hoadondiennuoc.toi';
+                        $tinhtrang = 'hoadonphong.tinhtrang';
+                        $sinhvien = 'hoadonphong.toi';
 
                         if(checkRequest($_GET, ['t'])) {
                             $tang = $_GET['t'];
@@ -99,7 +99,7 @@ include '../handle/checkAccount.php' ?>
                         }
                         $nam = date('Y', $timestamp);
                         $thang = date('m', $timestamp);
-                        $sql = "SELECT concat(hoadondiennuoc.kyHieu, hoadondiennuoc.maHoaDon) as mahd, hoadondiennuoc.toi as maphong, soDienMoi-soDienCu as sodien, soNuocMoi-soNuocCu as sonuoc, hoadondiennuoc.ngayChot, tinhtrang.tinhTrang, hoadondiennuoc.tinhtrang as idtt,  concat(sinhvien.kyHieu,sinhvien.id,'-',sinhvien.hoTen) as daidien, hoadondiennuoc.tongTien, sinhvien.sdt from hoadondiennuoc JOIN phong on phong.maPhong = hoadondiennuoc.toi JOIN sinhvien ON sinhvien.id = phong.nguoiDaiDien JOIN tinhtrang on tinhtrang.id = hoadondiennuoc.tinhtrang where month(ngayChot) = ? and year(ngayChot) = ? and phong.tang = $tang and hoadondiennuoc.tinhtrang = $tinhtrang and hoadondiennuoc.toi = $maphong";
+                        $sql = "SELECT concat(hoadonphong.kyHieu, hoadonphong.maHoaDon) as mahd, concat(phong.kyHieu,sinhvien.maPhong,'-',sinhvien.kyHieu,hoadonphong.toi, '-', sinhvien.hoten) as sinhvien, giaPhong, giaVeSinh, ngayChot, tongTien, tinhtrang.tinhTrang as tt, hoadonphong.tinhtrang as idtt, soThang, sinhvien.sdt FROM hoadonphong JOIN sinhvien on sinhvien.id = hoadonphong.toi JOIN tinhtrang on tinhtrang.id = hoadonphong.tinhtrang JOIN phong on sinhvien.maPhong = phong.maPhong where month(ngayChot) = ? and year(ngayChot) = ? and phong.tang = $tang and hoadonphong.tinhtrang = $tinhtrang and hoadonphong.toi = $sinhvien";
                         $result = query_input($sql, [$thang, $nam]);
                         if ($result->num_rows > 0) {
                             ?>
@@ -112,22 +112,22 @@ include '../handle/checkAccount.php' ?>
                                             <?php echo $row['mahd'] ?> 
                                         </td>
                                         <td>
-                                            <?php echo $row['maphong'] ?>
+                                            <?php echo $row['sinhvien'] ?>
                                         </td>
                                         <td>
-                                            <?php echo $row['daidien'] ?>
+                                            <?php echo $row['sdt'] ?>
                                         </td>
                                         <td>
-                                        <?php echo $row['sdt'] ?>
+                                        <?php echo $row['giaPhong'] ?>
+                                        </td>
+                                        <td>
+                                        <?php echo $row['giaVeSinh'] ?>
                                         </td>
                                         <td>
                                         <?php echo $row['ngayChot'] ?>
                                         </td>
                                         <td>
-                                        <?php echo $row['sodien'] ?>
-                                        </td>
-                                        <td>
-                                        <?php echo $row['sonuoc'] ?>
+                                        <?php echo $row['soThang'] ?>
                                         </td>
                                         <td>
                                         <?php echo $row['tongTien'] ?>
@@ -137,13 +137,13 @@ include '../handle/checkAccount.php' ?>
                                             if($row['idtt'] == 6) {
                                                 ?> 
                                                 <div class="btn-tt bgr-ok">
-                                                <?php echo $row['tinhTrang'] ?>
+                                                <?php echo $row['tt'] ?>
                                                 </div>
                                                 <?php 
                                             }else {
                                                 ?> 
                                                 <div class="btn-tt bgr-wait">
-                                                <?php echo $row['tinhTrang'] ?>
+                                                <?php echo $row['tt'] ?>
                                                 </div>
                                                 <?php 
                                             }

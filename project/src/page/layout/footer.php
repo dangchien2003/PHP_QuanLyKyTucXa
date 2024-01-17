@@ -3,6 +3,7 @@
     <script src="../../public/js/menu.js"></script>
     <script src="../../public/js/app.js"></script>
     <script src="../../public/js/toast.js"></script>
+    <script src="../../public/js/calc.js"></script>
     <?php 
         function addScript($name) {
             foreach($name as $script) {

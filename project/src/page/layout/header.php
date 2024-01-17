@@ -7,6 +7,7 @@
     <link rel="icon" href="../../public/image/icon/logo.png" type="image/png">
     <title>Quản lý ký túc xá</title>
     <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/calc.css">
     <link rel="stylesheet" href="../../public/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -26,6 +27,8 @@
     // include "../handle/checkAccount.php";
 ?>
     <div id="toast"></div>
+    <?php include 'calc.php'?> 
+
     <header class="text-white ">
         <div class="logo"><img src="../../public/image/icon/logo.png" alt=""><span class="" style="width: 100%;">KÝ TÚC XÁ</span></div>
         <div class="menu ">

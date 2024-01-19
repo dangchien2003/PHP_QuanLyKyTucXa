@@ -38,7 +38,7 @@
                                                 <input type="text" class="" id="exampleFormControlInput1" placeholder="" value="<?php echo $infoP["soSinhVien"] . "/" . $infoP["sucChua"] ?>">
                                             </div>
                                         </div>
-                                        <a href="./thongtinphong?maphong=<?php echo $infoP["maPhong"];?>">
+                                        <a href="./thongtinp.php?maphong=<?php echo $infoP["maPhong"];?>">
                                             <div class="action d-flex">
                                                 <div class="icon edit">
                                                     <i class="bi bi-pencil-fill"></i>

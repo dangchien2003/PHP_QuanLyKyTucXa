@@ -8,7 +8,7 @@ include_once '../handle/checkAccount.php';
     <div class="col-lg-9 sdp tp" style="min-height: 1000px;">
         <div class="box">
             <div class="name">
-                <i class="bi bi-person-circle"></i>Thống kê sinh viên
+            <i class="bi bi-bar-chart-line-fill"></i>Thống kê sinh viên
             </div>
             <div class="baocao">
                 <div class="thongke" id="thongkesvdangkytheothang">
@@ -48,7 +48,7 @@ include_once '../handle/checkAccount.php';
                         if (checkRequest($_GET, ["year"])) {
                             $year = $_GET["year"];
                         }
-                        $sql = "SELECT count(sinhvien.id) as sl, MONTH(sinhvien.ngayVao) AS thangVao FROM sinhvien WHERE sinhvien.ngayVao LIKE '$year%' GROUP BY sinhvien.ngayVao;";
+                        $sql = "SELECT count(sinhvien.id) as sl, MONTH(sinhvien.ngayVao) AS thangVao FROM sinhvien WHERE sinhvien.ngayVao LIKE '$year%' GROUP BY month(sinhvien.ngayVao);";
                         $result = query_no_input($sql);
                         while ($row = $result->fetch_assoc()) {
                             ?>

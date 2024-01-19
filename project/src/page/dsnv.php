@@ -6,7 +6,7 @@
     <div class="col-lg-9 sdp tp" style="min-height: 1000px;">
         <div class="box">
             <div class="name">
-                <i class="bi bi-building-add"></i>Danh sách nhân viên
+                <i class="bi bi-list-task"></i>Danh sách nhân viên
             </div>
             <nav class="container mt-3 ">
                 <form class="container-fluid justify-content-start pd-0">

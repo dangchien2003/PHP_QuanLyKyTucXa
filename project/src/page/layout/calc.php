@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="calculator d-none" id="calculator">
-        <input type="text" id="display" style="">
+        <input type="text" id="display">
     </br>
         <button onclick="appendToDisplay('1')">1</button>
         <button onclick="appendToDisplay('2')">2</button>

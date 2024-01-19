@@ -8,7 +8,7 @@ include_once '../handle/checkAccount.php';
     <div class="col-lg-9 sdp tp" style="min-height: 1000px;">
         <div class="box">
             <div class="name">
-                <i class="bi bi-bar-chart-line-fill"></i>Thống kê phòng
+                <i class="bi bi-bar-chart-line-fill"></i>Thống kê hoá đơn
             </div>
             <div class="date" style="text-align: right;">
                 <?php

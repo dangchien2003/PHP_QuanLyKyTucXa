@@ -47,7 +47,7 @@
             </a>
         </ul>
         <li class="parent-menu position-relative on">
-            <i class="bi bi-door-open"></i>
+            <i class="fas fa-male"></i>
             Quản lý nhân viên
             <span class="arrow position-absolute">
                 <i class="bi bi-chevron-left left d-none"></i>
@@ -61,10 +61,15 @@
                     Danh sách nhân viên
                 </li>
             </a>
-            
+            <a href="#">
+                <li>
+                    <i class="fa-solid fa-plus"></i>
+                    Thêm nhân viên
+                </li>
+            </a>
         </ul>
         <li class="parent-menu position-relative on">
-            <i class="bi bi-door-open"></i>
+            <i class="fas fa-motorcycle"></i>
             Quản lý thẻ xe
             <span class="arrow position-absolute">
                 <i class="bi bi-chevron-left left d-none"></i>
@@ -74,12 +79,13 @@
         <ul class="list-unstyled sub-menu">
             <a href="./dsthe.php">
                 <li>
+                    <i class="bi bi-credit-card-2-front-fill"></i>
                     Danh sách thẻ xe
                 </li>
             </a>
         </ul>
         <li class="parent-menu position-relative on">
-            <i class="bi bi-bar-chart-line-fill"></i>
+            <i class="bi bi-graph-up-arrow"></i>
             Báo cáo thống kê
             <span class="arrow position-absolute">
                 <i class="bi bi-chevron-left left d-none"></i>
@@ -109,30 +115,9 @@
         </ul>
 
 
+        
         <li class="parent-menu position-relative on">
-            <i class="bi bi-bar-chart-line-fill"></i>
-            Quản lý tài khoản
-            <span class="arrow position-absolute">
-                <i class="bi bi-chevron-left left d-none"></i>
-                <i class="bi bi-chevron-down down"></i>
-            </span>
-        </li>
-        <ul class="list-unstyled sub-menu">
-            <a href="./dstaikhoan.php">
-                <li>
-                    <i class="bi bi-door-closed-fill"></i>
-                    Danh sách tài khoản
-                </li>
-            </a>
-            <a href="./taotk.php">
-                <li>
-                    <i class="bi bi-person-walking"></i>
-                    Tạo tài khoản
-                </li>
-            </a>
-        </ul>
-        <li class="parent-menu position-relative on">
-            <i class="bi bi-bar-chart-line-fill"></i>
+            <i class="fas fa-user-shield"></i>
             Quản trị viên
             <span class="arrow position-absolute">
                 <i class="bi bi-chevron-left left d-none"></i>
@@ -142,14 +127,36 @@
         <ul class="list-unstyled sub-menu">
             <a href="./dstaikhoan.php">
                 <li>
-                    <i class="bi bi-door-closed-fill"></i>
+                    <i class="bi bi-link"></i>
                     Liên kết
                 </li>
             </a>
             <a href="./quyentaikhoan.php">
                 <li>
-                    <i class="bi bi-person-walking"></i>
+                    <i class="bi bi-plugin"></i>
                     Quyền truy cập
+                </li>
+            </a>
+        </ul>
+        <li class="parent-menu position-relative on">
+            <i class="bi bi-person-circle"></i>
+            Quản lý tài khoản
+            <span class="arrow position-absolute">
+                <i class="bi bi-chevron-left left d-none"></i>
+                <i class="bi bi-chevron-down down"></i>
+            </span>
+        </li>
+        <ul class="list-unstyled sub-menu">
+            <a href="./dstaikhoan.php">
+                <li>
+                    <i class="bi bi-person-lines-fill"></i>
+                    Danh sách tài khoản
+                </li>
+            </a>
+            <a href="./taotk.php">
+                <li>
+                    <i class="bi bi-person-plus-fill"></i>
+                    Tạo tài khoản
                 </li>
             </a>
         </ul>

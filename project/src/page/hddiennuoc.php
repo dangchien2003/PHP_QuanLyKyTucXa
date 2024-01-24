@@ -150,13 +150,13 @@ include '../handle/checkAccount.php' ?>
                                             ?> 
                                         </td>
                                         <td>
-                                            <a href="./thongtinsv.php?id=1" class="show">
+                                            <a href="./thongtinhoadon.php?hoadon=diennuoc&mahd=<?php echo $row['mahd'] ?>" class="show">
                                                 <div class="btn-tt d-inline-block bgr-ok">Xem</div>
                                             </a>
                                             <?php
                                             if($row['idtt'] == 5) {
                                                 ?> 
-                                                <a href="./thongtinsv.php?idsv=2" class="show">
+                                                <a href="../handle/noptien.php?hoadon=diennuoc&mahd=<?php echo $row['mahd'] ?>" class="show" onclick="return confirm('Xác nhận nộp tiền <?php echo $row['mahd'] ?>')">
                                                     <div class="btn-tt d-inline-block bgr-info">Nộp tiền</div>
                                                 </a>
                                                 <?php 

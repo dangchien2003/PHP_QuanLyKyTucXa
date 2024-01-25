@@ -1,5 +1,4 @@
 <?php include './layout/header.php';
-    include '../handle/checkAccount.php';
 ?>
 <div class="row">
     <div class="col-lg-3 bg-menu">
@@ -16,11 +15,11 @@
                         <img src="../../public/image/icon/room.png" alt="" class="object">
                     </div>
                 </div>
-                <form action="../handle/suahdphong.php" method="post" class="col-md-7">
+                <form action="../handle/suahdguixe.php" method="post" class="col-md-7">
                     <?php
                     if (checkRequest($_GET, ["mahd"])) {
                         // lấy thông tin hoá đơn
-                        $sql = "SELECT sinhvien.hoTen, hoadonphong.giaPhong, hoadonphong.giaVeSinh, hoadonphong.tongTien, hoadonphong.tinhtrang, hoadonphong.ngayChot from hoadonphong join sinhvien on sinhvien.id = hoadonphong.toi where concat(hoadonphong.kyHieu, hoadonphong.maHoaDon) = ?";
+                        $sql = "SELECT concat(thexe.kyHieu, thexe.id) as mathe, tongTien, ngayChot, hoadonguixe.tinhTrang FROM hoadonguixe JOIN thexe ON hoadonguixe.idTheXe = thexe.id WHERE concat(hoadonguixe.kyHieu, hoadonguixe.maHoaDon) = ?;";
                         $result = query_input($sql, [$_GET['mahd']]);
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
@@ -29,7 +28,7 @@
                                     <div class="col-md-3">
                                         <label for="exampleFormControlInput1" class="form-label">Hoá đơn:</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1"
-                                            value="Điện nước" required readonly>
+                                            value="Gửi xe" required readonly>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="exampleFormControlInput1" class="form-label">Mã HĐ:</label>
@@ -37,28 +36,18 @@
                                             name="mahd" required readonly>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Sinh viên: </label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" value="<?php echo $row['hoTen'] ?>"
+                                        <label for="exampleFormControlInput1" class="form-label">Thẻ: </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" value="<?php echo $row['mathe'] ?>"
                                             required readonly>
                                     </div>
                                 </div>
+                                
                                 <div class="row">
-                                    <div class="col-md-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Giá phòng:</label>
-                                        <input type="number" class="form-control" id="giaphong" name="giaphong" value="<?php echo $row['giaPhong'] ?>"
-                                            required>
+                                    <div class="col-md-2">
+                                    <label for="exampleFormControlInput1" class="form-label">Số tiền: </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" value="<?php echo $row['tongTien'] ?>"
+                                           name="tongtien" required >
                                     </div>
-                                    <div class="col-md-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Vệ sinh:</label>
-                                        <input type="number" class="form-control" id="vesinh" name="vesinh" value="<?php echo $row['giaVeSinh'] ?>" required>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Tổng tiền:</label>
-                                        <input type="text" class="form-control" id="tongtien" value="<?php echo $row['tongTien'] ?>" required readonly>
-                                    </div>
-
-                                </div>
-                                <div class="row">
                                     <div class="col-md-5">
                                         <label for="exampleFormControlInput1" class="form-label">Tình trạng:</label>
                                         <select class="form-select" aria-label="Default select example" name="tinhtrang" required>
@@ -68,7 +57,7 @@
                                             if ($result->num_rows > 0) {
                                                 while ($rowtt = $result->fetch_assoc()) {
                                                     ?>
-                                                    <option value="<?php echo $rowtt["id"] ?>" <?php if ($rowtt["id"] == $row['tinhtrang']) {
+                                                    <option value="<?php echo $rowtt["id"] ?>" <?php if ($rowtt["id"] == $row['tinhTrang']) {
                                                            echo 'selected';
                                                        } ?>>
                                                         <?php echo $rowtt["tinhtrang"]; ?>

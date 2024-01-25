@@ -1,5 +1,6 @@
 <?php 
-    require_once './helper.php';
+    require_once 'helper.php';
+    require_once 'checkAccount.php';
     $error = false;
     if(checkRequest($_POST, ['sua'])) {
         if(checkRequest($_POST,['tinhtrang', 'vesinh', 'giaphong', 'mahd'])) {
@@ -15,7 +16,7 @@
         $error = true;
     }
     if($error) {
-        header("Location: ../page/hoadonphong.php?status=400&message=Có lỗi xảy ra");
+        header("Location: ../page/hdphong.php?status=400&message=Có lỗi xảy ra");
     }else {
         header("Location: ../page/tthdphong.php?status=200&message=Cập nhật thành công&mahd=".$_POST['mahd']);
     }

@@ -3,6 +3,10 @@
     margin-top: 5px;
 }
 
+.parent-menu {
+    font-weight: 500;
+}
+
 .menu .list-unstyled  li {
     height: 30px;
 }

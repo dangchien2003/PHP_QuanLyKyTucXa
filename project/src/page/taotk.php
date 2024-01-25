@@ -26,9 +26,9 @@ include '../handle/checkAccount.php' ?>
                             </div>
                             <div class="col-md-4">
                                 <label for="exampleFormControlInput1" class="form-label">Mật khẩu:</label>
-                                <div class="" id="password">
-                                    <input type="password" class="form-control" id="exampleFormControlInput1" value=""
-                                        name="password" required id="password">
+                                <div id="password" >
+                                    <input type="password" class="form-control" id="newpass" value=""
+                                        name="password" required >
                                     <span id="random">RĐ</span>
                                 </div>
                             </div>
@@ -63,3 +63,16 @@ include '../handle/checkAccount.php' ?>
 </div>
 
 <?php include './layout/footer.php' ?>
+<script>
+    $(document).ready(function() {
+        $('#random').click(function(){
+            $('#newpass').val(randomUpperCaseString(10));
+        })
+    })
+    function randomUpperCaseString(length) {
+        const characters = 'abcdefghijklmnopqrstuvwxyz';
+        const randomChar = characters.charAt(Math.floor(Math.random() * characters.length));
+        const randomString = randomChar.toUpperCase() + Array.from({ length: length - 1 }, () => characters.charAt(Math.floor(Math.random() * characters.length))).join('');
+        return randomString;
+    }
+</script>

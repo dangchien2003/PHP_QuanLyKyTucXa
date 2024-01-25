@@ -42,7 +42,7 @@ include '../handle/checkAccount.php' ?>
                     <div class="ngaychot col-md-3">
                         <div class="fs-15 fw-500">Ngày chốt:</div>
                         <input type="date" class="btn me-2"
-                            style="margin: 10px 0; box-shadow: none; border :1px solid #ced4da;" name = "ngaychot" id="ngaychot" value="<?php echo $_GET['ngaychot']??""?>">
+                            style="box-shadow: none; border :1px solid #ced4da;" name = "ngaychot" id="ngaychot" value="<?php echo $_GET['ngaychot']??""?>">
                     </div>
                 </div>
                 <div class="ttp">
@@ -100,6 +100,7 @@ include '../handle/checkAccount.php' ?>
                         $nam = date('Y', $timestamp);
                         $thang = date('m', $timestamp);
                         $sql = "SELECT concat(hoadondiennuoc.kyHieu, hoadondiennuoc.maHoaDon) as mahd, hoadondiennuoc.toi as maphong, soDienMoi-soDienCu as sodien, soNuocMoi-soNuocCu as sonuoc, hoadondiennuoc.ngayChot, tinhtrang.tinhTrang, hoadondiennuoc.tinhtrang as idtt,  concat(sinhvien.kyHieu,sinhvien.id,'-',sinhvien.hoTen) as daidien, hoadondiennuoc.tongTien, sinhvien.sdt from hoadondiennuoc JOIN phong on phong.maPhong = hoadondiennuoc.toi JOIN sinhvien ON sinhvien.id = phong.nguoiDaiDien JOIN tinhtrang on tinhtrang.id = hoadondiennuoc.tinhtrang where month(ngayChot) = ? and year(ngayChot) = ? and phong.tang = $tang and hoadondiennuoc.tinhtrang = $tinhtrang and hoadondiennuoc.toi = $maphong";
+                        
                         $result = query_input($sql, [$thang, $nam]);
                         if ($result->num_rows > 0) {
                             ?>
@@ -150,7 +151,7 @@ include '../handle/checkAccount.php' ?>
                                             ?> 
                                         </td>
                                         <td>
-                                            <a href="./thongtinhoadon.php?hoadon=diennuoc&mahd=<?php echo $row['mahd'] ?>" class="show">
+                                            <a href="./tthddiennuoc.php?hoadon=diennuoc&mahd=<?php echo $row['mahd'] ?>" class="show">
                                                 <div class="btn-tt d-inline-block bgr-ok">Xem</div>
                                             </a>
                                             <?php

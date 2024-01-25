@@ -7,7 +7,7 @@
     <div class="col-lg-9 sdp tp" style="min-height: 1000px;">
         <div class="box">
             <div class="name">
-                <i class="bi bi-house-door-fill"></i>Thông tin hoá đơn phòng
+                <i class="bi bi-house-door-fill"></i>Thông tin hoá đơn gửi xe
             </div>
             <div class="form-add row">
                 <div class="col-md-3">

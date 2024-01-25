@@ -1,5 +1,5 @@
 <?php include './layout/header.php';
-    include '../handle/checkAccount.php';
+    // include '../handle/checkAccount.php';
 ?>
 <div class="row">
     <div class="col-lg-3 bg-menu">
@@ -8,19 +8,19 @@
     <div class="col-lg-9 sdp tp" style="min-height: 1000px;">
         <div class="box">
             <div class="name">
-                <i class="bi bi-house-door-fill"></i>Thông tin hoá đơn phòng
+                <i class="bi bi-droplet-fill"></i>Thông tin hoá đơn điện nước
             </div>
             <div class="form-add row">
                 <div class="col-md-3">
                     <div class="icon">
-                        <img src="../../public/image/icon/room.png" alt="" class="object">
+                        <img src="../../public/image/icon/electric.png" alt="" class="object">
                     </div>
                 </div>
-                <form action="../handle/suahdphong.php" method="post" class="col-md-7">
+                <form action="../handle/suahddiennuoc.php" method="post" class="col-md-7" id="form">
                     <?php
                     if (checkRequest($_GET, ["mahd"])) {
                         // lấy thông tin hoá đơn
-                        $sql = "SELECT sinhvien.hoTen, hoadonphong.giaPhong, hoadonphong.giaVeSinh, hoadonphong.tongTien, hoadonphong.tinhtrang, hoadonphong.ngayChot from hoadonphong join sinhvien on sinhvien.id = hoadonphong.toi where concat(hoadonphong.kyHieu, hoadonphong.maHoaDon) = ?";
+                        $sql = "SELECT soDienCu, soDienMoi, soNuocCu, soNuocMoi, ngayChot, tongTien, concat(phong.kyHieu, phong.maPhong) as phong, hoadondiennuoc.tinhtrang from hoadondiennuoc JOIN phong ON phong.maPhong = hoadondiennuoc.toi where concat(hoadondiennuoc.kyHieu, hoadondiennuoc.maHoaDon) = ?";
                         $result = query_input($sql, [$_GET['mahd']]);
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
@@ -29,7 +29,7 @@
                                     <div class="col-md-3">
                                         <label for="exampleFormControlInput1" class="form-label">Hoá đơn:</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1"
-                                            value="Phòng" required readonly>
+                                            value="Điện nước" required readonly>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="exampleFormControlInput1" class="form-label">Mã HĐ:</label>
@@ -37,29 +37,49 @@
                                             name="mahd" required readonly>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Sinh viên: </label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" value="<?php echo $row['hoTen'] ?>"
+                                        <label for="exampleFormControlInput1" class="form-label">Phòng: </label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" value="<?php echo $row['phong'] ?>"
                                             required readonly>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Giá phòng:</label>
-                                        <input type="number" class="form-control" id="giaphong" name="giaphong" value="<?php echo $row['giaPhong'] ?>"
+                                        <label for="exampleFormControlInput1" class="form-label">Điện cũ:</label>
+                                        <input type="number" class="form-control" id="diencu" name="diencu" value="<?php echo $row['soDienCu'] ?>"
                                             required>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Vệ sinh:</label>
-                                        <input type="number" class="form-control" id="vesinh" name="vesinh" value="<?php echo $row['giaVeSinh'] ?>" required>
+                                        <label for="exampleFormControlInput1" class="form-label">Điện mới:</label>
+                                        <input type="number" class="form-control" id="dienmoi" name="dienmoi" value="<?php echo $row['soDienMoi'] ?>" required>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Tổng tiền:</label>
-                                        <input type="text" class="form-control" id="tongtien" value="<?php echo $row['tongTien'] ?>" required readonly>
+                                        <label for="exampleFormControlInput1" class="form-label">Tiền điện:</label>
+                                        <input type="text" class="form-control" id="tiendien" value="0" required readonly>
                                     </div>
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-5">
+                                    <div class="col-md-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Nước cũ:</label>
+                                        <input type="number" class="form-control" id="nuoccu" name="nuoccu" value="<?php echo $row['soNuocCu'] ?>"
+                                            required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Nước mới:</label>
+                                        <input type="number" class="form-control" id="nuocmoi" name="nuocmoi" value="<?php echo $row['soNuocMoi'] ?>" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Tiền nước:</label>
+                                        <input type="text" class="form-control" id="tiennuoc" value="0" required readonly>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Tổng tiền:</label>
+                                        <input type="text" class="form-control" id="tongtien" value="<?php echo $row['tongTien']?>" required readonly name="tongtien">
+                                    </div>
+                                    <div class="col-md-4">
                                         <label for="exampleFormControlInput1" class="form-label">Tình trạng:</label>
                                         <select class="form-select" aria-label="Default select example" name="tinhtrang" required>
                                             <?php
@@ -89,7 +109,7 @@
                                     </div>
                                 </div>
                                 <input type="submit" class="btn d-inline-block bgr-ok"
-                                    onclick="return confirm('Xác nhận chỉnh sửa')" value="Sửa" name="sua">
+                                    onclick="check()" value="Sửa" name="sua">
                             <?php
                             }
                         } else {
@@ -109,15 +129,52 @@
 
 <?php include './layout/footer.php' ?>
 <script>
+    $('#form').submit(function(event) {
+        event.preventDefault();
+    })
+    function check() {
+    if (!error) {
+        if (confirm("Xác nhận chỉnh sửa")) {
+            $('#form').off("submit").submit();
+        }
+    } else {
+        toastInfo("Thông tin không đúng");
+    }
+}
+    var error = false;
     $(document).ready(function () {
-        var giaphong = $("#giaphong");
-        var vesinh = $("#vesinh");
+        var diencu = $("#diencu");
+        var dienmoi = $("#dienmoi");
+        var nuoccu = $("#nuoccu");
+        var nuocmoi = $("#nuocmoi");
         var tong = $("#tongtien");
-        $(giaphong).on("change", tinhtong);
-        $(vesinh).on("change", tinhtong);
-        function tinhtong() {
-            let tien = ($(giaphong).val() * 1) + ($(vesinh).val() * 1);
+        var tiendien = $('#tiendien');
+        var tiennuoc = $('#tiennuoc');
+        $(diencu).on("change", tinhtien);
+        $(dienmoi).on("change", tinhtien);
+        $(nuoccu).on("change", tinhtien);
+        $(nuocmoi).on("change", tinhtien);
+        
+        function tinhtiendien() {
+            $(tiendien).val((($(dienmoi).val() * 1) - ($(diencu).val() * 1)) * 2500);
+        }
+        function tinhtiennuoc() {
+            $(tiennuoc).val((($(nuocmoi).val() * 1) - ($(nuoccu).val() * 1)) * 15000);
+        }
+        tinhtiendien();
+        tinhtiennuoc();
+        function tinhtien() {
+            tinhtiendien();
+            tinhtiennuoc();
+            if($(tiendien).val() * 1 < 0 || $(tiennuoc).val() * 1 < 0) {
+                toastInfo("Thông tin không đúng");
+                error = true;
+            }else {
+                error = false;
+            }
+            let tien = $(tiendien).val() * 1 + $(tiennuoc).val()*1;
             $(tong).val(tien);
         }
+        
     });
 </script>

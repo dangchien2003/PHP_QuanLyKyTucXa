@@ -150,7 +150,7 @@ include '../handle/checkAccount.php' ?>
                                             ?> 
                                         </td>
                                         <td>
-                                            <a href="./thongtinsv.php?id=1" class="show">
+                                            <a href="./tthdphong.php?mahd=<?php echo $row['mahd'] ?>" class="show">
                                                 <div class="btn-tt d-inline-block bgr-ok">Xem</div>
                                             </a>
                                             <?php

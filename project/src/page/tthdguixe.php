@@ -12,7 +12,7 @@
             <div class="form-add row">
                 <div class="col-md-3">
                     <div class="icon">
-                        <img src="../../public/image/icon/room.png" alt="" class="object">
+                        <img src="../../public/image/icon/motobike.png" alt="" class="object">
                     </div>
                 </div>
                 <form action="../handle/suahdguixe.php" method="post" class="col-md-7">

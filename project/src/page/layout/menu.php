@@ -125,7 +125,7 @@
             </span>
         </li>
         <ul class="list-unstyled sub-menu">
-            <a href="./dstaikhoan.php">
+            <a href="./dslienket.php">
                 <li>
                     <i class="bi bi-link"></i>
                     Liên kết

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 13, 2024 lúc 05:21 PM
+-- Thời gian đã tạo: Th1 27, 2024 lúc 12:26 PM
 -- Phiên bản máy phục vụ: 10.4.25-MariaDB
 -- Phiên bản PHP: 8.0.23
 
@@ -42,10 +42,10 @@ INSERT INTO `chucvu` (`id`, `chucDanh`) VALUES
 (3, 'Quản lý sinh viên'),
 (4, 'Quản lý phòng'),
 (5, 'Quản lý hoá đơn'),
-(6, 'Quản lý hợp đồng'),
 (7, 'Quản lý hợp đồng'),
 (8, 'Thống kê'),
-(9, 'Quản lý nhân viên');
+(9, 'Quản lý nhân viên'),
+(10, 'Admin');
 
 -- --------------------------------------------------------
 
@@ -71,10 +71,10 @@ CREATE TABLE `hoadondiennuoc` (
 --
 
 INSERT INTO `hoadondiennuoc` (`maHoaDon`, `kyHieu`, `toi`, `soDienCu`, `soDienMoi`, `soNuocCu`, `soNuocMoi`, `ngayChot`, `tongTien`, `tinhtrang`) VALUES
-(1, 'HDDN', 101, 1020, 1251, 125, 145, '2023-12-01', 0, 5),
+(1, 'HDDN', 101, 1020, 1259, 121, 146, '2023-12-01', 972500, 6),
 (2, 'HDDN', 102, 1020, 1252, 125, 146, '2023-12-01', 0, 6),
-(3, 'HDDN', 103, 1020, 1253, 125, 147, '2023-12-01', 0, 5),
-(4, 'HDDN', 104, 1020, 1254, 125, 148, '2023-12-01', 0, 5),
+(3, 'HDDN', 103, 1020, 1253, 125, 147, '2023-12-01', 0, 6),
+(4, 'HDDN', 104, 1020, 1254, 125, 148, '2023-12-01', 0, 6),
 (5, 'HDDN', 201, 1020, 1255, 125, 149, '2023-12-01', 0, 6);
 
 -- --------------------------------------------------------
@@ -97,10 +97,10 @@ CREATE TABLE `hoadonguixe` (
 --
 
 INSERT INTO `hoadonguixe` (`maHoaDon`, `kyHieu`, `idTheXe`, `tongTien`, `ngayChot`, `tinhTrang`) VALUES
-(1, 'HDX', 1, 100000, '2023-12-01', 5),
+(1, 'HDX', 1, 100000, '2023-12-01', 6),
 (2, 'HDX', 2, 100000, '2023-12-01', 6),
-(3, 'HDX', 3, 100000, '2023-12-01', 5),
-(4, 'HDX', 4, 100000, '2023-12-01', 5),
+(3, 'HDX', 3, 100000, '2023-12-01', 6),
+(4, 'HDX', 4, 100000, '2023-12-01', 6),
 (5, 'HDX', 5, 100000, '2023-12-01', 6),
 (6, 'HDX', 6, 100000, '2023-12-01', 6);
 
@@ -127,10 +127,10 @@ CREATE TABLE `hoadonphong` (
 --
 
 INSERT INTO `hoadonphong` (`maHoaDon`, `kyHieu`, `toi`, `giaPhong`, `giaVeSinh`, `soThang`, `ngayChot`, `tongTien`, `tinhtrang`) VALUES
-(1, 'HDP', 1, 500000, 50000, 6, '2023-12-01', 3300000, 5),
+(1, 'HDP', 1, 500001, 50000, 6, '2023-12-01', 550001, 11),
 (2, 'HDP', 2, 500000, 50000, 6, '2023-12-01', 3300000, 6),
-(3, 'HDP', 3, 500000, 50000, 6, '2023-12-01', 3300000, 5),
-(4, 'HDP', 4, 500000, 50000, 6, '2023-12-01', 3300000, 5),
+(3, 'HDP', 3, 500000, 50000, 6, '2023-12-01', 3300000, 6),
+(4, 'HDP', 4, 500000, 50000, 6, '2023-12-01', 3300000, 6),
 (5, 'HDP', 5, 500000, 50000, 6, '2023-12-01', 3300000, 6),
 (6, 'HDP', 6, 500000, 50000, 6, '2023-12-01', 3300000, 5),
 (7, 'HDP', 7, 500000, 50000, 6, '2023-12-01', 3300000, 5);
@@ -205,11 +205,11 @@ INSERT INTO `nhanvien` (`id`, `kyHieu`, `hoTen`, `anh`, `gioiTinh`, `ngaySinh`, 
 (3, 'NV', 'Bình Yên', 'NV3.png', 1, '1995-04-25', 'Hải Dương', 3, NULL, '0333747422', 'user3', '2022-11-20', NULL, 8),
 (4, 'NV', 'Hoàng Hải', 'NV4.png', 1, '1989-08-12', 'Hải Dương', 4, NULL, '0333747423', 'user4', '2022-11-20', NULL, 8),
 (5, 'NV', 'Huân Võ', 'NV5.png', 1, '1990-05-15', 'Hải Dương', 5, NULL, '0333747424', 'user5', '2022-11-20', NULL, 8),
-(6, 'NV', 'Phương Chi', 'NV6.png', 0, '1995-04-25', 'Hải Dương', 6, NULL, '0333747425', 'user6', '2022-11-20', NULL, 8),
 (7, 'NV', 'Thu Ngọc', 'NV7.png', 0, '1989-08-12', 'Hải Dương', 7, NULL, '0333747426', 'user7', '2022-11-20', NULL, 8),
 (8, 'NV', 'Quế Phương', 'NV8.png', 0, '1995-04-25', 'Hải Dương', 8, NULL, '0333747427', 'user8', '2022-11-20', NULL, 8),
 (9, 'NV', 'Hiếu Khanh', 'NV9.png', 0, '1990-05-15', 'Hải Dương', 9, NULL, '0333747428', 'user9', '2022-11-20', NULL, 8),
-(10, 'NV', 'Trúc Đào', 'NV10.png', 0, '1995-04-25', 'Hải Dương', 9, NULL, '0333747429', 'user10', '2022-11-20', NULL, 7);
+(10, 'NV', 'Trúc Đào', 'NV10.png', 0, '1995-04-25', 'Hải Dương', 9, NULL, '0333747429', 'user10', '2022-11-20', NULL, 7),
+(12, 'NV', 'Admin', '', 0, '1990-05-15', NULL, NULL, NULL, NULL, 'admin', '1990-05-15', NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -260,11 +260,15 @@ CREATE TABLE `quyen` (
 --
 
 INSERT INTO `quyen` (`idQuyen`, `quanLy`) VALUES
-(2, 3),
+(1, 1),
+(2, 2),
 (3, 3),
-(1, 4),
 (4, 4),
-(8, 8);
+(5, 5),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10);
 
 -- --------------------------------------------------------
 
@@ -282,15 +286,19 @@ CREATE TABLE `quyenchinh` (
 --
 
 INSERT INTO `quyenchinh` (`user`, `quyen`) VALUES
-('user1', 1),
-('user1', 3),
 ('user2', 2),
-('user8', 8),
-('user9', 1),
-('user9', 2),
-('user9', 3),
-('user9', 4),
-('user9', 8);
+('admin', 7),
+('admin', 2),
+('admin', 3),
+('admin', 4),
+('admin', 9),
+('admin', 10),
+('admin', 5),
+('user9', 9),
+('user7', 7),
+('user3', 3),
+('user4', 4),
+('user5', 5);
 
 -- --------------------------------------------------------
 
@@ -381,7 +389,11 @@ INSERT INTO `sinhvien` (`id`, `kyHieu`, `anh`, `maPhong`, `hoTen`, `gioiTinh`, `
 (35, 'SV', NULL, 100, 'Lê Đăng Chiến', NULL, '0000-00-00', '', '121212', '', 'Sinh viên', '', 16, '2024-01-03', NULL, NULL),
 (36, 'SV', NULL, 100, 'Lê Đăng Chiến', NULL, '0000-00-00', '', '121212', '', 'Sinh viên', '', 16, '2024-01-03', NULL, NULL),
 (37, 'SV', NULL, 100, 'Lê Đăng Chiến', NULL, '0000-00-00', '', '1', 'hd', 'Sinh viên', '', 16, '2024-02-11', NULL, NULL),
-(38, 'SV', NULL, 100, 'a', 1, '0000-00-00', '', 'a', '', 'Sinh viên', '', 16, '2024-01-01', NULL, NULL);
+(38, 'SV', NULL, 100, 'a', 1, '0000-00-00', '', 'a', '', 'Sinh viên', '', 16, '2024-01-01', NULL, NULL),
+(39, 'SV', NULL, 100, 'Phạm Văn Hoàng', 1, '2003-01-26', '03334445ab', '030203008888', 'Hà Nội', 'Sinh viên', 'Đại học Công Nghệ Đông Á', 16, '2024-01-21', NULL, 1),
+(41, 'SV', NULL, 100, 'Phạm Văn Hoàng', 1, '2003-12-26', '03334445ab', '030203008888', 'Hà Nội', 'Sinh viên', 'Đại học Công Nghệ Đông Á', 16, '2024-01-21', NULL, 1),
+(42, 'SV', NULL, 100, 'Phạm Văn Hoàng', 1, '2003-12-26', '', '030203008888', '', 'Sinh viên', '', 16, '2024-01-21', NULL, 1),
+(43, 'SV', NULL, 100, 'Phạm Văn Hoàng', 1, '2003-12-26', '', '030203008888', '', 'Sinh viên', '', 16, '2024-01-21', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -401,14 +413,13 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`user`, `pass`, `quyen`, `tinhTrang`) VALUES
-('a', '1', 1, 14),
+('admin', 'admin', 10, 15),
 ('user1', '170498719885', 1, 15),
 ('user10', '170516283988', 9, 14),
 ('user2', '170506577036', 2, 15),
 ('user3', '170498704249', 3, 15),
 ('user4', '170498686879', 4, 15),
 ('user5', '1', 5, 15),
-('user6', '1', 6, 15),
 ('user7', '1', 7, 15),
 ('user8', '1', 8, 15),
 ('user9', '1', 9, 15);
@@ -433,7 +444,7 @@ CREATE TABLE `thexe` (
 --
 
 INSERT INTO `thexe` (`id`, `kyHieu`, `chuXe`, `bienSo`, `tenXe`, `tinhTrang`) VALUES
-(1, 'TX', 1, '34MD1 4097', 'Xe máy điện Xmen', 11),
+(1, 'TX', 1, '34MD1 4097', 'Xe máy điện Xmen', 10),
 (2, 'TX', 4, '34MD1 4096', 'Wave 120CC', 15),
 (3, 'TX', 2, '34MD1 4095', 'Dream', 14),
 (4, 'TX', 5, '34MD1 4094', 'Xe máy điện Xmen', 15),
@@ -499,30 +510,36 @@ CREATE TABLE `url` (
 -- Đang đổ dữ liệu cho bảng `url`
 --
 
-
 INSERT INTO `url` (`id`, `url`, `indata`, `quyen`) VALUES
-(1, 'sodophong.php', b'0', 1),
-(2, 'thongtinsv.php', b'1', 2),
-(3, 'themphong.php', b'0', 1),
-(4, 'ádsadsff', b'0', 4),
-(5, 'danhsachsv.php', b'0', 2),
-(6, 'thongtinp.php', b'1', 1),
-(7, 'thongkephong.php', b'0', 8),
-(8, 'thongkesinhvien.php', b'0', 8),
-(9, 'thongkehoadon.php', b'0', 8),
-(10, 'doiPhongSV1.php', b'1', 1),
-(11, 'thongtincanhan.php', b'0', 1),
+(1, 'sodophong.php', b'0', 4),
+(2, 'thongtinsv.php', b'1', 3),
+(3, 'themphong.php', b'0', 4),
+(5, 'danhsachsv.php', b'0', 3),
+(6, 'thongtinp.php', b'1', 4),
+(7, 'thongkephong.php', b'0', 10),
+(8, 'thongkesinhvien.php', b'0', 10),
+(9, 'thongkehoadon.php', b'0', 10),
+(11, 'thongtincanhan.php', b'0', 5),
 (12, 'thongtincanhan.php', b'0', 2),
 (13, 'thongtincanhan.php', b'0', 3),
-(14, 'thongtincanhan.php', b'0', 4),
-(15, 'thongtincanhan.php', b'0', 8),
-(16, 'aaaa', b'0', 1),
-(17, 'themsinhvien.php', b'0', 2),
-(18, 'dstaikhoan.php', b'0', 8),
-(19, 'taotk.php', b'0', 8),
-(23, 'themthe.php', b'0', 8),
-(24, 'dsthe.php', b'0', 8),
-(25, 'thongtinthe.php', b'1', 8);
+(15, 'thongtincanhan.php', b'0', 4),
+(17, 'themsinhvien.php', b'0', 3),
+(18, 'dstaikhoan.php', b'0', 10),
+(19, 'taotk.php', b'0', 10),
+(23, 'themthe.php', b'0', 2),
+(24, 'dsthe.php', b'0', 2),
+(25, 'thongtinthe.php', b'1', 2),
+(26, 'hddiennuoc.php', b'0', 5),
+(27, 'hdphong.php', b'0', 5),
+(28, 'hdxe.php', b'0', 5),
+(31, 'noptien.php', b'1', 5),
+(32, 'tthdphong.php', b'1', 5),
+(33, 'suahdphong.php', b'0', 5),
+(34, 'dslienket.php', b'0', 10),
+(41, 'xoaurl.php', b'1', 10),
+(45, 'taolienket.php', b'0', 10),
+(47, 'ttlienket.php', b'1', 10),
+(48, 'dsnv.php', b'0', 9);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -649,7 +666,7 @@ ALTER TABLE `url`
 -- AUTO_INCREMENT cho bảng `chucvu`
 --
 ALTER TABLE `chucvu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadondiennuoc`
@@ -679,19 +696,19 @@ ALTER TABLE `hopdong`
 -- AUTO_INCREMENT cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `quyen`
 --
 ALTER TABLE `quyen`
-  MODIFY `idQuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idQuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `sinhvien`
 --
 ALTER TABLE `sinhvien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT cho bảng `thexe`
@@ -709,7 +726,7 @@ ALTER TABLE `tinhtrang`
 -- AUTO_INCREMENT cho bảng `url`
 --
 ALTER TABLE `url`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

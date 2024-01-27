@@ -6,7 +6,7 @@
         $dbsv = "php_qlkytucxa";
         $GLOBALS['conn'] = new mysqli($svn, $usv, $psv, $dbsv);
         if($GLOBALS['conn']->connect_error) {
-            die("Kết nối database không thành công") ;
+            header("location ../page/dangnhap.php?status=400&message=Lỗi server");
         }
     }
 

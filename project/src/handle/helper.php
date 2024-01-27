@@ -1,5 +1,6 @@
 <?php
     include_once  '../config/configdb.php';
+    error_reporting(0);
     
     function query_no_input ($sql){
         try {

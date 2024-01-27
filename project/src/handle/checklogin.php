@@ -39,6 +39,7 @@ try {
             header("Location: ../page/dangnhap.php?message=Tài khoản mật khẩu không đúng&status=400");
         }
     } else {
+        header("Location: ../page/dangnhap.php?message=Lỗi server&status=400");
     }
 } catch (Exception $e) {
     log_error($e->getMessage());

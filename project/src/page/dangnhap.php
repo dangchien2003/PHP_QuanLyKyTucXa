@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
+    <link rel="icon" href="../../public/image/icon/logo.png" type="image/png">
     <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../public/css/login.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
@@ -17,6 +18,7 @@
 
 <body>
     <?php  
+    error_reporting(0);
         
     ?> 
     <div id="toast"></div>

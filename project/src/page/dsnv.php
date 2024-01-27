@@ -13,7 +13,7 @@ include '../handle/checkAccount.php'; ?>
                 <form class="container-fluid justify-content-start pd-0">
                     <a href="dsnv.php" class="mgr-10"><button class="btn me-3"
                             style="box-shadow: 5px 5px 6px 6px lightblue" type="button">Tất cả</button></a>
-                    <a href="themthe.php"><button class="btn btn-success me-3"
+                    <a href="themnhanvien.php"><button class="btn btn-success me-3"
                             style="box-shadow: 5px 5px 6px 6px lightblue" type="button"><img
                                 src="../../public/image/icon/them.png" alt="" class="img-icon">Thêm nhân viên</button></a>
                 </form>
@@ -81,7 +81,7 @@ include '../handle/checkAccount.php'; ?>
                                             <?php
                                             if($row["gioiTinh"] ==1){
                                                 echo "Nam";
-                                            }else{
+                                            }else if ($row["gioiTinh"] == 0){
                                                 echo "Nữ";
                                             }
                                             

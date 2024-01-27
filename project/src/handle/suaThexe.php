@@ -10,6 +10,8 @@
             }else {
                 header("Location: ../page/thongtinthe.php?id=".$_POST['idtx']."&message=Sửa không thành công&status=300");
             }
+        }else {
+            header("Location: ../page/thongtinthe.php?message=Có lỗi xảy ra&status=400");
         }
     }catch(Exception $e){
         header("Location: ../page/thongtinthe.php?message=Có lỗi xảy ra&status=400");

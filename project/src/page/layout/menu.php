@@ -61,7 +61,7 @@
                     Danh sách nhân viên
                 </li>
             </a>
-            <a href="#">
+            <a href="themnhanvien.php">
                 <li>
                     <i class="fa-solid fa-plus"></i>
                     Thêm nhân viên
@@ -81,6 +81,12 @@
                 <li>
                     <i class="bi bi-credit-card-2-front-fill"></i>
                     Danh sách thẻ xe
+                </li>
+            </a>
+            <a href="themthe.php">
+                <li>
+                    <i class="fa-solid fa-plus"></i>
+                    Thêm thẻ
                 </li>
             </a>
         </ul>

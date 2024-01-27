@@ -24,7 +24,7 @@ require '../handle/checkAccount.php' ?>
                 <tbody id="body_table">
                     <?php
                     require_once '../handle/helper.php';
-                    $sql = "SELECT taikhoan.user, taikhoan.tinhTrang, tinhtrang.tinhTrang as tentt, concat(nhanvien.id, '-', nhanvien.hoTen) as ten, chucvu.chucDanh, quyenchinh.quyen as qc FROM taikhoan JOIN nhanvien on nhanvien.user = taikhoan.user JOIN tinhTrang on tinhTrang.id = taikhoan.tinhTrang JOIN chucvu on nhanvien.chucVu = chucvu.id LEFT JOIN quyenchinh on quyenchinh.user = taikhoan.user ORDER BY taikhoan.user;";
+                    $sql = "SELECT taikhoan.user, taikhoan.tinhTrang, tinhtrang.tinhTrang as tentt, concat(nhanvien.id, '-', nhanvien.hoTen) as ten, chucvu.chucDanh, quyenchinh.quyen as qc FROM taikhoan JOIN nhanvien on nhanvien.user = taikhoan.user JOIN tinhTrang on tinhTrang.id = taikhoan.tinhTrang JOIN chucvu on nhanvien.chucVu = chucvu.id LEFT JOIN quyenchinh on quyenchinh.user = taikhoan.user where taikhoan.user != 'admin' ORDER BY taikhoan.user;";
                     $result = query_no_input($sql);
                     $quyen = "";
                     $user = "";

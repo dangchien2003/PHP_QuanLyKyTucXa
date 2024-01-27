@@ -9,7 +9,7 @@
     <div class="col-lg-9 sdp tp" style="min-height: 1000px;">
         <div class="box">
             <div class="name">
-                <i class="bi bi-building-add"></i>Thêm phòng ở
+                <i class="bi bi-link"></i>Liên kết
             </div>
             <div class="find">
                
@@ -77,7 +77,7 @@
                                 <a href="../handle/xoaurl.php?id=<?php echo $row['id'] ?>" class="show" onclick="return confirm('Bạn có chắc chắn muốn xoá?')">
                                     <div class="btn-tt d-inline-block bgr-error">Xoá</div>
                                 </a>
-                                <a href="../handle/suaurl.php?id=<?php echo $row['id'] ?>" class="show">
+                                <a href="./ttlienket.php?id=<?php echo $row['id'] ?>" class="show">
                                     <div class="btn-tt d-inline-block bgr-ok">Sửa</div>
                                 </a>
                             </td>

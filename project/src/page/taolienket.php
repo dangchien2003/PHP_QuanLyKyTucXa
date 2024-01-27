@@ -1,4 +1,5 @@
-<?php include './layout/header.php' ?>
+<?php include './layout/header.php';
+include '../handle/checkAccount.php'; ?>
 <div class="row">
     <div class="col-lg-3 bg-menu">
         <?php include './layout/menu.php' ?>
@@ -43,7 +44,7 @@
                                         <option value="<?php echo $row['idQuyen'] ?>">
                                             <?php echo $row['chucDanh'] ?>
                                         </option>
-                                    <?php
+                                        <?php
                                     }
                                     ?>
                                 </select>

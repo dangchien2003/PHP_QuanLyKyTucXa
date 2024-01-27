@@ -1,5 +1,5 @@
 <?php include './layout/header.php';
-include '../handle/checkAccount.php' ?>
+// include '../handle/checkAccount.php' ?>
 <div class="row">
     <div class="col-lg-3 bg-menu">
         <?php include './layout/menu.php' ?>
@@ -88,7 +88,7 @@ include '../handle/checkAccount.php' ?>
 
                                             }
                                         } else {
-                                            echo '<option value="0" selected>Phòng trống</option>';
+                                            echo '<option value="0" selected>Không có thẻ</option>';
                                         }
 
                                         ?>

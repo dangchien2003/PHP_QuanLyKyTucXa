@@ -94,7 +94,7 @@
                                                 <div class="col-md-9"><?php echo $row['user']?> - <?php echo $row['chucDanh']?></div>
                                                 <div class="col-md-3 icon"
                                                     style="padding: 0 5px; display: grid; grid-template-columns: 5fr 5fr;">
-                                                    <input type="password" class="d-none" id="id" value="<?php echo $row['id']?>">
+                                                    <input type="password" class="d-none id-q" id="id" value="<?php echo $row['id']?>">
                                                     <i class="bi bi-x-circle-fill cancle" style="color: #f43232;"></i>
                                                     <i class="bi bi-check-circle-fill tick" style="color: #2be02b;"></i>
                                                 </div>

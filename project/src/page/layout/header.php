@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../../public/css/toast.css">
     <?php
-    error_reporting(1);
+    error_reporting(0);
     function addStyle($name)
     {
         foreach ($name as $style) {

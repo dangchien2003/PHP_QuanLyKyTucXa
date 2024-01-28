@@ -8,7 +8,7 @@ include_once '../handle/checkAccount.php';
     <div class="col-lg-9 sdp tp" style="height: 1000px;">
         <div class="box">
             <div class="name">
-                <i class="bi bi-person-plus-fill"></i>Thông tin nhân viên
+                Thông tin nhân viên
             </div>
             <div class="form-add row">
                 <div class="col-md-9">

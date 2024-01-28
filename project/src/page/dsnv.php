@@ -41,7 +41,7 @@ include_once '../handle/checkAccount.php'; ?>
                         $result = query_input($sql, [$_GET['fillter'], $_GET['fillter']]);
                     } else {
                         // nếu không có key fillter hoặc không có giá trị
-                        $sql = "SELECT chucVu.chucDanh, nhanvien.id, hoTen, gioiTinh, anh, queQuan, sdt  FROM `nhanvien` JOIN tinhTrang ON tinhTrang.id=nhanvien.tinhTrang JOIN chucVu ON chucVu.id=nhanvien.chucVu where (nhanvien.id = nhanvien.id or nhanvien.hoTen = nhanvien.hoTen) and nhanvien.user != 'admin'";
+                        $sql = "SELECT chucVu.chucDanh, nhanvien.id, hoTen, gioiTinh, anh, queQuan, sdt  FROM `nhanvien` JOIN tinhTrang ON tinhTrang.id=nhanvien.tinhTrang JOIN chucVu ON chucVu.id=nhanvien.chucVu where (nhanvien.id = nhanvien.id or nhanvien.hoTen = nhanvien.hoTen) ";
                         $result = query_no_input($sql);
                     }
                     ?>

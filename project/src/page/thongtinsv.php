@@ -1,7 +1,7 @@
 <?php 
 
  include './layout/header.php';
- include '../handle/checkAccount.php';?> 
+ include_once '../handle/checkAccount.php';?> 
     <div class="row">
         <div class="col-lg-3 bg-menu">
         <?php include './layout/menu.php' ?> 

@@ -137,12 +137,6 @@
                     Liên kết
                 </li>
             </a>
-            <a href="./quyentaikhoan.php">
-                <li>
-                    <i class="bi bi-plugin"></i>
-                    Quyền truy cập
-                </li>
-            </a>
         </ul>
         <li class="parent-menu position-relative on">
             <i class="bi bi-person-circle"></i>

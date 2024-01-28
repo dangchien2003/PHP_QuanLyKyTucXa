@@ -1,5 +1,5 @@
 <?php include './layout/header.php';
-include '../handle/checkAccount.php'; ?>
+include_once '../handle/checkAccount.php'; ?>
 <div class="row">
     <div class="col-lg-3 bg-menu">
         <?php include './layout/menu.php' ?>
@@ -97,9 +97,9 @@ include '../handle/checkAccount.php'; ?>
                                         </td>
                                         <td class="text-center">
                                             <a href="../handle/hndxoanv.php?id=<?php echo $row["id"] ?>" onclick="return confirm('Bạn chắc chắn muốn xoá?')">
-                                            <div class="btn-tt d-inline-block bgr-error" >Xoá</div></a>
+                                            <div class="btn-tt d-inline-block bgr-error" ><i class="fas fa-trash-alt"></i></div></a>
                                             <a href="thongtinnv.php?id=<?php echo $row["id"] ?>">
-                                                <div class="btn-tt d-inline-block bgr-ok">Sửa</div>
+                                                <div class="btn-tt d-inline-block bgr-ok"><i class="fas fa-pencil-alt"></i></div>
                                             </a>
                                         </td>
                                         <?php

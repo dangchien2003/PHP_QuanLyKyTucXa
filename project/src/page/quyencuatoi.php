@@ -56,13 +56,13 @@ if (!$user && checkRequest($_SESSION, ['account'])) {
                 <div class="col-md-3">
                     <h6>Đang xin quyền</h6>
                     <?php
-                    $sql = "SELECT chucvu.chucDanh, quyentruycap.id, quyentruycap.user FROM quyentruycap JOIN quyen ON quyentruycap.quyen = quyen.idQuyen JOIN chucvu on chucvu.id = quyen.quanLy where quyentruycap.user = ? and thoigiancap is not null and thoigianthuhoi is null";
+                    $sql = "SELECT chucvu.chucDanh, quyentruycap.id, quyentruycap.userAdmin FROM quyentruycap JOIN quyen ON quyentruycap.quyen = quyen.idQuyen JOIN chucvu on chucvu.id = quyen.quanLy where quyentruycap.user = ? and thoigiancap is not null and thoigianthuhoi is null";
                     $result = query_input($sql, [$user]);
                     while ($row = $result->fetch_assoc()) {
                         ?>
                         <div class="row" id="xxxhh">
                             <div class="col-md-9">
-                                <?php echo $row['user'] ?> -
+                                <?php echo $row['userAdmin'] ?> -
                                 <?php echo $row['chucDanh'] ?>
                             </div>
                         </div>

@@ -1,5 +1,5 @@
 <?php
-include '../handle/checkAccount.php';
+include_once '../handle/checkAccount.php';
 include_once './helper.php';
 if(checkRequest($_POST, ['idsv'])) {
     $result = false;

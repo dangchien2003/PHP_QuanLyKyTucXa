@@ -1,3 +1,54 @@
+.quyencuatoi {
+    height: 100vh;
+}
+.quyencuatoi h6 {
+    text-align: center;
+}
+
+#myquyen {
+    position: relative;
+}
+#quyen {
+    color: black;
+    padding: 5px;
+    text-align: left;
+    position: absolute;
+    display: fixed;
+    height: 300px;
+    width: 200px;
+    background-color: #eaebeb;
+    right: 0px;
+    top: 60px;
+    z-index: 1000;
+}
+
+#quyen i#tg {
+    color: #eaebeb;
+    position: absolute;
+    display: fixed;
+    right: -2px;
+    top: -31px;
+    height: 5px;
+}
+#quyen .tb {
+    font-size: 14px;
+    height: 40px;
+    line-height: 20px;
+    position: relative;
+}
+
+#quyen .tb::after {
+    content: "";
+    background-color: #706d6d;
+    width: 180px;
+    height: 1px;
+    margin: 0 auto;
+}
+
+#quyen .tb .icon i {
+    font-size: 15px;
+}
+
 .menu .sub-menu {
     margin-left: 20px;
     margin-top: 5px;
@@ -185,6 +236,11 @@ header .sl-tb {
 
 .form-select {
     /* margin: 10px 0; */
+}
+#xxxhh {
+    border-bottom: 1px solid #ececec;
+    min-height: 40px;
+    line-height: 40px;
 }
 
 .me-2 {

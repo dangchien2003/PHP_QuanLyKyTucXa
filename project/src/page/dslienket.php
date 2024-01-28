@@ -1,5 +1,5 @@
 <?php include './layout/header.php';
-    include '../handle/checkAccount.php';
+    include_once '../handle/checkAccount.php';
     $find = $_GET['url'] ?? "";
 ?>
 <div class="row">

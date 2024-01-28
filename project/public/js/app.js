@@ -1,4 +1,15 @@
 $(document).ready(function () {
+  $("#myquyen").click(function() {
+    let quyen = $("#myquyen").children('#quyen');
+    if($(quyen).hasClass('d-none')) {
+      $(quyen).removeClass('d-none');
+    }else {
+      $(quyen).addClass('d-none');
+    }
+  })
+
+  
+
   function print_toast() {
     // Lấy URL hiện tại
     let url = new URL(window.location.href);
@@ -55,4 +66,6 @@ function addParams(key, value) {
   // Gán các tham số đã chỉnh sửa vào URL
   url.search = params.toString();
   history.replaceState(null, "", url.toString());
+
+ 
 }

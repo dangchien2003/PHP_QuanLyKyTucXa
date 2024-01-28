@@ -18,8 +18,12 @@
 
 <body>
     <?php  
+    session_start();
     error_reporting(0);
-        
+    setcookie("account", "", time() - 360000, '/', false, true);
+    setcookie("info", "", time() - 360000, '/', false, true);
+    $_SESSION['account'] = "";
+
     ?> 
     <div id="toast"></div>
     <div class="align-items-center d-flex justify-content-center h100" id="calc">

@@ -27,8 +27,8 @@
                             </div>
                             <div class="col-md-5">
                                 <label for="exampleFormControlInput1" class="form-label">Họ tên:</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Họ và tên" name="hoten"
-                                    required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Họ và tên" name="hoten" required>
                             </div>
                             <div class="col-md-5">
                                 <label for="exampleFormControlInput1" class="form-label">Ngày sinh:</label>
@@ -39,12 +39,12 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="exampleFormControlInput1" class="form-label">SĐT:</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Số điện thoại" value=""
-                                    name="sdt">
+                                <input type="text" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Số điện thoại" value="" name="sdt">
                             </div>
                             <div class="col-md-4">
                                 <label for="exampleFormControlInput1" class="form-label">CCCD:</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1"  name="cccd"
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="cccd"
                                     required>
                             </div>
                             <div class="col-md-4">
@@ -93,7 +93,8 @@
 
                             <div class="col-md-6">
                                 <label for="exampleFormControlInput1" class="form-label">Email:</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Email..." name="email">
+                                <input type="text" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Email..." name="email">
                             </div>
                             <div class="col-md-6">
                                 <label for="exampleFormControlInput1" class="form-label">Tình trạng:</label>
